@@ -32,6 +32,22 @@ RUN a2enmod deflate
 #config compression
 ADD mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf
 
+#config php5
+RUN cat > /etc/apache2/conf.d/php.conf << EOF
+<Directory /usr/share>
+  AddHandler fcgid-script .php
+  FCGIWrapper /usr/lib/cgi-bin/php5 .php
+  Options ExecCGI FollowSymlinks Indexes
+</Directory>
+
+<Files ~ (\.php)>
+  AddHandler fcgid-script .php
+  FCGIWrapper /usr/lib/cgi-bin/php5 .php
+  Options +ExecCGI
+  allow from all
+</Files>
+EOF
+
 
 RUN apt-get install -y qgis-mapserver 
 

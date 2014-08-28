@@ -9,7 +9,8 @@ To run a container do:
 
 This enables you to run this container as follows:
 
-    sudo docker run -d -p 80:80 -v <path_to_your_webapp>:/var/www/my_website/public_html --link <another_container>:<link_name> --name <container_name> -t <name_of_this_image>:<tag>
+    sudo docker run -d -p 8003:80 -v /home/var/www:/var/www/my_website/public_html  --name websig -t jancelin/docker-websig
+
 
 `<path_to_your_webapp>` is used as a volume. This is where your files should be (php-, html-, css-, js-files, etc). If your application needs write permission on some files or directories, you can change the owner (user and/or group) of those.
 

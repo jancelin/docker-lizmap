@@ -18,8 +18,20 @@ RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
 
+RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git
 
-RUN apt-get install -y qgis qgis-mapserver apache2 libapache2-mod-fcgid
+RUN apt-get install apache2 apache2-mpm-worker libapache2-mod-fcgid php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql
+RUN a2dismod php5
+RUN a2enmod actions
+RUN a2enmod fcgid
+RUN a2enmod ssl
+RUN a2enmod rewrite
+RUN a2enmod headers
+RUN a2enmod deflate
+
+
+
+RUN apt-get install -y qgis-mapserver 
 
 EXPOSE 80
 

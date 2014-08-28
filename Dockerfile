@@ -3,12 +3,17 @@ MAINTAINER Ancelin Julien
 ENV REFRESHED_AT 28-08-2014
 
 # Install the relevant packages
-RUN apt-get -yqq update && apt-get -yqq install apache2 libapache2-mod-php5 php5-mysql
-
-# Enable the php mod we just installed
-RUN a2enmod php5
-# Enable mod_rewrite
+RUN apt-get -yqq update && apt-get -yqq install python-simplejson xauth htop nano curl ntp ntpdate python-software-properties gitapache2 apache2-mpm-worker libapache2-mod-fcgid php5-cgi php5-curl php5-cli php5-sqlite php5-gd 
+RUN a2dismod php5
+RUN a2enmod actions
+RUN a2enmod fcgid
+RUN a2enmod ssl
 RUN a2enmod rewrite
+RUN a2enmod headers
+RUN a2enmod deflate
+
+#config apache
+ADD 
 
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default
 

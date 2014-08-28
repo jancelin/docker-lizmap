@@ -29,6 +29,8 @@ RUN a2enmod rewrite
 RUN a2enmod headers
 RUN a2enmod deflate
 
+#config compression
+ADD mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf
 
 
 RUN apt-get install -y qgis-mapserver 

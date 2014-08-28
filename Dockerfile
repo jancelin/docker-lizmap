@@ -1,35 +1,48 @@
-FROM ubuntu:12.04
-MAINTAINER Ancelin Julien 
-ENV REFRESHED_AT 28-08-2014
+#--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
+FROM debian:stable
+MAINTAINER ancelin julien
+RUN  export DEBIAN_FRONTEND=noninteractive
+ENV  DEBIAN_FRONTEND noninteractive
+RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-# Install the relevant packages
-RUN apt-get -yqq update && apt-get -yqq install python-simplejson xauth htop nano curl ntp ntpdate python-software-properties gitapache2 apache2-mpm-worker libapache2-mod-fcgid php5-cgi php5-curl php5-cli php5-sqlite php5-gd 
-RUN a2dismod php5
-RUN a2enmod actions
-RUN a2enmod fcgid
-RUN a2enmod ssl
-RUN a2enmod rewrite
-RUN a2enmod headers
-RUN a2enmod deflate
+RUN echo "deb     http://qgis.org/debian wheezy main" >> /etc/apt/sources.list
+RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
+RUN gpg --export --armor DD45F6C3 | apt-key add -
 
-#config apache
-ADD 
+# Use local cached debs from host (saves your bandwidth!)
+# Change ip below to that of your apt-cacher-ng host
+# Or comment this line out if you do not with to use caching
+ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
-ADD apache-config.conf /etc/apache2/sites-enabled/000-default
+RUN apt-get -y update
 
-# expose port 80 so that our webserver can respond to requests.
+#-------------Application Specific Stuff ----------------------------------------------------
+
+
+RUN apt-get install -y qgis qgis-mapserver apache2 libapache2-mod-fcgid
+
 EXPOSE 80
 
-# Manually set the apache environment variables in order to get apache to work immediately.
-ENV APACHE_RUN_USER www-data
-ENV APACHE_RUN_GROUP www-data
-ENV APACHE_LOG_DIR /var/log/apache2
-ENV APACHE_PID_FILE /var/run/apache2.pid
-ENV APACHE_RUN_DIR /var/run/apache2
-ENV APACHE_LOCK_DIR /var/lock/apache2
-RUN mkdir -p $APACHE_RUN_DIR $APACHE_LOCK_DIR $APACHE_LOG_DIR
+ADD apache.conf /etc/apache2/sites-available/default
+ADD fcgid.conf /etc/apache2/mods-available/fcgid.conf
 
-# Execute the apache daemon in the foreground so we can treat the container as an
-# executeable and it wont immediately return.
-ENTRYPOINT [ "/usr/sbin/apache2" ]
-CMD ["-D", "FOREGROUND"]
+# Set up the postgis services file
+# On the client side when referencing postgis
+# layers, simply refer to the database using
+# Service: gis
+# instead of filling in all the host etc details.
+# In the container this service will connect 
+# with no encryption for optimal performance
+# on the client (i.e. your desktop) you should
+# connect using a similar service file but with
+# connection ssl option set to require
+
+ADD pg_service.conf /etc/pg_service.conf
+#USER www-data
+
+# This is so the qgis mapserver uses the correct
+# pg service file
+ENV PGSERVICEFILE /etc/pg_service.conf
+
+# Now launch apache in the foreground
+CMD apachectl -D FOREGROUND

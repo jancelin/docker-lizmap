@@ -18,7 +18,7 @@ RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
 
-RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git
+RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget
 
 RUN apt-get install -y apache2 apache2-mpm-worker libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql
 RUN apt-get install -y libapache2-mod-php5

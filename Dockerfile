@@ -53,6 +53,7 @@ RUN rm -v /etc/apache2/mods-enabled/fcgid.conf
 # Copy a configuration file from the current directory
 ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
 
+# install qgis-mapserver
 RUN apt-get install -y qgis-mapserver 
 
 EXPOSE 80

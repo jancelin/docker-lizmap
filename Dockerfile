@@ -20,7 +20,7 @@ RUN apt-get -y update
 
 RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git
 
-RUN apt-get install -y apache2 apache2-mpm-worker libapache2-mod-fcgid php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql
+RUN apt-get install -y apache2 apache2-mpm-worker libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql
 RUN a2dismod php5
 RUN a2enmod actions
 RUN a2enmod fcgid
@@ -47,7 +47,11 @@ RUN cat > /etc/apache2/conf.d/php.conf << EOF
   allow from all
 </Files>
 EOF
+# Remove the default mod_fcgid configuration file
+RUN rm -v /etc/apache2/mods-enabled/fcgid.conf
 
+# Copy a configuration file from the current directory
+ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
 
 RUN apt-get install -y qgis-mapserver 
 

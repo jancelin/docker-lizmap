@@ -16,4 +16,8 @@ docker run --name "websig-server" -p 8081:80 -d -t jancelin/docker-websig
 
 or for edit 
 
-docker run  -i -t jancelin/docker-websig /bin/bash
+docker run  -i -t jancelin/docker-websig /bin/bash 
+
+____________________________________________________________________________________
+
+Lizmap working at http://"your_ip_serveur":8081/lizmap-web-client-2.10beta4/lizmap/www/

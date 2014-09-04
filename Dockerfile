@@ -68,5 +68,17 @@ ADD pg_service.conf /etc/pg_service.conf
 # pg service file
 ENV PGSERVICEFILE /etc/pg_service.conf
 
+# install lizmap-web-client
+RUN mkdir /web
+RUN wget -P /web https://github.com/3liz/lizmap-web-client/archive/2.10beta4.zip
+# on dézippze l'archive
+RUN unzip /web/2.10beta4.zip
+# on supprime le zip
+RUN rm /web/2.10beta4.zip
+#attribut les droit
+RUN chown :www-data /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-client-2.10beta4/lizmap/var/ /web/lizmap-web-client-2.10beta4/lizmap/www /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/ -R
+RUN chmod 775 /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-client-2.10beta4/lizmap/var/ /web/lizmap-web-client-2.10beta4/lizmap/www /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/ -R
+RUN rm -rf /web/lizmap-web-client-2.10beta4/temp/lizmap/*
+
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

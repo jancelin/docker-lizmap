@@ -85,7 +85,7 @@ RUN echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community
 RUN wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key
 RUN apt-key add - <Release.key  
 RUN apt-get update
-RUN apt-get install owncloud
+RUN apt-get install -y owncloud
 
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

@@ -2,7 +2,7 @@ docker-websig
 =============
 
 This image contains a WebGIS server: 
-Apache, qgis-mapsever, lizmap-web-client, owncloud and all dependencies required for operation
+Apache, qgis-mapsever, lizmap-web-client, (owncloud) and all dependencies required for operation
 
 
 To build the image do:

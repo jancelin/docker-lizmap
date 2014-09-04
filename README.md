@@ -35,3 +35,7 @@ More informations about lizmap
 http://docs.3liz.com/
 
 http://www.3liz.com/
+
+____________________________________________________________________________________
+
+Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 09/2014 INRA

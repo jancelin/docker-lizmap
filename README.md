@@ -1,8 +1,6 @@
 docker-websig
 =============
 
-not working yet
-
 This image contains a WebGIS server: 
 Apache, qgis-mapsever, lizmap-web-client and all dependencies required for operation
 

@@ -28,3 +28,10 @@ lizmap admin at
 
 http://"your_ip_serveur":8081/lizmap-web-client-2.10beta4/lizmap/www/admin.php
 
+____________________________________________________________________________________
+
+More information about lizmap
+
+http://docs.3liz.com/
+
+http://www.3liz.com/

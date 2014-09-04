@@ -80,12 +80,12 @@ RUN chown :www-data /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-clien
 RUN chmod 775 /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-client-2.10beta4/lizmap/var/ /web/lizmap-web-client-2.10beta4/lizmap/www /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/ -R
 RUN rm -rf /web/lizmap-web-client-2.10beta4/temp/lizmap/*
 
-#install owncloud
-RUN echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list 
-RUN wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key
-RUN apt-key add - <Release.key  
-RUN apt-get update
-RUN apt-get install -y owncloud
+#install owncloud (not working well)
+#RUN echo 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/community/Debian_7.0/ /' >> /etc/apt/sources.list.d/owncloud.list 
+#RUN wget http://download.opensuse.org/repositories/isv:ownCloud:community/Debian_7.0/Release.key
+#RUN apt-key add - <Release.key  
+#RUN apt-get update
+#RUN apt-get install -y owncloud
 
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

@@ -30,7 +30,7 @@ http://"your_ip_serveur":8081/lizmap-web-client-2.10beta4/lizmap/www/admin.php
 
 ____________________________________________________________________________________
 
-More information about lizmap
+More informations about lizmap
 
 http://docs.3liz.com/
 

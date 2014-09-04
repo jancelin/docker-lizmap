@@ -72,7 +72,7 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 RUN mkdir /web
 RUN wget -P /web https://github.com/3liz/lizmap-web-client/archive/2.10beta4.zip
 # on dézippze l'archive
-RUN unzip /web/2.10beta4.zip
+RUN unzip /web/2.10beta4.zip -d /web
 # on supprime le zip
 RUN rm /web/2.10beta4.zip
 #attribut les droit

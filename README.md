@@ -12,7 +12,7 @@ docker build -t jancelin/docker-websig git://github.com/jancelin/docker-websig
 ```
 To run a container do:
 
-docker run --name "websig-server" -p 8081:80 -d -t jancelin/docker-websig
+docker run --name "websig-server" -p 8081:80 -d -t -v /your_folder:/home jancelin/docker-websig
 
 or for edit 
 

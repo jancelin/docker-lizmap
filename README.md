@@ -34,7 +34,7 @@ http://"your_ip_serveur":8081/lizmap-web-client-2.10beta4/lizmap/www/admin.php
 
 ____________________________________________________________________________________
 
-More informations about lizmap
+Lizmap Web Application generates dynamically a web map application (php/html/css/js) with the help of Qgis Server ( QGIS Server Tutorial ). You can configure one web map per Qgis project with the QGIS LizMap Plugin.
 
 http://docs.3liz.com/
 

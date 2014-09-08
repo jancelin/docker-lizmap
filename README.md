@@ -11,9 +11,9 @@ To build the image do:
 docker build -t jancelin/docker-websig git://github.com/jancelin/docker-websig
 ```
 To run a container do:
-
+...
 docker run --name "websig-server" -p 8081:80 -d -t -v /your_folder:/home jancelin/docker-websig
-
+...
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host
 
 -v /your_folder:/home ---> provides a link between your host file containing the .qgs, and / home Container

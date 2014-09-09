@@ -85,7 +85,7 @@ RUN cp -a /web/lizmap-web-client-2.10beta4 /web/entomo
 RUN cp -a /web/lizmap-web-client-2.10beta4 /web/slp
 RUN rm /web/entomo/lizmap/var/jauth.db /web/entomo/lizmap/var/logs.db /web/entomo/lizmap/var/config/lizmapConfig.ini.php
 RUN rm /web/slp/lizmap/var/jauth.db /web/slp/lizmap/var/logs.db /web/slp/lizmap/var/config/lizmapConfig.ini.php
-# crée un lien symbolique vers les fichiers de conf de lizmap
+  # crée un lien symbolique vers les fichiers de conf de lizmap
 RUN mkdir /home2 /home2/entomo /home2/slp
 VOLUME /home2
 RUN ls -s /home2/entomo/jauth.db /web/entomo/lizmap/var/jauth.db
@@ -94,7 +94,11 @@ RUN ls -s /home2/entomo/lizmapConfig.ini.php /web/entomo/lizmap/var/config/lizma
 RUN ls -s /home2/slp/jauth.db /web/slp/lizmap/var/jauth.db
 RUN ls -s /home2/slp/logs.db /web/slp/lizmap/var/logs.db
 RUN ls -s /home2/slp/lizmapConfig.ini.php /web/slp/lizmap/var/config/lizmapConfig.ini.php
-
+  #attribut les droit
+RUN chown :www-data /web/slp/temp/ /web/slp/lizmap/var/ /web/slp/lizmap/www /web/slp/lizmap/install/qgis/edition/ -R
+RUN chmod 775 /web/slp/temp/ /web/slp/lizmap/var/ /web/slp/lizmap/www /web/slp/lizmap/install/qgis/edition/ -R
+RUN chown :www-data /web/entomo/temp/ /web/entomo/lizmap/var/ /web/entomo/lizmap/www /web/entomo/lizmap/install/qgis/edition/ -R
+RUN chmod 775 /web/entomo/temp/ /web/entomo/lizmap/var/ /web/entomo/lizmap/www /web/entomo/lizmap/install/qgis/edition/ -R
 
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

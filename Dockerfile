@@ -85,7 +85,16 @@ RUN cp -a /web/lizmap-web-client-2.10beta4 /web/entomo
 RUN cp -a /web/lizmap-web-client-2.10beta4 /web/slp
 RUN rm /web/entomo/lizmap/var/jauth.db /web/entomo/lizmap/var/logs.db /web/entomo/lizmap/var/config/lizmapConfig.ini.php
 RUN rm /web/slp/lizmap/var/jauth.db /web/slp/lizmap/var/logs.db /web/slp/lizmap/var/config/lizmapConfig.ini.php
-RUN ls -
+# crée un lien symbolique vers les fichiers de conf de lizmap
+RUN mkdir /home2 /home2/entomo /home2/slp
+VOLUME /home2
+RUN ls -s /home2/entomo/jauth.db /web/entomo/lizmap/var/jauth.db
+RUN ls -s /home2/entomo/logs.db /web/entomo/lizmap/var/logs.db
+RUN ls -s /home2/entomo/lizmapConfig.ini.php /web/entomo/lizmap/var/config/lizmapConfig.ini.php
+RUN ls -s /home2/slp/jauth.db /web/slp/lizmap/var/jauth.db
+RUN ls -s /home2/slp/logs.db /web/slp/lizmap/var/logs.db
+RUN ls -s /home2/slp/lizmapConfig.ini.php /web/slp/lizmap/var/config/lizmapConfig.ini.php
+
 
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

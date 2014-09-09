@@ -83,7 +83,9 @@ RUN rm -rf /web/lizmap-web-client-2.10beta4/temp/lizmap/*
 #dupliquer lizmap en plusieurs sites
 RUN cp -a /web/lizmap-web-client-2.10beta4 /web/entomo
 RUN cp -a /web/lizmap-web-client-2.10beta4 /web/slp
-
+RUN rm /web/entomo/lizmap/var/jauth.db /web/entomo/lizmap/var/logs.db /web/entomo/lizmap/var/config/lizmapConfig.ini.php
+RUN rm /web/slp/lizmap/var/jauth.db /web/slp/lizmap/var/logs.db /web/slp/lizmap/var/config/lizmapConfig.ini.php
+RUN ls -
 
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

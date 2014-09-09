@@ -12,7 +12,7 @@ docker build -t jancelin/docker-websig git://github.com/jancelin/docker-websig
 ```
 To run a container do:
 ```
-docker run --name "websig-server" -p 8081:80 -d -t -v /your_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-websig
+docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-websig
 ```
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host
 

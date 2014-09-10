@@ -87,9 +87,9 @@ RUN rm /web/websig/lizmap/var/jauth.db /web/websig/lizmap/var/logs.db /web/websi
 #crée un lien symbolique vers les fichiers de conf de lizmap 
 RUN mkdir /home2  
 RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php
-RUN ln /home2/jauth.db /web/websig/lizmap/var/jauth.db
-RUN ln /home2/logs.db /web/websig/lizmap/var/logs.db
-RUN ln /home2/lizmapConfig.ini.php /web/websig/lizmap/var/config/lizmapConfig.ini.php
+RUN ln -s /home2/jauth.db /web/websig/lizmap/var/jauth.db
+RUN ln -s /home2/logs.db /web/websig/lizmap/var/logs.db
+RUN ln -s /home2/lizmapConfig.ini.php /web/websig/lizmap/var/config/lizmapConfig.ini.php
 RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php 
 VOLUME /home2
 #attribut les droit

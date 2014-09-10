@@ -41,13 +41,21 @@ docker run  -i -t jancelin/docker-websig /bin/bash
 
 ____________________________________________________________________________________
 
-Lizmap working at 
+Lizmap working for testing at 
 
 http://"your_ip_serveur":8081/lizmap-web-client-2.10beta4/lizmap/www/
 
 lizmap admin at 
 
 http://"your_ip_serveur":8081/lizmap-web-client-2.10beta4/lizmap/www/admin.php
+
+Lizmap working with your data and config at : 
+
+http://"your_ip_serveur":8081/websig/lizmap/www/
+
+lizmap admin at 
+
+http://"your_ip_serveur":8081/websig/lizmap/www/admin.php
 
 ____________________________________________________________________________________
 

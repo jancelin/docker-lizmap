@@ -1,1 +1,1 @@
-docker build -t jancelin/docker-websig:latest .
+docker build -t jancelin/qgis-lizmap:latest .

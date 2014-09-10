@@ -81,21 +81,21 @@ RUN chmod 775 /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-client-2.10
 RUN rm -rf /web/lizmap-web-client-2.10beta4/temp/lizmap/*
 
 #dupliquer lizmap en plusieurs sites
-RUN cp -a /web/lizmap-web-client-2.10beta4 /web/entomo
-RUN rm /web/entomo/lizmap/var/jauth.db /web/entomo/lizmap/var/logs.db /web/entomo/lizmap/var/config/lizmapConfig.ini.php
+RUN cp -a /web/lizmap-web-client-2.10beta4 /web/websig
+RUN rm /web/websig/lizmap/var/jauth.db /web/websig/lizmap/var/logs.db /web/websig/lizmap/var/config/lizmapConfig.ini.php
 
-  # crée un lien symbolique vers les fichiers de conf de lizmap (marche pas encore)
-RUN mkdir /home2 /home2/entomo 
+#crée un lien symbolique vers les fichiers de conf de lizmap 
+RUN mkdir /home2  
 VOLUME /home2
-RUN touch /home2/entomo/jauth.db /home2/entomo/logs.db /home2/entomo/lizmapConfig.ini.php
-RUN ln  /home2/entomo/jauth.db /web/entomo/lizmap/var/jauth.db
-RUN ln  /home2/entomo/logs.db /web/entomo/lizmap/var/logs.db
-RUN ln  /home2/entomo/lizmapConfig.ini.php /web/entomo/lizmap/var/config/lizmapConfig.ini.php
-RUN rm -R /home2/entomo 
+RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php
+RUN ln /home2/jauth.db /web/websig/lizmap/var/jauth.db
+RUN ln /home2/logs.db /web/websig/lizmap/var/logs.db
+RUN ln /home2/lizmapConfig.ini.php /web/websig/lizmap/var/config/lizmapConfig.ini.php
+RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php 
 
-  #attribut les droit
-RUN chown :www-data /web/entomo/temp/ /web/entomo/lizmap/var/ /web/entomo/lizmap/www /web/entomo/lizmap/install/qgis/edition/ -R
-RUN chmod 775 /web/entomo/temp/ /web/entomo/lizmap/var/ /web/entomo/lizmap/www /web/entomo/lizmap/install/qgis/edition/ -R
+#attribut les droit
+RUN chown :www-data /web/websig/temp/ /web/websig/lizmap/var/ /web/websig/lizmap/www /web/websig/lizmap/install/qgis/edition/ -R
+RUN chmod 775 /web/websig/temp/ /web/websig/lizmap/var/ /web/websig/lizmap/www /web/websig/lizmap/install/qgis/edition/ -R
 
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

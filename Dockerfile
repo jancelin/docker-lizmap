@@ -88,9 +88,9 @@ RUN rm /web/entomo/lizmap/var/jauth.db /web/entomo/lizmap/var/logs.db /web/entom
 RUN mkdir /home2 /home2/entomo 
 VOLUME /home2
 RUN touch /home2/entomo/jauth.db /home2/entomo/logs.db /home2/entomo/lizmapConfig.ini.php
-RUN ln -s /home2/entomo/jauth.db /web/entomo/lizmap/var/jauth.db
-RUN ln -s /home2/entomo/logs.db /web/entomo/lizmap/var/logs.db
-RUN ln -s /home2/entomo/lizmapConfig.ini.php /web/entomo/lizmap/var/config/lizmapConfig.ini.php
+RUN ln  /home2/entomo/jauth.db /web/entomo/lizmap/var/jauth.db
+RUN ln  /home2/entomo/logs.db /web/entomo/lizmap/var/logs.db
+RUN ln  /home2/entomo/lizmapConfig.ini.php /web/entomo/lizmap/var/config/lizmapConfig.ini.php
 RUN rm -R /home2/entomo 
 
   #attribut les droit

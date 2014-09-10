@@ -30,6 +30,8 @@ docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro
 
 -v /your_folder:/home ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 
+-v /your_config_folder:/home2 ---> rovides a link between your host file containing the lizmap config, and / home2 Container.
+
 ex: docker run --name "websig-server-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/sauvlizmap/entomo:/home2 jancelin/docker-websig
 
 

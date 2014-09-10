@@ -12,6 +12,7 @@ docker build -t jancelin/docker-websig git://github.com/jancelin/docker-websig
 ```
 
 before running: 
+
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
 If the host is ubuntu server:
 Copy the files to a directory on the host, do a chown www-data about each file

@@ -20,6 +20,7 @@ Copy the files to a directory on the host, do a chown www-data about each file a
 
 If the host is centos: Copy the files to a directory on the host, do a chown: 33 on each file (apache does not know :www-data, but :apache so we make it a joke). And install php5-sqlite: http://www.nginxtips.com/install-php-5-5-centos-6-5/
 
+
 To run a container do:
 ```
 docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-websig

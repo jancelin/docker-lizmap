@@ -10,16 +10,27 @@ To build the image do:
 ```
 docker build -t jancelin/docker-websig git://github.com/jancelin/docker-websig
 ```
+
+before running: 
+This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
+If the host is ubuntu server all works 
+Copy the files to a directory on the host, do a chown www-data about each file 
+
+If the host is centos, jauth.db, logs.db are not updated (bug). Copy the files to a directory on the host, do a chown: 33 on each file (apache does not know :www-data, but :apache so we make it a joke).
+
 To run a container do:
 ```
 docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-websig
 ```
-ex: docker run --name "websig-server-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/sauvlizmap/entomo:/home2 jancelin/docker-websig
-
 
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host
 
 -v /your_folder:/home ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
+
+ex: docker run --name "websig-server-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/sauvlizmap/entomo:/home2 jancelin/docker-websig
+
+
+
 
 or for edit 
 

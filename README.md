@@ -1,4 +1,4 @@
-docker-websig
+docker-lizmap
 =============
 
 This image contains a WebGIS server: 

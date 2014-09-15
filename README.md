@@ -8,7 +8,7 @@ Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for oper
 To build the image do:
 
 ```
-docker build -t jancelin/docker-websig git://github.com/jancelin/docker-websig
+docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 ```
 
 before running: 
@@ -23,7 +23,7 @@ If the host is centos: Copy the files to a directory on the host, do a chown: 33
 
 To run a container do:
 ```
-docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-websig
+docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap
 ```
 
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host

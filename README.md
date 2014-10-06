@@ -28,7 +28,7 @@ docker run --name "websig-server" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro
 
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host
 
--v /your_folder:/home ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
+-v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 
 -v /your_config_folder:/home2 ---> rovides a link between your host file containing the lizmap config, and / home2 Container.
 

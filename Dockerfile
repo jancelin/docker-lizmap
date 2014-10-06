@@ -18,17 +18,10 @@ RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
 
-RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip
-
-RUN apt-get install -y apache2 apache2-mpm-worker libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql
-RUN apt-get install -y libapache2-mod-php5
-RUN a2dismod php5
-RUN a2enmod actions
-RUN a2enmod fcgid
-RUN a2enmod ssl
-RUN a2enmod rewrite
-RUN a2enmod headers
-RUN a2enmod deflate
+RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
+    apache2 libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \
+    libapache2-mod-php5 qgis-mapserver apache2-mpm-prefork
+RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; a2enmod deflate
 
 #config compression
 ADD mod_deflate.conf /etc/apache2/conf.d/mod_deflate.conf
@@ -42,8 +35,6 @@ RUN rm -v /etc/apache2/mods-enabled/fcgid.conf
 # Copy a configuration file from the current directory
 ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
 
-# install qgis-mapserver
-RUN apt-get install -y qgis-mapserver 
 
 EXPOSE 80
 VOLUME /home
@@ -70,31 +61,10 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 
 # install lizmap-web-client
 RUN mkdir /web
-RUN wget -P /web https://github.com/3liz/lizmap-web-client/archive/2.10beta4.zip
-# on dézippze l'archive
-RUN unzip /web/2.10beta4.zip -d /web
-# on supprime le zip
-RUN rm /web/2.10beta4.zip
-#attribut les droit
-RUN chown :www-data /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-client-2.10beta4/lizmap/var/ /web/lizmap-web-client-2.10beta4/lizmap/www /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/ -R
-RUN chmod 775 /web/lizmap-web-client-2.10beta4/temp/ /web/lizmap-web-client-2.10beta4/lizmap/var/ /web/lizmap-web-client-2.10beta4/lizmap/www /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/ -R
-RUN rm -rf /web/lizmap-web-client-2.10beta4/temp/lizmap/*
-
-#dupliquer lizmap en plusieurs sites
-RUN cp -a /web/lizmap-web-client-2.10beta4 /web/websig
-RUN rm /web/websig/lizmap/var/jauth.db /web/websig/lizmap/var/logs.db /web/websig/lizmap/var/config/lizmapConfig.ini.php
-
-#crée un lien symbolique vers les fichiers de conf de lizmap 
-RUN mkdir /home2  
-RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php
-RUN ln -s /home2/jauth.db /web/websig/lizmap/var/jauth.db
-RUN ln -s /home2/logs.db /web/websig/lizmap/var/logs.db
-RUN ln -s /home2/lizmapConfig.ini.php /web/websig/lizmap/var/config/lizmapConfig.ini.php
-RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php 
+ADD https://github.com/3liz/lizmap-web-client/archive/2.10beta4.zip /web/
 VOLUME /home2
-#attribut les droit
-RUN chown :www-data /web/websig/temp/ /web/websig/lizmap/var/ /web/websig/lizmap/www /web/websig/lizmap/install/qgis/edition/ -R
-RUN chmod 775 /web/websig/temp/ /web/websig/lizmap/var/ /web/websig/lizmap/www /web/websig/lizmap/install/qgis/edition/ -R
 
+ADD setup.sh /setup.sh
+RUN /setup.sh
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

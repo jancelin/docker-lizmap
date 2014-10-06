@@ -1,6 +1,9 @@
 docker-lizmap
 =============
 
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4526109/3542fd1e-4d5c-11e4-83cb-8cdb3d159d3b.png)
+
+
 This image contains a WebGIS server: 
 Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
 

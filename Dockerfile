@@ -62,9 +62,9 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 # install lizmap-web-client
 RUN mkdir /web
 ADD https://github.com/3liz/lizmap-web-client/archive/2.10beta4.zip /web/
-VOLUME /home2
 
 ADD setup.sh /setup.sh
 RUN /setup.sh
+VOLUME /home2
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

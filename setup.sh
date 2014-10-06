@@ -1,22 +1,22 @@
 #!/bin/bash
-unzip /web/2.10beta4.zip -d /web
+unzip /web/release_2_10.zip -d /web
 
-rm /web/2.10beta4.zip
+rm /web/release_2_10.zip
 
-chown -R :www-data /web/lizmap-web-client-2.10beta4/temp/ \
-    /web/lizmap-web-client-2.10beta4/lizmap/var/ \
-    /web/lizmap-web-client-2.10beta4/lizmap/www \
-    /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/ 
+chown -R :www-data /web/lizmap-web-client-release_2_10/temp/ \
+    /web/lizmap-web-client-release_2_10/lizmap/var/ \
+    /web/lizmap-web-client-release_2_10/lizmap/www \
+    /web/lizmap-web-client-release_2_10/lizmap/install/qgis/edition/ 
 
-chmod -R 775 /web/lizmap-web-client-2.10beta4/temp/ \
-    /web/lizmap-web-client-2.10beta4/lizmap/var/ \
-    /web/lizmap-web-client-2.10beta4/lizmap/www \
-    /web/lizmap-web-client-2.10beta4/lizmap/install/qgis/edition/
+chmod -R 775 /web/lizmap-web-client-release_2_10/temp/ \
+    /web/lizmap-web-client-release_2_10/lizmap/var/ \
+    /web/lizmap-web-client-release_2_10/lizmap/www \
+    /web/lizmap-web-client-release_2_10/lizmap/install/qgis/edition/
 
-rm -rf /web/lizmap-web-client-2.10beta4/temp/lizmap/*
+rm -rf /web/lizmap-web-client-release_2_10/temp/lizmap/*
 
 #dupliquer lizmap en plusieurs sites
-cp -a /web/lizmap-web-client-2.10beta4 /web/websig
+cp -a /web/lizmap-web-client-release_2_10 /web/websig
 rm /web/websig/lizmap/var/jauth.db /web/websig/lizmap/var/logs.db /web/websig/lizmap/var/config/lizmapConfig.ini.php
 mkdir /home2  
 touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php

@@ -39,6 +39,7 @@ ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
 EXPOSE 80
 VOLUME /home
 ADD apache.conf /etc/apache2/sites-available/000-default.conf
+ADD apache.conf /etc/apache2/sites-enabled/000-default.conf
 ADD fcgid.conf /etc/apache2/mods-available/fcgid.conf
 
 # Set up the postgis services file
@@ -60,8 +61,8 @@ ADD pg_service.conf /etc/pg_service.conf
 ENV PGSERVICEFILE /etc/pg_service.conf
 
 # install lizmap-web-client
-RUN mkdir /web
-ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /web/
+#RUN mkdir /web
+ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www
 
 ADD setup.sh /setup.sh
 RUN /setup.sh

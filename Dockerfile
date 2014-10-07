@@ -38,7 +38,7 @@ ADD fcgid.conf /etc/apache2/mods-enabled/fcgid.conf
 
 EXPOSE 80
 VOLUME /home
-ADD apache.conf /etc/apache2/sites-available/default
+ADD apache.conf /etc/apache2/sites-available/000-default.conf
 ADD fcgid.conf /etc/apache2/mods-available/fcgid.conf
 
 # Set up the postgis services file

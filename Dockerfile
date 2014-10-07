@@ -61,7 +61,7 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 
 # install lizmap-web-client
 RUN mkdir /web
-ADD https://github.com/3liz/lizmap-web-client/archive/release_2_10.zip /web/
+ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /web/
 
 ADD setup.sh /setup.sh
 RUN /setup.sh

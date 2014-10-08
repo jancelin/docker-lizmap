@@ -42,7 +42,9 @@ ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/
 
 or for edit 
 
-docker run  -i -t jancelin/docker-websig /bin/bash 
+docker run  -i -t jancelin/docker-lizmap /bin/bash 
+
+if you want to save your edition : docker commit "id_of_container" "new_image_name"
 
 ____________________________________________________________________________________
 

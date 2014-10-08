@@ -1,7 +1,7 @@
 docker-lizmap
 =============
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4526109/3542fd1e-4d5c-11e4-83cb-8cdb3d159d3b.png)
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4558500/0c725a16-4ee1-11e4-84e4-fe704fca4819.png)
 
 
 This image contains a WebGIS server: 

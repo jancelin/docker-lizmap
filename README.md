@@ -1,4 +1,4 @@
-docker-lizmap
+docker-lizmap (warnning: lizmap-web-client-master inside)
 =============
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4558500/0c725a16-4ee1-11e4-84e4-fe704fca4819.png)

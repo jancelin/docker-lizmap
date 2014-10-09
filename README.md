@@ -57,11 +57,11 @@ ________________________________________________________________________________
 
 Lizmap working for testing at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-release_2_10/lizmap/www/
+http://"your_ip_serveur":8081/lizmap-web-master/lizmap/www/
 
 lizmap admin at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-release_2_10/lizmap/www/admin.php
+http://"your_ip_serveur":8081/lizmap-web-master/lizmap/www/admin.php
 
 Lizmap working with your data and config at : 
 

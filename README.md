@@ -3,7 +3,7 @@ docker-lizmap
 
 (lizmap-web-client-2.10.0 inside)
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4558500/0c725a16-4ee1-11e4-84e4-fe704fca4819.png)
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
 
 This image contains a WebGIS server: 

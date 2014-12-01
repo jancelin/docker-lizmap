@@ -33,7 +33,7 @@ If the host is centos: Copy the files to a directory on the host, do a chown :33
 
 To run a container do:
 ```
-docker run --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap
+docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap
 ```
 
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host

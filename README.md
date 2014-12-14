@@ -1,6 +1,5 @@
 docker-lizmap 
 =============
-For docker 1.3.2
 
 (lizmap-web-client-2.10.0 inside)
 

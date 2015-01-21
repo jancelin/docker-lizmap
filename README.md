@@ -42,7 +42,7 @@ docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_q
 
 -v /your_config_folder:/home2 ---> rovides a link between your host file containing the lizmap config, and / home2 Container.
 
-ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/sauvlizmap/entomo:/home2 jancelin/docker-websig
+ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/config/entomo:/home2 jancelin/docker-websig
 
 
 

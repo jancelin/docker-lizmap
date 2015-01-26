@@ -12,7 +12,7 @@ RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
 # Use local cached debs from host (saves your bandwidth!)
 # Change ip below to that of your apt-cacher-ng host
 # Or comment this line out if you do not with to use caching
-ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
+#ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get -y update
 
@@ -20,7 +20,7 @@ RUN apt-get -y update
 
 RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
     apache2 libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \
-    libapache2-mod-php5  qgis-providers qgis-mapserver apache2-mpm-prefork
+    libapache2-mod-php5  qgis-mapserver apache2-mpm-prefork
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; a2enmod deflate; a2enmod php5
 
 #config compression

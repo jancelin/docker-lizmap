@@ -1,7 +1,7 @@
 docker-lizmap 
 =============
 
-(lizmap-web-client-2.10.2 inside)
+(lizmap-web-client-2.11beta1 inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
@@ -57,11 +57,11 @@ ________________________________________________________________________________
 
 Lizmap working for testing at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.10.2/lizmap/www/
+http://"your_ip_serveur":8081/lizmap-web-client-2.11beta1/lizmap/www/
 
 lizmap admin at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.10.2/lizmap/www/admin.php
+http://"your_ip_serveur":8081/lizmap-web-client-2.11beta1/lizmap/www/admin.php
 
 Lizmap working with your data and config at : 
 

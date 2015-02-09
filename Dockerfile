@@ -15,6 +15,8 @@ RUN echo "deb http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu trust
 RUN gpg --keyserver keyserver.ubuntu.com --recv 314DF160 
 RUN gpg --export --armor 314DF160 | sudo apt-key add -
 
+RUN apt-get -y update
+
 RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
     apache2 libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \
     libapache2-mod-php5 qgis-mapserver apache2-mpm-prefork

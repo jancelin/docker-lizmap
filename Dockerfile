@@ -5,18 +5,15 @@ RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
 RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-#RUN echo "deb http://qgis.org/debian trusty main" >> /etc/apt/sources.list
-#RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
-#RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
-
-# Use local cached debs from host (saves your bandwidth!)
-# Change ip below to that of your apt-cacher-ng host
-# Or comment this line out if you do not with to use caching
-#ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+#DD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
+RUN echo "deb http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu trusty main" >> /etc/apt/sources.list
+RUN gpg --keyserver keyserver.ubuntu.com --recv 314DF160 
+RUN gpg --export --armor 314DF160 | sudo apt-key add -
 
 RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
     apache2 libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \

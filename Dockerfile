@@ -1,21 +1,22 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
-FROM ubuntu:14.04
+#FROM ubuntu:14.04
+FROM kartoza/qgis-desktop
 MAINTAINER ancelin julien / docker-qgismapserver-lizmap
-RUN  export DEBIAN_FRONTEND=noninteractive
-ENV  DEBIAN_FRONTEND noninteractive
-RUN  dpkg-divert --local --rename --add /sbin/initctl
+#RUN  export DEBIAN_FRONTEND=noninteractive
+#ENV  DEBIAN_FRONTEND noninteractive
+#RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+#RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get -y update
 
 #-------------Application Specific Stuff ----------------------------------------------------
-RUN echo "deb http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu trusty main" >> /etc/apt/sources.list
-RUN gpg --keyserver keyserver.ubuntu.com --recv 314DF160 
-RUN gpg --export --armor 314DF160 | sudo apt-key add -
+#RUN echo "deb http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu trusty main" >> /etc/apt/sources.list
+#RUN gpg --keyserver keyserver.ubuntu.com --recv 314DF160 
+#RUN gpg --export --armor 314DF160 | sudo apt-key add -
 
-RUN apt-get -y update
+#RUN apt-get -y update
 
 RUN apt-get install -y python-simplejson xauth htop nano curl ntp ntpdate python-software-properties git wget unzip \
     apache2 libapache2-mod-fcgid php5 php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql \

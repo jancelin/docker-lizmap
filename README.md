@@ -1,3 +1,5 @@
+SORRY THERE IS  A BUG NOW WITH QGISMAPSERVER.
+
 docker-lizmap 
 =============
 

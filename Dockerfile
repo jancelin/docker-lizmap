@@ -5,7 +5,7 @@ MAINTAINER ancelin julien / docker-qgismapserver-lizmap
 #ENV  DEBIAN_FRONTEND noninteractive
 #RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-RUN echo "sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable" > /etc/apt/sources.list
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 #RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
 #RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
 

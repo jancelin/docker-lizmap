@@ -1,12 +1,14 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
-#FROM ubuntu:14.04
-FROM kartoza/qgis-desktop
+FROM ubuntu:14.04
 MAINTAINER ancelin julien / docker-qgismapserver-lizmap
 #RUN  export DEBIAN_FRONTEND=noninteractive
 #ENV  DEBIAN_FRONTEND noninteractive
 #RUN  dpkg-divert --local --rename --add /sbin/initctl
 
-#RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
+RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
+
 ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get -y update

@@ -3,7 +3,7 @@ SORRY THERE IS  A BUG NOW WITH QGISMAPSERVER.
 docker-lizmap 
 =============
 
-(lizmap-web-client-master inside)
+(lizmap-web-client-2.11beta3 inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
@@ -59,11 +59,11 @@ ________________________________________________________________________________
 
 Lizmap working for testing at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-master/lizmap/www/
+http://"your_ip_serveur":8081/lizmap-web-client-2.11beta3/lizmap/www/
 
 lizmap admin at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-master/lizmap/www/admin.php
+http://"your_ip_serveur":8081/lizmap-web-client-2.11beta3/lizmap/www/admin.php
 
 Lizmap working with your data and config at : 
 

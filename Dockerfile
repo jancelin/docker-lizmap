@@ -7,7 +7,7 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 
 RUN echo "deb     http://qgis.org/debian wheezy main" >> /etc/apt/sources.list
 RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
-RUN gpg --export --armor DD45F6C3 | sudo apt-key add -
+RUN gpg --export --armor DD45F6C3 | apt-key add -
 
 ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 

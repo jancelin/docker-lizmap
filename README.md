@@ -29,7 +29,7 @@ This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so yo
 If the host is ubuntu server:
 Copy the files to a directory on the host, do a chown :www-data about each file ( or add -R for the folder)
 
-If the host is centos: Copy the files to a directory on the host, do a chown :33 on each file (apache does not know :www-data, but :apache so we make it a joke).
+If the host is centos: Copy the files to a directory on the host, do a chown :33 on each file (apache does not know :www-data, but :apache).
 
 
 To run a container do:

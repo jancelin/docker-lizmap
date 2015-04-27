@@ -151,6 +151,29 @@ http://"your_ip_serveur":8081/websig/lizmap/www/admin.php
 
 ____________________________________________________________________________________
 
+Docker Commandes:
+
+docker pull jancelin/docker-lizmap --> build image from dockerhub.
+
+docker docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap --> build image from my repository.
+
+docker images --> show all images available on your docker.
+
+docker rmi name_of_image --> delete image.
+
+docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap --> starting lizmap container
+
+docker ps -a --> list of all containers, who working and not.
+
+docker start name_container --> start container.
+
+docker stop name_container --> stopping container.
+
+docker rm name_container --> delete container (possibility to do : docker stop name_container && docker rm name_container)
+
+
+____________________________________________________________________________________
+
 > example of server architecture
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7345474/3f403ca0-ecd5-11e4-8675-714fb9388863.jpg)

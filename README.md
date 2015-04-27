@@ -178,6 +178,7 @@ http://docs.3liz.com/
 
 http://www.3liz.com/
 
+![3_liz](http://www.3liz.com/assets/img/architecture.png)
 ____________________________________________________________________________________
 
 Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 04/2015 INRA 

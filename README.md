@@ -26,7 +26,7 @@ before running:
 
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
 
-*Copy config files from your old lizmap to a folder in your host:
+* Copy config files from your old lizmap to a folder in your host:
 /var/www/websig/lizmap/var/jauth.db
 /var/www/websig/lizmap/var/logs.db
 /var/www/websig/lizmap/var/config/lizmapConfig.ini.php

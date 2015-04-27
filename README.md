@@ -125,7 +125,7 @@ ________________________________________________________________________________
 
 * for edit a container when it works
 
-docker exec -it jancelin/docker-lizmap bash 
+docker exec -it "id_or_name_container" bash 
 
 * if you want to save your edition in a new image : 
 

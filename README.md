@@ -24,12 +24,13 @@ docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 
 before running: 
 
-This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
-* Create two folder on home (for exemple):
+This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container.
+
+* Create two folders on /home (for exemple):
 mkdir /home/lizmap_config
 mkdir /home/lizmap_project
 
-* Copy config files from your old lizmap to your new config folder (in your host):
+* Copy config files from your old lizmap to your new config folder:
 
 cp /var/www/websig/lizmap/var/jauth.db /home/lizmap_config/
 
@@ -37,6 +38,15 @@ cp/var/www/websig/lizmap/var/logs.db  /home/lizmap_config/
 
 cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /home/lizmap_config/
 
+or download files if it's your first time with lizmap:
+
+https://github.com/3liz/lizmap-web-client/blob/master/lizmap/var/jauth.db
+
+https://github.com/3liz/lizmap-web-client/blob/master/lizmap/var/logs.db
+
+https://github.com/3liz/lizmap-web-client/blob/master/lizmap/var/config/lizmapConfig.ini.php
+
+* Change permissions for docker read and write about the host:
 
 If the host is ubuntu server:
 Do a chown :www-data on each file ( or add -R for the folder)
@@ -44,7 +54,7 @@ Do a chown :www-data on each file ( or add -R for the folder)
 If the host is centos or other: 
 do a chown :33 on each file (ex: chown :33 -R /home/lizmap_config ).
 
-* Copy qgis and lizmap-plugin files to a folder in your host:
+* Copy your qgis files and lizmap-plugin files to the second folder in your host:
 
 cp ~/test.qgs /home/lizmap_project/
 
@@ -54,12 +64,15 @@ cp ~/test.qgs.jpg /home/lizmap_project/
 
 (nb:
 I use a docker owncloud for synchronize files with my PC:
+
 docker build -t owncloud git://github.com/l3iggs/docker-owncloud
+
 And my qgis data come from a docker postgis:
+
 docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis
 )
 
-To run a container do:
+* To run a container do:
 ```
 docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap
 ```
@@ -72,14 +85,22 @@ docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_q
 
 ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/config/entomo:/home2 jancelin/docker-websig
 
+* Edit admin page in a browser for looking lizmap on the right qgis folder:
+
+Open http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/admin.php
+
+Go to "lizmap configuration"
+
+change "Path to the local directory" to /home/
 
 
+* for edit a container when it works
 
-or for edit 
+docker exec -it jancelin/docker-lizmap bash 
 
-docker run  -i -t jancelin/docker-lizmap /bin/bash 
+* if you want to save your edition in a new image : 
 
-if you want to save your edition : docker commit "id_of_container" "new_image_name"
+docker commit "id_of_container" "new_image_name"
 
 ____________________________________________________________________________________
 

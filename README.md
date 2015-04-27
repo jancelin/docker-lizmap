@@ -139,7 +139,7 @@ http://"your_ip_serveur":8081/websig/lizmap/www/admin.php
 
 ____________________________________________________________________________________
 
-example of server architecture
+> example of server architecture
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7345474/3f403ca0-ecd5-11e4-8675-714fb9388863.jpg)
 

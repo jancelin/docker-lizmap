@@ -27,8 +27,11 @@ before running:
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container.
 
 * Create two folders on /home (for exemple):
+* 
 mkdir /home/lizmap_config
+
 mkdir /home/lizmap_project
+
 
 * Copy config files from your old lizmap to your new config folder:
 

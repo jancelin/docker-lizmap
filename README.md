@@ -26,11 +26,28 @@ before running:
 
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
 
-If the host is ubuntu server:
-Copy the files to a directory on the host, do a chown :www-data about each file ( or add -R for the folder)
+*Copy config files from your old lizmap to a folder in your host:
+/var/www/websig/lizmap/var/jauth.db
+/var/www/websig/lizmap/var/logs.db
+/var/www/websig/lizmap/var/config/lizmapConfig.ini.php
 
-If the host is centos: Copy the files to a directory on the host, do a chown :33 on each file (apache does not know :www-data, but :apache).
-
+If the host is ubuntu server:
+Do a chown :www-data on each file ( or add -R for the folder)
+
+If the host is centos or other: 
+do a chown :33 on each file (ex: chown :33 -R /home1/config_lizmap ).
+
+* Copy qgis and lizmap-plugin files to a folder in your host:
+cp ~/test.qgs /home/lizmap_project/
+cp ~/test.qgs.cfg /home/lizmap_project/
+cp ~/test.qgs.jpg /home/lizmap_project/
+
+(nb:
+I use a docker owncloud for synchronize files with my PC:
+docker build -t owncloud git://github.com/l3iggs/docker-owncloud
+And my qgis data come from a docker postgis:
+docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis)
+)
 
 To run a container do:
 ```

@@ -80,16 +80,19 @@ docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis
 ```
 docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap
 ```
+
 * explanation about run
 
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host.
-"
+
   You can use 80:80 if it's the only service. 
 
-  You can use docker ngnix for do a proxy reverse and mapping in domaine or subdomain, remplace -p 8081:80 by -e VIRTUAL_HOST=foo.bar.com
+  You can use docker ngnix for do a proxy reverse and mapping in domaine or subdomain:
   
-  looking git://github.com/jancelin/nginx-proxy for this
-"  
+  remplace -p 8081:80 by -e VIRTUAL_HOST=subdomain.domain.com
+  
+  looking git://github.com/jancelin/nginx-proxy for more informations.
+ 
 -v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 
 -v /your_config_folder:/home2 ---> provides a link between your host file containing the lizmap config, and / home2 Container.

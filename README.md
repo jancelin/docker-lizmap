@@ -138,6 +138,12 @@ http://"your_ip_serveur":8081/websig/lizmap/www/admin.php
 
 ____________________________________________________________________________________
 
+An example of server architecture
+
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7345474/3f403ca0-ecd5-11e4-8675-714fb9388863.jpg)
+
+____________________________________________________________________________________
+
 Lizmap Web Application generates dynamically a web map application (php/html/css/js) with the help of Qgis Server ( QGIS Server Tutorial ). You can configure one web map per Qgis project with the QGIS LizMap Plugin.
 
 http://docs.3liz.com/

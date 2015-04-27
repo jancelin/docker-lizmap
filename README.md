@@ -16,7 +16,7 @@ To build the image do:
 ```
 docker pull jancelin/docker-lizmap 
 ```
-or alternatively, you can build an image from Dockerfile:
+or alternatively, you can build an image from Github, we can see what happens during installation:
 
 ```
 docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
@@ -25,28 +25,38 @@ docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 before running: 
 
 This version keeps on host files (jauth.db, lizmapConfig.ini.php, logs.db) so you can use it for other Container. 
+* Create two folder on home (for exemple):
+mkdir /home/lizmap_config
+mkdir /home/lizmap_project
 
-* Copy config files from your old lizmap to a folder in your host:
-/var/www/websig/lizmap/var/jauth.db
-/var/www/websig/lizmap/var/logs.db
-/var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+* Copy config files from your old lizmap to your new config folder (in your host):
+
+cp /var/www/websig/lizmap/var/jauth.db /home/lizmap_config/
+
+cp/var/www/websig/lizmap/var/logs.db  /home/lizmap_config/
+
+cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /home/lizmap_config/
+
 
 If the host is ubuntu server:
 Do a chown :www-data on each file ( or add -R for the folder)
 
 If the host is centos or other: 
-do a chown :33 on each file (ex: chown :33 -R /home1/config_lizmap ).
+do a chown :33 on each file (ex: chown :33 -R /home/lizmap_config ).
 
 * Copy qgis and lizmap-plugin files to a folder in your host:
+
 cp ~/test.qgs /home/lizmap_project/
+
 cp ~/test.qgs.cfg /home/lizmap_project/
+
 cp ~/test.qgs.jpg /home/lizmap_project/
 
 (nb:
 I use a docker owncloud for synchronize files with my PC:
 docker build -t owncloud git://github.com/l3iggs/docker-owncloud
 And my qgis data come from a docker postgis:
-docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis)
+docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis
 )
 
 To run a container do:
@@ -58,7 +68,7 @@ docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_q
 
 -v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 
--v /your_config_folder:/home2 ---> rovides a link between your host file containing the lizmap config, and / home2 Container.
+-v /your_config_folder:/home2 ---> provides a link between your host file containing the lizmap config, and / home2 Container.
 
 ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/ENTOMO:/home:ro -v /home/jancelin/config/entomo:/home2 jancelin/docker-websig
 

@@ -118,7 +118,8 @@ change "Path to the local directory" to /home/
 
 http://"your_ip_serveur":8081/websig/lizmap/www/
 
-
+> exemple:
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7346841/96890bc4-ece2-11e4-82d7-d79d6f286aab.jpeg)
 
 ____________________________________________________________________________________
 

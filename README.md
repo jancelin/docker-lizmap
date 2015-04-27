@@ -153,25 +153,17 @@ ________________________________________________________________________________
 
 Docker Commandes:
 
-docker pull jancelin/docker-lizmap --> build image from dockerhub.
-
-docker docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap --> build image from my repository.
-
-docker images --> show all images available on your docker.
-
-docker rmi name_of_image --> delete image.
-
-docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap --> starting lizmap container
-
-docker ps -a --> list of all containers, who working and not.
-
-docker start name_container --> start container.
-
-docker stop name_container --> stopping container.
-
-docker rm name_container --> delete container (possibility to do : docker stop name_container && docker rm name_container)
-
-
+* docker pull jancelin/docker-lizmap --> build image from dockerhub.
+* docker docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap --> build image from my repository.
+* docker images --> show all images available on your docker
+* docker rmi name_of_image --> delete image.
+* docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_qgis_folder:/home:ro -v /your_config_folder:/home2 jancelin/docker-lizmap --> starting lizmap container
+* docker ps -a --> list of all containers, who working and not.
+* docker start name_container --> start container.
+* docker stop name_container --> stopping container.
+* docker rm name_container --> delete container (possibility to do : docker stop name_container && docker rm name_container)
+* docker exec -it name_container bash --> go into the container with a session root shell and do anything.
+* .... ---> https://docs.docker.com/userguide/
 ____________________________________________________________________________________
 
 > example of server architecture

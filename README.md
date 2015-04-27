@@ -91,7 +91,7 @@ docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_q
   
   remplace -p 8081:80 by -e VIRTUAL_HOST=subdomain.domain.com
   
-  looking git://github.com/jancelin/nginx-proxy for more informations.
+  looking https://github.com/jancelin/nginx-proxy for more informations.
  
 -v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 

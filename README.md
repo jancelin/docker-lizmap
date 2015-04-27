@@ -66,15 +66,15 @@ cp ~/test.qgs.cfg /home/lizmap_project/
 
 cp ~/test.qgs.jpg /home/lizmap_project/
 ```
-(nb:
-I use a docker owncloud for synchronize files with my PC:
+> (nb:
+> I use a docker owncloud for synchronize files with my PC:
 
-docker build -t owncloud git://github.com/l3iggs/docker-owncloud
+> docker build -t owncloud git://github.com/l3iggs/docker-owncloud
 
-And my qgis data come from a docker postgis:
+> And my qgis data come from a docker postgis:
 
-docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis
-)
+> docker build -t kartoza/postgis git://github.com/kartoza/docker-postgis
+> )
 
 * To run a container do:
 ```
@@ -85,13 +85,13 @@ docker run --restart="always" --name "websig-lizmap" -p 8081:80 -d -t -v /your_q
 
 -p 8081:80 ---> link between the port 80 of the Container and port 8081 of the host.
 
-  You can use 80:80 if it's the only service. 
+ >  You can use 80:80 if it's the only service. 
 
-  You can use docker ngnix for do a proxy reverse and mapping in domaine or subdomain:
+ > You can use docker ngnix for do a proxy reverse and mapping in domaine or subdomain:
   
-  remplace -p 8081:80 by -e VIRTUAL_HOST=subdomain.domain.com
+ > remplace -p 8081:80 by -e VIRTUAL_HOST=subdomain.domain.com
   
-  looking https://github.com/jancelin/nginx-proxy for more informations.
+ > looking https://github.com/jancelin/nginx-proxy for more informations.
  
 -v /your_folder:/home:ro ---> provides a link between your host file (read-only)containing the .qgs, and / home Container.
 

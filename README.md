@@ -93,6 +93,8 @@ Go to "lizmap configuration"
 
 change "Path to the local directory" to /home/
 
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7345155/66bd78cc-ecd2-11e4-987b-6788a104adb3.jpeg)
+
 
 * for edit a container when it works
 

@@ -1,11 +1,12 @@
 #!/bin/bash
 
-unzip /var/www/master.zip -d /var/www/
-mv /var/www/master/ /var/www/websig
-rm /var/www/websig/master.zip
+mkdir /var/www/websig
 
-cd /var/www/websig/
-lizmap/install/set_rights.sh www-data www-data
+unzip /var/www/master.zip -d /var/www/
+mv /var/www/lizmap-web-client-master/ /var/www/websig
+rm /var/www/master.zip
+
+/var/www/websig/lizmap/install/set_rights.sh www-data www-data
 
 mkdir /home2  
 

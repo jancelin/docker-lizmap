@@ -6,7 +6,8 @@ unzip /var/www/master.zip -d /var/www/
 mv /var/www/lizmap-web-client-master/ /var/www/websig
 rm /var/www/master.zip
 
-/var/www/websig/lizmap/install/set_rights.sh www-data www-data
+ chmod +x /var/www/websig/lizmap/install/set_rights.sh
+ /var/www/websig/lizmap/install/set_rights.sh www-data www-data
 
 mkdir /home2  
 

@@ -2,7 +2,7 @@
 docker-lizmap 
 =============
 
-(lizmap-web-client-2.11.0 and qgis-mapserver 2.8.1 inside)
+(lizmap-web-client-master and qgis-mapserver 2.8.1 inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
@@ -106,7 +106,7 @@ ex: docker run --name "websig-lizmap-entomo" -p 8081:80 -d -t -v /home/jancelin/
 
 7. Edit admin page in a browser for looking lizmap on the right qgis folder:
 ```
-Open http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/admin.php
+Open http://"your_ip_serveur":8081/lizmap-web-client-master/lizmap/www/admin.php
 
 Go to "lizmap configuration"
 
@@ -135,11 +135,11 @@ ________________________________________________________________________________
 
 Lizmap working for testing at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/
+http://"your_ip_serveur":8081/lizmap-web-client-master/lizmap/www/
 
 lizmap admin at 
 
-http://"your_ip_serveur":8081/lizmap-web-client-2.11.0/lizmap/www/admin.php
+http://"your_ip_serveur":8081/lizmap-web-client-master/lizmap/www/admin.php
 
 Lizmap working with your data and config at : 
 

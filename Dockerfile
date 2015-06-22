@@ -81,23 +81,23 @@ RUN cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/l
 
 RUN php /var/www/websig/lizmap/install/installer.php
 
-RUN mkdir /home2  
-RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php
+#RUN mkdir /home2  
+#RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php
 #/var/www/websig/lizmap/var/config/profiles.ini.php
-RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php /home2/profiles.ini.php /home2/localconfig.ini.php
-RUN ln -s /home2/jauth.db /var/www/websig/lizmap/var/db/jauth.db
-RUN ln -s /home2/logs.db /var/www/websig/lizmap/var/db/logs.db
-RUN ln -s /home2/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
-RUN ln -s /home2/installer.ini.php /var/www/websig/lizmap/var/config/installer.ini.php
+#RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php /home2/profiles.ini.php /home2/localconfig.ini.php
+#RUN ln -s /home2/jauth.db /var/www/websig/lizmap/var/db/jauth.db
+#RUN ln -s /home2/logs.db /var/www/websig/lizmap/var/db/logs.db
+#RUN ln -s /home2/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+#RUN ln -s /home2/installer.ini.php /var/www/websig/lizmap/var/config/installer.ini.php
 #RUN ln -s /home2/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
-RUN ln -s /home2/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
+#RUN ln -s /home2/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
 
-RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
+#RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
 #/home2/profiles.ini.php
-RUN sudo /var/www/websig/lizmap/install/set_rights.sh
-RUN sudo /var/www/websig/lizmap/install/clean_vartmp.sh
+#RUN sudo /var/www/websig/lizmap/install/set_rights.sh
+#RUN sudo /var/www/websig/lizmap/install/clean_vartmp.sh
 
-RUN php /var/www/websig/lizmap/install/installer.php
+#RUN php /var/www/websig/lizmap/install/installer.php
 #ADD setup.sh /setup.sh
 #RUN chmod +x /setup.sh
 #RUN /setup.sh

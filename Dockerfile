@@ -75,12 +75,10 @@ RUN rm /var/www/master.zip
 RUN  chmod +x /var/www/websig/lizmap/install/set_rights.sh
 RUN /var/www/websig/lizmap/install/set_rights.sh www-data www-data
  
-RUN  cd /var/www/websig/lizmap/var/config\
-cp lizmapConfig.ini.php.dist lizmapConfig.ini.php\
-cp localconfig.ini.php.dist localconfig.ini.php\
-cp profiles.ini.php.dist profiles.ini.php\
-cd ../../..
- 
+RUN cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php.dist /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+RUN cp /var/www/websig/lizmap/var/config/localconfig.ini.php.dist /var/www/websig/lizmap/var/config/localconfig.ini.php
+RUN cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
+
 RUN php /var/www/websig/lizmap/install/installer.php
 
 RUN mkdir /home2  

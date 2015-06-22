@@ -1,4 +1,7 @@
 #!/bin/bash
-unzip /var/www/master.zip -d /var/www
+unzip /var/www/master.zip -d /var/www/websig
 
-rm /var/www/master.zip
+rm /var/www/websig/master.zip
+
+
+

@@ -7,6 +7,14 @@ rm /var/www/master.zip
 
  chmod +x /var/www/websig/lizmap/install/set_rights.sh
  /var/www/websig/lizmap/install/set_rights.sh www-data www-data
+ 
+ cd lizmap/var/config
+cp lizmapConfig.ini.php.dist lizmapConfig.ini.php
+cp localconfig.ini.php.dist localconfig.ini.php
+cp profiles.ini.php.dist profiles.ini.php
+cd ../../..
+ 
+ php lizmap/install/installer.php
 
 mkdir /home2  
 

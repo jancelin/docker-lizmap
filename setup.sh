@@ -1,9 +1,8 @@
 #!/bin/bash
 
-mkdir /var/www/websig
 
 unzip /var/www/master.zip -d /var/www/
-mv /var/www/lizmap-web-client-master/ /var/www/websig
+mv /var/www/lizmap-web-client-master/ /var/www/websig/
 rm /var/www/master.zip
 
  chmod +x /var/www/websig/lizmap/install/set_rights.sh

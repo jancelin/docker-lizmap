@@ -79,7 +79,7 @@ RUN cp /var/www/lizmap-web-client-master/lizmap/var/config/lizmapConfig.ini.php.
 RUN cp /var/www/lizmap-web-client-master/lizmap/var/config/localconfig.ini.php.dist /var/www/lizmap-web-client-master/lizmap/var/config/localconfig.ini.php
 RUN cp /var/www/lizmap-web-client-master/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap-web-client-master/lizmap/var/config/profiles.ini.php
 
-RUN php /var/www/lizmap-web-client-masterg/lizmap/install/installer.php
+RUN php /var/www/lizmap-web-client-master/lizmap/install/installer.php
 
 #RUN mkdir /home2  
 #RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php

@@ -69,35 +69,39 @@ ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
 
 
 RUN unzip /var/www/master.zip -d /var/www/
-#RUN mv /var/www/lizmap-web-client-master/ /var/www/websig/
+RUN mv /var/www/lizmap-web-client-master/ /var/www/websig/
 RUN rm /var/www/master.zip
 
-#RUN  chmod +x /var/www/websig/lizmap/install/set_rights.sh
-RUN /var/www/lizmap-web-client-master/lizmap/install/set_rights.sh www-data www-data
+RUN  chmod +x /var/www/websig/lizmap/install/set_rights.sh
+RUN /var/www/websig/lizmap/install/set_rights.sh www-data www-data
  
-RUN cp /var/www/lizmap-web-client-master/lizmap/var/config/lizmapConfig.ini.php.dist /var/www/lizmap-web-client-master/lizmap/var/config/lizmapConfig.ini.php
-RUN cp /var/www/lizmap-web-client-master/lizmap/var/config/localconfig.ini.php.dist /var/www/lizmap-web-client-master/lizmap/var/config/localconfig.ini.php
-RUN cp /var/www/lizmap-web-client-master/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap-web-client-master/lizmap/var/config/profiles.ini.php
+RUN cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php.dist /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+RUN cp /var/www/websig/lizmap/var/config/localconfig.ini.php.dist /var/www/websig/lizmap/var/config/localconfig.ini.php
+RUN cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
 
-RUN php /var/www/lizmap-web-client-master/lizmap/install/installer.php
+RUN php /var/www/websig/lizmap/install/installer.php
 
-#RUN mkdir /home2  
-#RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php
+RUN mkdir /home2  
+
+RUN sudo /var/www/websig/lizmap/install/set_rights.sh
+RUN sudo /var/www/websig/lizmap/install/clean_vartmp.sh
+
+RUN rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php  /var/www/websig/lizmap/var/config/localconfig.ini.php
 #/var/www/websig/lizmap/var/config/profiles.ini.php
-#RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php /home2/profiles.ini.php /home2/localconfig.ini.php
-#RUN ln -s /home2/jauth.db /var/www/websig/lizmap/var/db/jauth.db
-#RUN ln -s /home2/logs.db /var/www/websig/lizmap/var/db/logs.db
-#RUN ln -s /home2/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
-#RUN ln -s /home2/installer.ini.php /var/www/websig/lizmap/var/config/installer.ini.php
-#RUN ln -s /home2/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
-#RUN ln -s /home2/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
+RUN touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php /home2/profiles.ini.php /home2/localconfig.ini.php
+#
+RUN ln -s /home2/jauth.db /var/www/websig/lizmap/var/db/jauth.db
+RUN ln -s /home2/logs.db /var/www/websig/lizmap/var/db/logs.db
+RUN ln -s /home2/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+RUN ln -s /home2/installer.ini.php /var/www/websig/lizmap/var/config/installer.ini.php
+RUN ln -s /home2/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
+RUN ln -s /home2/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
 
-#RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
+RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
 #/home2/profiles.ini.php
-#RUN sudo /var/www/websig/lizmap/install/set_rights.sh
-#RUN sudo /var/www/websig/lizmap/install/clean_vartmp.sh
 
-#RUN php /var/www/websig/lizmap/install/installer.php
+
+RUN php /var/www/websig/lizmap/install/installer.php
 #ADD setup.sh /setup.sh
 #RUN chmod +x /setup.sh
 #RUN /setup.sh

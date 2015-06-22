@@ -14,7 +14,7 @@ cp localconfig.ini.php.dist localconfig.ini.php
 cp profiles.ini.php.dist profiles.ini.php
 cd ../../..
  
- php lizmap/install/installer.php
+ php /var/www/websig/lizmap/install/installer.php
 
 mkdir /home2  
 

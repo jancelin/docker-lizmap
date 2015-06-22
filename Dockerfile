@@ -9,7 +9,7 @@ RUN echo "deb     http://qgis.org/debian trusty main" >> /etc/apt/sources.list
 RUN gpg --keyserver keyserver.ubuntu.com --recv DD45F6C3
 RUN gpg --export --armor DD45F6C3 | apt-key add -
 
-ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
+#ADD 71-apt-cacher-ng /etc/apt/apt.conf.d/71-apt-cacher-ng
 
 RUN apt-get -y update
 

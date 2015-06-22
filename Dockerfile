@@ -68,6 +68,7 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
 
 ADD setup.sh /setup.sh
+RUN chmod +x /setup.sh
 RUN /setup.sh
 VOLUME /home2
 # Now launch apache in the foreground

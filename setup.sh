@@ -17,11 +17,11 @@ rm -rf /var/www/lizmap-web-client-master/temp/lizmap/*
 
 #dupliquer lizmap en plusieurs sites
 cp -a /var/www/lizmap-web-client-master /var/www/websig
-rm /var/www/websig/lizmap/var/jauth.db /var/www/websig/lizmap/var/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/localconfig.ini.php
 mkdir /home2  
 touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php
-ln -s /home2/jauth.db /var/www/websig/lizmap/var/jauth.db
-ln -s /home2/logs.db /var/www/websig/lizmap/var/logs.db
+ln -s /home2/jauth.db /var/www/websig/lizmap/var/db/jauth.db
+ln -s /home2/logs.db /var/www/websig/lizmap/var/db/logs.db
 ln -s /home2/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
 rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php 
 

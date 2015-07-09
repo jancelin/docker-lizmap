@@ -96,9 +96,8 @@ RUN ln -s /home2/installer.ini.php /var/www/websig/lizmap/var/config/installer.i
 RUN ln -s /home2/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
 RUN ln -s /home2/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
 
-RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
-#/home2/profiles.ini.php
-
+RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php /home2/profiles.ini.php
+ADD mainconfig.ini.php /var/www/websig/lizmap/var/config/mainconfig.ini.php
 
 RUN php /var/www/websig/lizmap/install/installer.php
 #ADD setup.sh /setup.sh

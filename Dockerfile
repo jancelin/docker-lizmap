@@ -99,7 +99,7 @@ RUN mkdir /home2
 ##
 #RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
 ##/home2/profiles.ini.php
-ADD mainconfig.ini.php /var/www/websig/lizmap/var/config/mainconfig.ini.php
+#ADD mainconfig.ini.php /var/www/websig/lizmap/var/config/mainconfig.ini.php
 RUN chown :www-data  /var/www/websig/lizmap/www -R
 RUN chmod 775  /var/www/websig/lizmap/www -R
 RUN chown :www-data /var/www/websig/lizmap/var -R

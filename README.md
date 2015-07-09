@@ -1,5 +1,12 @@
 
-docker-lizmap 
+
+ATTENTION TRAVAIL EN COURS SUR docker-lizmap-master
+pour une version stable 
+
+
+```
+docker pull jancelin/docker-lizmap:v2.11.0 
+```
 =============
 
 (lizmap-web-client-master and qgis-mapserver 2.8.1 inside)

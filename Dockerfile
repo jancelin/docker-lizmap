@@ -102,6 +102,8 @@ RUN mkdir /home2
 ADD mainconfig.ini.php /var/www/websig/lizmap/var/config/mainconfig.ini.php
 RUN chown :www-data  /var/www/websig/lizmap/www -R
 RUN chmod 775  /var/www/websig/lizmap/www -R
+RUN chown :www-data /var/www/websig/lizmap/var -R
+RUN chmod 775  /var/www/websig/lizmap/var -R
 
 
 #RUN sudo /var/www/websig/lizmap/install/set_rights.sh

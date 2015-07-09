@@ -98,7 +98,7 @@ RUN php /var/www/websig/lizmap/install/installer.php
 #
 #RUN rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php  /home2/localconfig.ini.php 
 #/home2/profiles.ini.php
-#ADD mainconfig.ini.php /var/www/websig/lizmap/var/config/mainconfig.ini.php
+ADD mainconfig.ini.php /var/www/websig/lizmap/var/config/mainconfig.ini.php
 
 #RUN sudo /var/www/websig/lizmap/install/set_rights.sh
 #RUN sudo /var/www/websig/lizmap/install/clean_vartmp.sh

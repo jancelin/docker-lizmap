@@ -2,11 +2,11 @@
 
 For testing, no persitent config data:
 
-docker pull jancelin/docker-lizmap-master
+```docker pull jancelin/docker-lizmap-master```
 
 and running :
 
-docker run --restart="always" --name "lizmap3" -p 8081:80 -d -t -v /"your_.qgs_.cfg.qgs_folder":/home:ro jancelin/docker-lizmap-master
+```docker run --restart="always" --name "lizmap3" -p 8081:80 -d -t -v /"your_.qgs_.cfg.qgs_folder":/home:ro jancelin/docker-lizmap-master```
 
 ip:8081/websig/lizmap/www/admin.php
 

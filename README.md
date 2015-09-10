@@ -1,6 +1,6 @@
 
 
-For testing, no persitent config data:
+For testing, no persitent config data, working with lizmap-plugin-master:
 
 ```docker pull jancelin/docker-lizmap-master```
 

@@ -1,12 +1,21 @@
 
 
-ATTENTION TRAVAIL EN COURS SUR docker-lizmap-master
-pour une version stable 
+For testing, no persitent config data:
+
+docker pull jancelin/docker-lizmap-master
+
+and running :
+
+docker run --restart="always" --name "lizmap3" -p 8081:80 -d -t -v /"your_.qgs_.cfg.qgs_folder":/home:ro jancelin/docker-lizmap-master
+
+ip:8081/websig/lizmap/www/admin.php
+
+in admin lizmap : link folder /home/
+
+look at:
+ip:8081/websig/lizmap/www
 
 
-```
-docker pull jancelin/docker-lizmap:v2.11.0 
-```
 =============
 
 (lizmap-web-client-master and qgis-mapserver 2.8.1 inside)

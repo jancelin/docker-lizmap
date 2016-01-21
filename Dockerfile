@@ -115,5 +115,11 @@ RUN chmod 775  /var/www/websig/lizmap/var -R
 #RUN chmod +x /setup.sh
 #RUN /setup.sh
 VOLUME /home2
+
+#rajoute notre projection perso
+RUN wget https://github.com/jancelin/docker-lizmap/files/99407/srs.db.zip
+RUN unzip srs.db.zip
+RUN cp srs.db usr/share/qgis/resources/
+
 # Now launch apache in the foreground
 CMD apachectl -D FOREGROUND

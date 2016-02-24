@@ -64,7 +64,7 @@ docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/test:/home lizmap
 
 * start final container
 
-** ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var lizmap ``` **
+ ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var jancelin/docker-lizmap ``` 
 
 ____________________________________________________________________________________
 

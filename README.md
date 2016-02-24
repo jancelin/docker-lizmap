@@ -1,19 +1,85 @@
+docker-lizmap 
+=============
+
+(lizmap-web-client3 and qgis-server 2.12.1 inside)
+
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
 
-For testing, no persitent config data, working with lizmap-plugin-master:
+This image contains a WebGIS server: 
+Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
 
-```docker pull jancelin/docker-lizmap-master```
 
-and running :
+1. To build the image do:
 
-```docker run --restart="always" --name "lizmap3" -p 8081:80 -d -t -v /"your_.qgs_.cfg.qgs_folder":/home:ro jancelin/docker-lizmap-master```
+```		
+docker pull jancelin/docker-lizmap 		
+```		
 
-ip:8081/websig/lizmap/www/admin.php
+ you can build an image from Github, we can see what happens during installation:
 
-in admin lizmap : link folder /home/
+```
+docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
+```
 
-look at:
-ip:8081/websig/lizmap/www
+-----------------------------------------------------------------------------------
+
+2. Before the first running :  
+
+* Create folder for persistent data and config
+```
+mkdir /home/lizmap_var
+mkdir /home/lizmap_project 
+```
+
+* set rights on lizmap_project
+
+```
+chown :www-data -R /home/lizmap_project
+```
+
+* Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
+
+* run a container with volume lizmap_var for copy /var/lizmap:
+        
+```
+docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/test:/home lizmap
+```
+
+* go into lizmap_temp container:
+
+```docker exec -it lizmap_temp bash```
+
+* Copy folders with rights lizmap/var:
+
+```cp -avr /var/www/websig/lizmap/var /home```
+
+* exit container:
+
+```exit ```
+
+* On host, delete lizmap_temp
+
+```docker stop lizmap_temp && docker rm lizmap_temp```
+
+* start final container
+
+** ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var lizmap ``` **
+
+____________________________________________________________________________________
+
+* Now config lizmap on web :
+
+```
+http://"ip"/websig/lizmap/www/admin.php
+```
+
+* Add **/home/** for looking your geo projects
+
+![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
+
+* http://docs.3liz.com/fr/ 
+
 
 
 =============

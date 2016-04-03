@@ -43,7 +43,7 @@ chown :www-data -R /home/lizmap_project
 * run a container with volume lizmap_var for copy /var/lizmap:
         
 ```
-docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/lizmap_var:/home lizmap
+docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/lizmap_var:/home jancelin/docker-lizmap
 ```
 
 * go into lizmap_temp container:

@@ -10,7 +10,19 @@ This image contains a WebGIS server:
 Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
 
 
-1. To build the image do:
+1. Before the first running :  
+
+* Create folder for persistent data, config and cache
+```
+mkdir /home/lizmap_var
+mkdir /home/lizmap_project 
+mkdir /home/lizmap_tmp
+```
+
+* Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
+
+
+2. To build the image do:
 
 ```		
 docker pull jancelin/docker-lizmap 		
@@ -24,47 +36,13 @@ docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 
 -----------------------------------------------------------------------------------
 
-2. Before the first running :  
-
-* Create folder for persistent data and config
-```
-mkdir /home/lizmap_var
-mkdir /home/lizmap_project 
-```
-
-* set rights on lizmap_project
-
-```
-chown :www-data -R /home/lizmap_project
-```
-
-* Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
-
-* run a container with volume lizmap_var for copy /var/lizmap:
-        
-```
-docker run --name "lizmap_temp" -p 8081:80 -d -t -v /home/lizmap_var:/home jancelin/docker-lizmap
-```
-
-* go into lizmap_temp container:
-
-```docker exec -it lizmap_temp bash```
-
-* Copy folders with rights lizmap/var:
-
-```cp -avr /var/www/websig/lizmap/var/* /home/```
-
-* exit container:
-
-```exit ```
-
-* On host, delete lizmap_temp
-
-```docker stop lizmap_temp && docker rm lizmap_temp```
-
 * start final container
 
- ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t -v /home/lizmap_project:/home -v /home/lizmap_var:/var/www/websig/lizmap/var jancelin/docker-lizmap ``` 
+ ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t \
+ -v /home/lizmap_project:/home \
+ -v /home/lizmap_var:/var/www/websig/lizmap/var \
+ -v /home/lizmap_tmp:/tmp \
+ jancelin/docker-lizmap ``` 
 
 ____________________________________________________________________________________
 
@@ -85,15 +63,6 @@ http://"ip"/websig/lizmap/www/admin.php
 =============
 
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
-
-
-This image contains a WebGIS server: 
-Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
-
-
-
-
 Docker Commandes:
 
 * docker pull jancelin/docker-lizmap --> build image from dockerhub.
@@ -109,12 +78,6 @@ Docker Commandes:
 * .... ---> https://docs.docker.com/userguide/
 ____________________________________________________________________________________
 
-> example of server architecture
-
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7345474/3f403ca0-ecd5-11e4-8675-714fb9388863.jpg)
-
-____________________________________________________________________________________
-
 Lizmap Web Application generates dynamically a web map application (php/html/css/js) with the help of Qgis Server ( QGIS Server Tutorial ). You can configure one web map per Qgis project with the QGIS LizMap Plugin.
 
 http://docs.3liz.com/
@@ -124,6 +87,6 @@ http://www.3liz.com/
 ![3_liz](http://www.3liz.com/assets/img/architecture.png)
 ____________________________________________________________________________________
 
-Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 04/2015 INRA 
+Julien ANCELIN ( julien.ancelin@inra.fr) 2016 INRA 
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

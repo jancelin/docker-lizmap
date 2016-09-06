@@ -38,11 +38,13 @@ docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 
 * start final container
 
- ``` docker run --restart="always" --name "lizmap" -p 80:80 -d -t \
+ ``` 
+ docker run --restart="always" --name "lizmap" -p 80:80 -d -t \
  -v /home/lizmap_project:/home \
  -v /home/lizmap_var:/var/www/websig/lizmap/var \
  -v /home/lizmap_tmp:/tmp \
- jancelin/docker-lizmap ``` 
+ jancelin/docker-lizmap 
+ ``` 
 
 ____________________________________________________________________________________
 

@@ -48,5 +48,8 @@ ADD index.html /var/www/index.html
 RUN wget https://github.com/jancelin/docker-lizmap/files/99407/srs.db.zip
 RUN unzip srs.db.zip
 RUN cp srs.db usr/share/qgis/resources/
+#add start.sh on first install, generate config file: ~/lizmap/var
+ADD start.sh /start.sh
+RUN chmod 0755 /start.sh
 # Now launch apache in the foreground
-CMD apachectl -D FOREGROUND
+CMD apachectl -D FOREGROUND , /start.sh

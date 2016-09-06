@@ -22,7 +22,7 @@ mkdir /home/lizmap_tmp
 * Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
 
 
-2. To build the image do:
+2. To build the image do :
 
 ```		
 docker pull jancelin/docker-lizmap 		

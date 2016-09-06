@@ -46,7 +46,7 @@ docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 
 ____________________________________________________________________________________
 
-* Now config lizmap on web :
+* If first install, config lizmap backoffice:
 
 ```
 http://"ip"/websig/lizmap/www/admin.php

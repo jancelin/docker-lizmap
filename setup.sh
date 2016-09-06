@@ -16,4 +16,5 @@ php /var/www/websig/lizmap/install/installer.php
 chown :www-data  /var/www/websig/lizmap/www -R
 chmod 775  /var/www/websig/lizmap/www -R
 chown :www-data /var/www/websig/lizmap/var -R
-chmod 775  /var/www/websig/lizmap/var -R
+chmod 775  /var/www/websig/lizmap/var -R &&
+cp -avr /var/www/websig/lizmap/var var/www/websig/lizmap/var_install

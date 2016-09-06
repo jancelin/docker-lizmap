@@ -34,9 +34,7 @@ docker pull jancelin/docker-lizmap
 docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
 ```
 
------------------------------------------------------------------------------------
-
-* start final container
+* start container
 
  ``` 
  docker run --restart="always" --name "lizmap" -p 80:80 -d -t \

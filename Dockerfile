@@ -52,4 +52,4 @@ RUN cp srs.db usr/share/qgis/resources/
 ADD start.sh /start.sh
 RUN chmod 0755 /start.sh
 # Now launch apache in the foreground
-CMD ["apachectl -D FOREGROUND", "/start.sh"]
+CMD /start.sh

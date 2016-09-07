@@ -25,14 +25,8 @@ mkdir /home/lizmap_tmp
 2. To build the image do :
 
 ```		
-docker pull jancelin/docker-lizmap 		
+docker pull jancelin/docker-lizmap:3-2.14LTR
 ```		
-
- you can build an image from Github, we can see what happens during installation:
-
-```
-docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
-```
 
 * start container
 
@@ -41,7 +35,7 @@ docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
  -v /home/lizmap_project:/home \
  -v /home/lizmap_var:/var/www/websig/lizmap/var \
  -v /home/lizmap_tmp:/tmp \
- jancelin/docker-lizmap 
+ jancelin/docker-lizmap:3-2.14LTR
  ``` 
 
 ____________________________________________________________________________________

@@ -56,6 +56,9 @@ http://"ip"/websig/lizmap/www/admin.php
 
 ![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
 
+
+* for show lizmap demo Montpellier add **/var/www/websig/lizmap/install/qgis**
+
 * http://docs.3liz.com/fr/ 
 
 

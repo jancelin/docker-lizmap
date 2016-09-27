@@ -1,7 +1,7 @@
 docker-lizmap 
 =============
 
-(lizmap-web-client-3.0.2 and qgis-server 2.16.2 inside)
+(lizmap-web-client-3.0.3 and qgis-server 2.16.2 inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
@@ -88,8 +88,4 @@ http://docs.3liz.com/
 http://www.3liz.com/
 
 ![3_liz](http://www.3liz.com/assets/img/architecture.png)
-____________________________________________________________________________________
 
-Julien ANCELIN ( julien.ancelin@inra.fr) 2016 INRA 
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

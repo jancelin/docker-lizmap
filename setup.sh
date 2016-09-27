@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# unzip lizmap 3.0.2
-unzip /var/www/3.0.2.zip -d /var/www/
-mv /var/www/lizmap-web-client-3.0.2/ /var/www/websig/
-rm /var/www/3.0.2.zip
+# unzip lizmap 3.0.3
+unzip /var/www/3.0.3.zip -d /var/www/
+mv /var/www/lizmap-web-client-3.0.3/ /var/www/websig/
+rm /var/www/3.0.3.zip
 # Set rights & active config
 chmod +x /var/www/websig/lizmap/install/set_rights.sh
 /var/www/websig/lizmap/install/set_rights.sh www-data www-data

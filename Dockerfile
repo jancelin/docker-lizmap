@@ -42,6 +42,7 @@ RUN chmod +x /setup.sh
 RUN /setup.sh
 # link volume lizmap_config persistent data host  if "-v /home/lizmap_var:/var/www/websig/lizmap/var" on docker run
 VOLUME  /var/www/websig/lizmap/var
+VOLUME  /tmp
 #add a redirection for just call the ip
 ADD index.html /var/www/index.html
 #rajoute nos projections perso à qgis-server

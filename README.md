@@ -17,6 +17,7 @@ Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for oper
 mkdir /home/lizmap_var
 mkdir /home/lizmap_project 
 mkdir /home/lizmap_tmp
+chown :www-data -R /home/lizmap_tmp && chmod 775 -R /home/lizmap_tmp
 ```
 
 * Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)

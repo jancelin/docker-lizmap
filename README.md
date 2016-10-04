@@ -26,7 +26,11 @@ chown :www-data -R /home/lizmap_tmp && chmod 775 -R /home/lizmap_tmp
 2. To build the image do :
 
 ```		
-docker pull jancelin/docker-lizmap 		
+docker pull jancelin/docker-lizmap:3-2.14LTR
+```	
+or
+```	
+docker pull jancelin/docker-lizmap:latest 		
 ```		
 
  you can build an image from Github, we can see what happens during installation:

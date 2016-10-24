@@ -1,23 +1,7 @@
-
-
-For testing, no persitent config data, working with lizmap-plugin-master:
-
-```docker pull jancelin/docker-lizmap-master```
-
-and running :
-
-```docker run --restart="always" --name "lizmap3" -p 8081:80 -d -t -v /"your_.qgs_.cfg.qgs_folder":/home:ro jancelin/docker-lizmap-master```
-
-ip:8081/websig/lizmap/www/admin.php
-
-in admin lizmap : link folder /home/
-
-look at:
-ip:8081/websig/lizmap/www
-
-
+docker-lizmap 
 =============
 
+(lizmap-web-client-3.0.3 and qgis-server 2.16.2 inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
@@ -26,6 +10,65 @@ This image contains a WebGIS server:
 Apache, qgis-mapsever, lizmap-web-client, and all dependencies required for operation
 
 
+1. Before the first running :  
+
+* Create folder for persistent data, config and cache
+```
+mkdir /home/lizmap_var
+mkdir /home/lizmap_project 
+mkdir /home/lizmap_tmp
+chown :www-data -R /home/lizmap_tmp && chmod 775 -R /home/lizmap_tmp
+```
+
+* Copy files .qgs et .qgs.cfg in /home/lizmap_project (you can do after)
+
+
+2. To build the image do :
+
+```		
+docker pull jancelin/docker-lizmap:3-2.14LTR
+```	
+or
+```	
+docker pull jancelin/docker-lizmap:3.0.3-2.16.2 		
+```		
+
+ you can build an image from Github, we can see what happens during installation:
+
+```
+docker build -t jancelin/docker-lizmap git://github.com/jancelin/docker-lizmap
+```
+
+* start container
+
+ ``` 
+ docker run --restart="always" --name "lizmap" -p 80:80 -d -t \
+ -v /home/lizmap_project:/home \
+ -v /home/lizmap_var:/var/www/websig/lizmap/var \
+ -v /home/lizmap_tmp:/tmp \
+ jancelin/docker-lizmap 
+ ``` 
+
+____________________________________________________________________________________
+
+* If first install, config lizmap backoffice:
+
+```
+http://"ip"/websig/lizmap/www/admin.php
+```
+
+* Add **/home/** for looking your geo projects
+
+![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
+
+
+* for show lizmap demo Montpellier add **/var/www/websig/lizmap/install/qgis**
+
+* http://docs.3liz.com/fr/ 
+
+
+
+=============
 
 
 Docker Commandes:
@@ -43,12 +86,6 @@ Docker Commandes:
 * .... ---> https://docs.docker.com/userguide/
 ____________________________________________________________________________________
 
-> example of server architecture
-
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/7345474/3f403ca0-ecd5-11e4-8675-714fb9388863.jpg)
-
-____________________________________________________________________________________
-
 Lizmap Web Application generates dynamically a web map application (php/html/css/js) with the help of Qgis Server ( QGIS Server Tutorial ). You can configure one web map per Qgis project with the QGIS LizMap Plugin.
 
 http://docs.3liz.com/
@@ -56,8 +93,4 @@ http://docs.3liz.com/
 http://www.3liz.com/
 
 ![3_liz](http://www.3liz.com/assets/img/architecture.png)
-____________________________________________________________________________________
 
-Julien ANCELIN ( julien.ancelin@stlaurent.lusignan.inra.fr) 04/2015 INRA 
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>

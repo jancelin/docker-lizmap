@@ -1,34 +1,20 @@
 #!/bin/bash
 
-
-unzip /var/www/master.zip -d /var/www/
-mv /var/www/lizmap-web-client-master/ /var/www/websig/
-rm /var/www/master.zip
-
- chmod +x /var/www/websig/lizmap/install/set_rights.sh
- /var/www/websig/lizmap/install/set_rights.sh www-data www-data
- 
- cd /var/www/websig/lizmap/var/config
-cp lizmapConfig.ini.php.dist lizmapConfig.ini.php
-cp localconfig.ini.php.dist localconfig.ini.php
-cp profiles.ini.php.dist profiles.ini.php
-cd ../../..
- 
- php /var/www/websig/lizmap/install/installer.php
-
-mkdir /home2  
-rm /var/www/websig/lizmap/var/db/jauth.db /var/www/websig/lizmap/var/db/logs.db /var/www/websig/lizmap/var/config/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/installer.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
-touch /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php /home2/profiles.ini.php /home2/localconfig.ini.php
-ln -s /home2/jauth.db /var/www/websig/lizmap/var/db/jauth.db
-ln -s /home2/logs.db /var/www/websig/lizmap/var/db/logs.db
-ln -s /home2/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
-ln -s /home2/installer.ini.php /var/www/websig/lizmap/var/config/installer.ini.php
-ln -s /home2/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
-ln -s /home2/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
-
-rm -R /home2/jauth.db /home2/logs.db /home2/lizmapConfig.ini.php /home2/installer.ini.php /home2/profiles.ini.php /home2/localconfig.ini.php 
-
-sudo /var/www/websig/lizmap/install/set_rights.sh
-sudo /var/www/websig/lizmap/install/clean_vartmp.sh
-
+# unzip lizmap 3.0.3
+unzip /var/www/3.0.3.zip -d /var/www/
+mv /var/www/lizmap-web-client-3.0.3/ /var/www/websig/
+rm /var/www/3.0.3.zip
+# Set rights & active config
+chmod +x /var/www/websig/lizmap/install/set_rights.sh
+/var/www/websig/lizmap/install/set_rights.sh www-data www-data
+cp /var/www/websig/lizmap/var/config/lizmapConfig.ini.php.dist /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
+cp /var/www/websig/lizmap/var/config/localconfig.ini.php.dist /var/www/websig/lizmap/var/config/localconfig.ini.php
+cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
+#  Installer
 php /var/www/websig/lizmap/install/installer.php
+# Set rights
+chown :www-data  /var/www/websig/lizmap/www -R
+chmod 775  /var/www/websig/lizmap/www -R
+chown :www-data /var/www/websig/lizmap/var -R
+chmod 775  /var/www/websig/lizmap/var -R &&
+cp -avr /var/www/websig/lizmap/var var/www/websig/lizmap/var_install

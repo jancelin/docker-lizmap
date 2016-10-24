@@ -37,8 +37,8 @@ ENV PGSERVICEFILE /etc/pg_service.conf
 # Download & unzip
 ADD https://github.com/3liz/lizmap-web-client/archive/master.zip /var/www/
 # download setup.sh and play it for install lizmap3
-ADD setup.sh /setup.sh
-RUN chmod +x /setup.sh
+ADD setup.sh /media/setup.sh
+RUN chmod +x /media/setup.sh
 RUN /setup.sh
 # link volume lizmap_config persistent data host  if "-v /home/lizmap_var:/var/www/websig/lizmap/var" on docker run
 VOLUME  /var/www/websig/lizmap/var
@@ -50,7 +50,7 @@ RUN wget https://github.com/jancelin/docker-lizmap/files/99407/srs.db.zip
 RUN unzip srs.db.zip
 RUN cp srs.db usr/share/qgis/resources/
 #add start.sh on first install, generate config file: ~/lizmap/var
-ADD start.sh /start.sh
-RUN chmod 0755 /start.sh
+ADD start.sh /media/start.sh
+RUN chmod 0755 /media/start.sh
 # Now launch apache in the foreground
-CMD /start.sh
+CMD /media/start.sh

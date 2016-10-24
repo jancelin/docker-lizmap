@@ -30,7 +30,7 @@ docker pull jancelin/docker-lizmap:3-2.14LTR
 ```	
 or
 ```	
-docker pull jancelin/docker-lizmap:3.0.3-2.16.2 		
+docker pull jancelin/docker-lizmap:latest 		
 ```		
 
  you can build an image from Github, we can see what happens during installation:

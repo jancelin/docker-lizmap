@@ -1,7 +1,7 @@
 docker-lizmap 
 =============
 
-(lizmap-web-client-3.0.3 and qgis-server LTR 2.14.x inside)
+(lizmap-web-client-3.0.7 and qgis-server LTR 2.14.x inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 

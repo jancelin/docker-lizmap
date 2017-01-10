@@ -45,10 +45,6 @@ VOLUME  /var/www/websig/lizmap/var
 VOLUME  /tmp
 #add a redirection for just call the ip
 ADD index.html /var/www/index.html
-#rajoute nos projections perso à qgis-server
-RUN wget https://github.com/jancelin/docker-lizmap/files/99407/srs.db.zip
-RUN unzip srs.db.zip
-RUN cp srs.db usr/share/qgis/resources/
 #add start.sh on first install, generate config file: ~/lizmap/var
 ADD start.sh /media/start.sh
 RUN chmod 0755 /media/start.sh

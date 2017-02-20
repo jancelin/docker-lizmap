@@ -26,7 +26,7 @@ chown :www-data -R /home/lizmap_tmp && chmod 775 -R /home/lizmap_tmp
 2. To build the image do :
 
 ```		
-docker pull jancelin/docker-lizmap:3-2.14LTR
+docker pull jancelin/docker-lizmap:3.1-2.14LTR
 ```		
 
 * start container

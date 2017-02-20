@@ -1,7 +1,7 @@
 docker-lizmap 
 =============
 
-(lizmap-web-client-3.0.7 and qgis-server LTR 2.14.x inside)
+(lizmap-web-client-3.1rc1 and qgis-server LTR 2.14.x inside)
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/4627293/b7a0a594-5389-11e4-909b-916039a16981.png)
 
@@ -36,7 +36,7 @@ docker pull jancelin/docker-lizmap:3-2.14LTR
  -v /home/lizmap_project:/home \
  -v /home/lizmap_var:/var/www/websig/lizmap/var \
  -v /home/lizmap_tmp:/tmp \
- jancelin/docker-lizmap:3-2.14LTR
+ jancelin/docker-lizmap:3.1-2.14LTR
  ``` 
 
 ____________________________________________________________________________________

@@ -48,5 +48,13 @@ ADD index.html /var/www/index.html
 #add start.sh on first install, generate config file: ~/lizmap/var
 ADD start.sh /media/start.sh
 RUN chmod 0755 /media/start.sh
+#add https
+EXPOSE 443
+RUN mkdir /etc/apache2/ssl
+RUN apt-get -t jessie install -y  ssl-cert
+RUN /usr/sbin/make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem
+RUN /usr/sbin/a2ensite default-ssl
+RUN /usr/sbin/a2enmod ssl
+ADD apache_https.conf /etc/apache2/sites-enabled/default-ssl.conf
 # Now launch apache in the foreground
 CMD /media/start.sh

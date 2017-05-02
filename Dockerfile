@@ -35,7 +35,7 @@ ADD pg_service.conf /etc/pg_service.conf
 ENV PGSERVICEFILE /etc/pg_service.conf
 #-----------------install lizmap-web-client-------------------------------
 # Download & unzip
-ADD https://github.com/3liz/lizmap-web-client/archive/3.1.0.zip /var/www/
+ADD https://github.com/3liz/lizmap-web-client/archive/3.1.1.zip /var/www/
 # download setup.sh and play it for install lizmap3
 ADD setup.sh /setup.sh
 RUN chmod +x /setup.sh

@@ -1,4 +1,4 @@
-raspberry pi docker-lizmap 
+docker-lizmap 
 =============
 
 ![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)

@@ -1,0 +1,25 @@
+version: '2'
+services:
+
+#---Lizmap & Qgis-server-------------
+
+  lizmap:
+    image: jancelin/docker-lizmap:3.1.1-0.1
+    restart: always
+    ports:
+     - 80:80
+     - 443:443
+    volumes:
+     - /home/GeoPoppy/lizmap/project:/home
+     - /home/GeoPoppy/lizmap/project/var:/var/www/websig/lizmap/var
+     - /home/GeoPoppy/lizmap/project/tmp:/tmp
+    links:
+     - qgiserver:qgiserver
+
+  qgiserver:
+    image: jancelin/qgis-server:2.14LTR-0.1
+    restart: always
+    volumes:
+      - /home/GeoPoppy/lizmap/project:/home
+    expose:
+      - 80

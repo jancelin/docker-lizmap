@@ -1,7 +1,7 @@
 docker-lizmap 
 =============
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/5647770/4ac27af4-9689-11e4-809a-dce0c2d60b1c.png)
+![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/25778701/68e9a536-3306-11e7-9196-84247b04eb92.png)
 __________________________________________________________________
 
 LizMap est une solution complète de publication de cartes QGIS sur Internet.
@@ -103,5 +103,7 @@ ________________________________________________________________________________
 
 Julien ANCELIN ( julien.ancelin@inra.fr) 2017
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+<img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+</a>
 

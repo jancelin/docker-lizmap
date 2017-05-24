@@ -10,9 +10,9 @@ services:
      - 80:80
      - 443:443
     volumes:
-     - /home/GeoPoppy/lizmap/project:/home
-     - /home/GeoPoppy/lizmap/project/var:/var/www/websig/lizmap/var
-     - /home/GeoPoppy/lizmap/project/tmp:/tmp
+     - /home/lizmap/lizmap_project:/home
+     - /home/lizmap/lizmap_var:/var/www/websig/lizmap/var
+     - /home/lizmap/tmp:/tmp
     links:
      - qgiserver:qgiserver
 
@@ -21,6 +21,6 @@ services:
     image: jancelin/qgis-server:2.14LTR-0.1
     restart: always
     volumes:
-      - /home/GeoPoppy/lizmap/project:/home
+      - /home/lizmap/lizmap_project:/home
     expose:
       - 80

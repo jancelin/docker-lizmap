@@ -42,7 +42,7 @@ services:
      - qgiserver:qgiserver
 
   qgiserver:
-    image: jancelin/qgis-server:2.14LTR-0.1
+    image: jancelin/qgis-server:2.14LTR-wfsOutputExtension
     restart: always
     volumes:
       - /home/GeoPoppy/lizmap/project:/home

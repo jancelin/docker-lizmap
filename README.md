@@ -75,7 +75,7 @@ services:
     image: jancelin/2.14LTR-wfsOutputExtension
     restart: always
     volumes:
-      - /home/GeoPoppy/lizmap/project:/home
+      - /home/lizmap/project:/home
     expose:
       - 80
 ```

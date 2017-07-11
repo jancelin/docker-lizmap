@@ -13,13 +13,13 @@ ____________________________________________________________________
 Build image
 -----------
 
-* To build qgis-server with Docker on a PC,server
+* To build lizmap with Docker on a PC,server
 
 ```
 docker build -t "lizmap" https://github.com/jancelin/docker-lizmap.git#3.1.1-0.1:/ -f Dockerfile
 ```
 
-* To build qgis-server with Docker on a Raspberry Pi
+* To build lizmap with Docker on a Raspberry Pi
 
 ```
 docker build -t "lizmap" https://github.com/jancelin/docker-lizmap.git#3.1.1-0.1:/ -f Dockerfile.raspberry

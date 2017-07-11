@@ -10,7 +10,37 @@ LizMap is a complete Internet QGIS map publishing.
 
 ____________________________________________________________________
 
-With Docker-compose:
+Build image
+-----------
+
+* To build qgis-server with Docker on a PC,server
+
+```
+docker build -t "lizmap" https://github.com/jancelin/docker-lizmap.git#3.1.1-0.1:/ -f Dockerfile
+```
+
+* To build qgis-server with Docker on a Raspberry Pi
+
+```
+docker build -t "lizmap" https://github.com/jancelin/docker-lizmap.git#3.1.1-0.1:/ -f Dockerfile.raspberry
+```
+
+Or Pull from DockerHub
+----------------------
+
+* PC
+```
+docker pull jancelin/docker-lizmap:3.1.1-0.1
+```
+
+* Raspberry
+
+```
+docker pull jancelin/geopoppy:lizmap-3.1.1
+```
+
+With Docker-compose
+-------------------
 
 * Create folders for persistent data and config
 ```
@@ -20,7 +50,7 @@ mkdir /home/lizmap/tmp
 chown :www-data -R /home/lizmap
 ```
 
-* Create a docker-compose.yml:
+* Create a docker-compose.yml for PC:
 
 ```
 version: '2'
@@ -42,13 +72,46 @@ services:
      - qgiserver:qgiserver
 
   qgiserver:
-    image: jancelin/qgis-server:2.14LTR-0.1
+    image: jancelin/2.14LTR-wfsOutputExtension
     restart: always
     volumes:
       - /home/GeoPoppy/lizmap/project:/home
     expose:
       - 80
 ```
+
+* Create a docker-compose.yml for Raspberry Pi
+
+
+```
+version: '2'
+services:
+#---WEBSIG-------------------------------------
+  lizmap:
+    image: jancelin/geopoppy:lizmap-3.1.1
+    restart: always
+    ports:
+     - 80:80
+     - 443:443
+    volumes:
+     - /home/lizmap/project:/home
+     - /home/lizmap/project/var:/var/www/websig/lizmap/var
+     - /home/lizmap/project/tmp:/tmp
+    links:
+     - qgiserver:qgiserver
+##Change l'URL WMS in Lizmap back-office: http://qgiserver/cgi-bin/qgis_mapserv.fcgi
+
+  qgiserver:
+    image: jancelin/geopoppy:qgis-server2.14LTR-0.2
+    restart: always
+    volumes:
+      - /home/lizmap/project:/home
+    expose:
+      - 80
+
+```
+
+
 * UP
 
 ```

@@ -4,22 +4,28 @@ services:
 #---Lizmap & Qgis-server-------------
 
   lizmap:
+    #PC
     image: jancelin/docker-lizmap:3.1.1-0.1
+    #Raspberry Pi
+    #image: jancelin/geopoppy:lizmap-3.1.1
     restart: always
     ports:
      - 80:80
      - 443:443
     volumes:
-     - /home/GeoPoppy/lizmap/project:/home
-     - /home/GeoPoppy/lizmap/project/var:/var/www/websig/lizmap/var
-     - /home/GeoPoppy/lizmap/project/tmp:/tmp
+     - /home/lizmap/project:/home
+     - /home/lizmap/project/var:/var/www/websig/lizmap/var
+     - /home/lizmap/project/tmp:/tmp
     links:
      - qgiserver:qgiserver
 
   qgiserver:
-    image: jancelin/qgis-server:2.14LTR-0.1
+    #PC
+    image: jancelin/qgis-server:2.14LTR-wfsOutputExtension
+    #Raspberry Pi
+    #image: jancelin/geopoppy:qgis-server2.14LTR-0.2
     restart: always
     volumes:
-      - /home/GeoPoppy/lizmap/project:/home
+      - /home/lizmap/project:/home
     expose:
       - 80

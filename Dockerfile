@@ -12,12 +12,12 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-##ENV LIZMAPVERSION master
+ENV LIZMAPVERSION master-edition-32
 
 COPY files/ /home/files/
 
 ##ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
-ADD https://github.com/rldhont/lizmap-web-client/archive/master-edition-32.zip /var/www/
+ADD https://github.com/rldhont/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
 RUN /home/files/setup.sh
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 

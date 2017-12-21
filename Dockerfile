@@ -5,7 +5,7 @@ MAINTAINER Julien Ancelin / docker-lizmap
 RUN apt-get -y update \
     && apt-get install -y  python-simplejson software-properties-common xauth htop vim curl ntp ntpdate ssl-cert\ 
     apache2 apache2-bin apache2-data libapache2-mod-fcgid libapache2-mod-php php-xmlrpc \
-    php php-cgi php-gd php-sqlite php-curl php-xmlrpc php-common php-cli php-pgsql unzip \
+    php php-cgi php-gd php-sqlite3 php-curl php-xmlrpc php-common php-cli php-pgsql unzip \
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
     

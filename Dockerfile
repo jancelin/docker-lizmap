@@ -1,5 +1,5 @@
 
-FROM debian:jessie-slim
+FROM debian:strectch-slim
 MAINTAINER Julien Ancelin / docker-lizmap 
 
 RUN apt-get -y update \

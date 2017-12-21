@@ -1,4 +1,4 @@
-FROM resin/rpi-raspbian:latest
+FROM resin/rpi-raspbian:jessie
 MAINTAINER Julien Ancelin / rpi-docker-lizmap 
 
 RUN apt-get -y update \

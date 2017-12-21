@@ -12,7 +12,8 @@ RUN apt-get -y update \
 RUN a2dismod php7.0; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     2enmod deflate; a2enmod php7.0
 
-ENV LIZMAPVERSION  master #attribute_table_fixed_header
+ENV LIZMAPVERSION  master
+#attribute_table_fixed_header
 
 COPY files/ /home/files/
 

@@ -9,8 +9,8 @@ RUN apt-get -y update \
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
     
-RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
-    a2enmod deflate; a2enmod php5
+RUN a2dismod php; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
+    a2enmod deflate; a2enmod php
 
 ENV LIZMAPVERSION attribute_table_fixed_header
 

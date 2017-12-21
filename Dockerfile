@@ -1,5 +1,5 @@
 
-FROM debian:strectch-slim
+FROM debian:stretch-slim
 MAINTAINER Julien Ancelin / docker-lizmap 
 
 RUN apt-get -y update \

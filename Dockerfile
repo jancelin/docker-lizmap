@@ -12,13 +12,13 @@ RUN apt-get -y update \
 RUN a2dismod php7.0; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     2enmod deflate; a2enmod php7.0
 
-ENV LIZMAPVERSION attribute_table_fixed_header
+ENV LIZMAPVERSION  master #attribute_table_fixed_header
 
 COPY files/ /home/files/
 
-##ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
+ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
 ##ADD https://github.com/rldhont/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
-ADD https://github.com/mdouchin/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
+##ADD https://github.com/mdouchin/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
 RUN /home/files/setup.sh
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 

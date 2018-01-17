@@ -12,35 +12,10 @@ ____________________________________________________________________
 
 With Docker-compose:
 
-* Create a docker-compose.yml by changing the directory path if necessary (home/lizmap/lizmap_project):
+* Create a docker-compose.yml and changing the directory path if necessary (home/lizmap/lizmap_project):
 
-```
-version: '2'
-services:
+https://github.com/jancelin/docker-lizmap/blob/master/docker-compose.yml
 
-#---Lizmap & Qgis-server-------------
-
-  lizmap:
-    image: jancelin/docker-lizmap:3.1.1-0.1
-    restart: always
-    ports:
-     - 80:80
-     - 443:443
-    volumes:
-     - /home/lizmap/lizmap_project:/home
-     - /home/lizmap/lizmap_var:/var/www/websig/lizmap/var
-     - /home/lizmap/tmp:/tmp
-    links:
-     - qgiserver:qgiserver
-
-  qgiserver:
-    image: jancelin/qgis-server:2.14LTR-wfsOutputExtension
-    restart: always
-    volumes:
-      - /home/GeoPoppy/lizmap/project:/home
-    expose:
-      - 80
-```
 * UP
 
 ```

@@ -12,15 +12,7 @@ ____________________________________________________________________
 
 With Docker-compose:
 
-* Create folders for persistent data and config
-```
-mkdir /home/lizmap/lizmap_var
-mkdir /home/lizmap/lizmap_project
-mkdir /home/lizmap/tmp
-chown :www-data -R /home/lizmap
-```
-
-* Create a docker-compose.yml:
+* Create a docker-compose.yml by changing the directory path if necessary (home/lizmap/lizmap_project):
 
 ```
 version: '2'
@@ -35,7 +27,7 @@ services:
      - 80:80
      - 443:443
     volumes:
-     - /home/lizmap/lizmap_project :/home
+     - /home/lizmap/lizmap_project:/home
      - /home/lizmap/lizmap_var:/var/www/websig/lizmap/var
      - /home/lizmap/tmp:/tmp
     links:
@@ -58,7 +50,7 @@ docker-compose up -d
 * Now config lizmap on web :
 
 ```
-http://ip/websig/lizmap/www/admin.php
+http://ip/websig/lizmap/www/admin.php/config
 ```
 * change URL WMS: 
 

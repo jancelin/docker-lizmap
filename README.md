@@ -37,28 +37,7 @@ http://ip/websig/lizmap/www/admin.php/config
 
 * http://docs.3liz.com/fr/ 
 
-
-____________________________________________________________________________________
-
-Lizmap working with your data and config at : 
-
-```
-http://"your_ip_rpi_wifi_serveur"
-```
-exemple for me: http://172.24.1.1
-
-or
-```
-http://"your_ip_rpi_wifi_serveur"/websig/lizmap/www/
-```
-lizmap admin at 
-```
-http://"your_ip_rpi_wifi_serveur"/websig/lizmap/www/admin.php
-```
-
-Use https for the location
-
-____________________________________________________________________________________
+-------------------------------
 
 Lizmap Web Application generates dynamically a web map application (php/html/css/js) with the help of Qgis Server ( QGIS Server Tutorial ). You can configure one web map per Qgis project with the QGIS LizMap Plugin.
 

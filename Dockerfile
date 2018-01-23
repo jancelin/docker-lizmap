@@ -21,5 +21,10 @@ RUN /home/files/setup.sh
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
 EXPOSE 80 443
+
+RUN wget https://github.com/jancelin/docker-lizmap/files/99407/srs.db.zip
+RUN unzip srs.db.zip
+RUN cp srs.db usr/share/qgis/resources/
+
 CMD /start.sh
 

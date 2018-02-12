@@ -5,7 +5,7 @@ services:
 
   lizmap:
     #PC
-    image: jancelin/docker-lizmap:3.1.5
+    image: jancelin/docker-lizmap:3.1.6
     #Raspberry Pi
     #image: jancelin/geopoppy:lizmap-master
     restart: always

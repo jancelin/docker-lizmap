@@ -2,7 +2,6 @@
 FROM debian:stretch-slim
 MAINTAINER Julien Ancelin / docker-lizmap 
 
-RUN locale-gen fr_FR.UTF-8 && dpkg-reconfigure locales
 RUN apt-get -y update \
     && apt-get -t jessie install -y  python-simplejson python-software-properties xauth htop vim curl ntp ntpdate ssl-cert\ 
     apache2 apache2-mpm-worker apache2-mpm-prefork apache2-bin apache2-data libapache2-mod-fcgid libapache2-mod-php7.0 \

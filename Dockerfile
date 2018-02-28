@@ -1,5 +1,5 @@
 
-FROM debian:strech-slim
+FROM debian:stretch-slim
 MAINTAINER Julien Ancelin / docker-lizmap 
 
 RUN locale-gen fr_FR.UTF-8 && dpkg-reconfigure locales

@@ -1,5 +1,5 @@
 
-FROM debian:jessie-slim
+FROM debian:jessie
 MAINTAINER Julien Ancelin / docker-lizmap 
 
 RUN apt-get -y update \
@@ -10,7 +10,7 @@ RUN apt-get -y update \
     && rm -r /var/lib/apt/lists/*
     
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
-a2enmod deflate; a2enmod php5
+    a2enmod deflate; a2enmod php5
 
 ENV LIZMAPVERSION master
 
@@ -22,4 +22,3 @@ RUN /home/files/setup.sh
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
 EXPOSE 80 443
 CMD /start.sh
-

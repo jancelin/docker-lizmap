@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -x 
 
 mkdir /etc/apache2/ssl 

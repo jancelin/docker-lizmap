@@ -9,6 +9,9 @@ if [ ! -d $VAR ]; then
   cp -avr /var/www/websig/lizmap/var_install/*  /var/www/websig/lizmap/var
 fi
 
+# add qgis project
+cp /home/files/qgis/* /home
+
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2/apache2.pid
 

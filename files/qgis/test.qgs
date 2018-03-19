@@ -34,10 +34,10 @@
   <mapcanvas>
     <units>meters</units>
     <extent>
-      <xmin>426425.90567436936544254</xmin>
-      <ymin>6558041.37829950731247663</ymin>
-      <xmax>456633.38487184763653204</xmax>
-      <ymax>6584748.41999341454356909</ymax>
+      <xmin>434152.38028670288622379</xmin>
+      <ymin>6567490.60662522912025452</ymin>
+      <xmax>446014.38216976262629032</xmax>
+      <ymax>6577978.04176649451255798</ymax>
     </extent>
     <rotation>0</rotation>
     <projections>1</projections>
@@ -160,12 +160,12 @@
           <widgetv2config IsMultiline="0" fieldEditable="1" constraint="" UseHtml="0" labelOnTop="0" constraintDescription="" notNull="0"/>
         </edittype>
       </edittypes>
-      <renderer-v2 forceraster="0" weight_expression="nom_francais" radius="800" quality="3" radius_map_unit_scale="0,0,0,0,0,0" max_value="0" invert_ramp="0" type="heatmapRenderer" radius_unit="1" enableorderby="0">
+      <renderer-v2 forceraster="0" weight_expression="cla_moy_gps" radius="1500" quality="3" radius_map_unit_scale="0,0,0,0,0,0" max_value="0" invert_ramp="0" type="heatmapRenderer" radius_unit="1" enableorderby="0">
         <colorramp type="gradient" name="[source]">
           <prop k="color1" v="33,51,122,0"/>
           <prop k="color2" v="239,230,242,255"/>
           <prop k="discrete" v="0"/>
-          <prop k="stops" v="0.0913462;18,181,182,108:0.168269;1,251,255,255:0.269231;1,251,255,255:0.356971;1,255,69,255:0.466346;166,255,1,255:0.561298;243,255,1,255:0.632212;255,171,1,255:0.715144;255,94,1,255:0.774038;255,1,77,255:0.855769;255,1,204,255:0.950721;184,1,230,255"/>
+          <prop k="stops" v="0.0913462;18,181,182,255:0.168269;1,251,255,255:0.269231;1,251,255,255:0.356971;1,255,69,255:0.466346;166,255,1,255:0.561298;243,255,1,255:0.632212;255,171,1,255:0.715144;255,94,1,255:0.774038;255,1,77,255:0.855769;255,1,204,255:0.950721;184,1,230,255"/>
         </colorramp>
       </renderer-v2>
       <labeling type="simple"/>

@@ -10,10 +10,7 @@ if [ ! -d $VAR ]; then
 fi
 
 # add qgis project
-QGIS="/home"
-if [ ! -d $QGIS ]; then
   cp /home/files/qgis/* /home
-fi
 
 # Apache gets grumpy about PID files pre-existing
 rm -f /var/run/apache2/apache2.pid

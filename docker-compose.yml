@@ -1,26 +1,81 @@
-version: '3'
+
+version: '3.2'
 services:
-
-#---Lizmap & Qgis-server-------------
-
   lizmap:
-    image: jancelin/docker-lizmap:3.1.8
-    restart: always
+    image: jancelin/docker-lizmap:3.1.11
+    restart: on-failure
     ports:
      - 80:80
      - 443:443
     volumes:
-     - /home/lizmap/lizmap_project:/home
-     - /home/lizmap/lizmap_var:/var/www/websig/lizmap/var
-     - /home/lizmap/tmp:/tmp
+     - project:/home
+     - var:/var/www/websig/lizmap/var
+    depends_on:
+      - postgis
+      - qgiserver
+      - redis
     links:
      - qgiserver:qgiserver
-
-##Pensez à changer l'URL WMS dans le back-office de lizmap: http://qgiserver/cgi-bin/qgis_mapserv.fcgi
+     - redis:redis
+     
   qgiserver:
     image: jancelin/qgis-server:2.18LTR
-    restart: always
+    restart: on-failure
     volumes:
-      - /home/lizmap/lizmap_project:/home
+      - project:/home
     expose:
       - 80
+      
+  redis:
+    image: redis:alpine
+    restart: on-failure
+    volumes:
+      - redis:/data
+    expose:
+      - 6379
+
+  postgis:
+    image: jancelin/postgisgeo
+    restart: on-failure
+    ports:
+      - 5432:5432
+    expose:
+      - 5432
+    volumes:
+      - postgres:/var/lib/postgresql
+    environment:
+      - ALLOW_IP_RANGE=0.0.0.0/0
+      
+  pgadmin4:
+    image: chorss/docker-pgadmin4
+    restart: on-failure
+    ports:
+      - 5050:5050
+    volumes:
+      - pgadmin4:/data
+      
+  portainer:
+    image: portainer/portainer
+    restart: always
+    ports:
+     - 9000:9000
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - portainer:/data
+     
+  cloud:
+    image: coderaiser/cloudcmd
+    restart: always
+    ports:
+      - 8000:8000
+    volumes:
+#      - ~:/root
+      - project:/mnt/fs
+     
+volumes:
+   portainer:
+   pgadmin4:
+   postgres:
+   redis:
+   var:
+   project:

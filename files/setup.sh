@@ -28,6 +28,8 @@ cp /home/files/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig
 cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
 #  Installer
 php /var/www/websig/lizmap/install/installer.php
+#change jauth.db
+cp /home/files/jauth.db /var/www/websig/lizmap/var/db/jauth.db
 # Set rights
 chown :www-data  /var/www/websig/lizmap/www -R
 chmod 775  /var/www/websig/lizmap/www -R

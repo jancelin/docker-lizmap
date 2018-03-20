@@ -9,8 +9,6 @@ if [ ! -d $VAR ]; then
   cp -avr /var/www/websig/lizmap/var_install/*  /var/www/websig/lizmap/var
 fi
 
-# add qgis project
-  cp /home/files/qgis/* /home
 #set-rights
   /var/www/websig/lizmap/install/set_rights.sh www-data www-data
 

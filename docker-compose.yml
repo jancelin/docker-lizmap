@@ -35,7 +35,7 @@ services:
       - 6379
 
   postgis:
-    image: jancelin/postgisgeo:1.0
+    image: jancelin/postgisgeo:1.1
     restart: on-failure
     ports:
       - 5432:5432

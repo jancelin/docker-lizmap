@@ -33,7 +33,7 @@ services:
     expose:
       - 6379
 
- postgis:
+  postgis:
     image: kartoza/postgis:10.0-2.4
     ports:
       - 5432:5432

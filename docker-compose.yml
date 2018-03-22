@@ -76,7 +76,7 @@ services:
     volumes:
 #      - ~:/root
       - project:/mnt/fs
-     
+
 volumes:
    portainer:
    pgadmin4:

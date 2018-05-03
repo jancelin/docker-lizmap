@@ -12,7 +12,7 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-ENV LIZMAPVERSION 3.1.11
+ENV LIZMAPVERSION 3.2beta1
 
 COPY files/ /home/files/
 

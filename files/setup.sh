@@ -15,8 +15,7 @@ mv /home/files/apache.conf /etc/apache2/sites-available/000-default.conf
 mv /home/files/index.html /var/www/index.html     
 mv /home/files/start.sh /start.sh
 chmod 0755 /start.sh
-mv /home/files/xvfb.service && chmod +x /etc/systemd/system/xvfb.service && systemctl enable xvfb.service && systemctl start xvfb.service
-    
+
 # unzip lizmap master
 unzip /var/www/$LIZMAPVERSION.zip -d /var/www/
 mv /var/www/lizmap-web-client-$LIZMAPVERSION/ /var/www/websig/

@@ -1,7 +1,7 @@
 version: '3.2'
 services:
   lizmap:
-    image: jancelin/docker-lizmap:release_3_2
+    image: jancelin/docker-lizmap:master
     restart: on-failure
     ports:
      - 80:80

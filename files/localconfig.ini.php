@@ -8,8 +8,15 @@
 ;chmodFile=0664
 ;chmodDir=0775
 
-[coordplugin_auth]
-persistant_crypt_key=soEtG8AOAyDbSUL344zR9ozT0nnd3F
 
-[coordplugins]
-lizmap=lizmapConfig.ini.php
+
+[modules]
+;; uncomment it if you want to use ldap for authentication
+;; see documentation to complete the ldap configuration
+;ldapdao.access=1
+
+
+[coordplugin_auth]
+;; uncomment it if you want to use ldap for authentication
+;; see documentation to complete the ldap configuration
+;driver=ldapdao

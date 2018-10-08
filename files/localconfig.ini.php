@@ -20,3 +20,8 @@
 ;; uncomment it if you want to use ldap for authentication
 ;; see documentation to complete the ldap configuration
 ;driver=ldapdao
+
+[urlengine]
+checkHttpsOnParsing = off
+forceProxyProtocol = https
+

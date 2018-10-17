@@ -1,5 +1,6 @@
 
 #Before crossbuild : docker run --rm --privileged multiarch/qemu-user-static:register --reset
+# lancer le build: docker build  --network=host -t jancelin/geopoppy:lizmap_rpi3_latest ./
 FROM resin/raspberrypi3-debian:jessie
 MAINTAINER Julien Ancelin / docker-lizmap 
 RUN [ "cross-build-start" ]

@@ -32,7 +32,7 @@ cacheRootDirectory="/tmp/"
 ; relativeWMSPath=0
 
 
-appName=Lizmap
+appName=GeoPoppy
 qgisServerVersion=2.18
 wmsMaxWidth=3000
 wmsMaxHeight=3000

@@ -1,6 +1,8 @@
 
-FROM debian:jessie
+#Before crossbuild : docker run --rm --privileged multiarch/qemu-user-static:register --reset
+FROM resin/raspberrypi3-debian:jessie
 MAINTAINER Julien Ancelin / docker-lizmap 
+RUN [ "cross-build-start" ]
 
 RUN apt-get -y update \
     && apt-get -t jessie install -y  python-simplejson python-software-properties xauth htop vim curl ntp ntpdate ssl-cert\ 
@@ -19,6 +21,7 @@ COPY files/ /home/files/
 ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
 RUN /home/files/setup.sh
     
-VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
+VOLUME  ["/var/www/websig/lizmap/var" , "/geopoppy"] 
 EXPOSE 80 443
+RUN [ "cross-build-end" ]
 CMD /start.sh

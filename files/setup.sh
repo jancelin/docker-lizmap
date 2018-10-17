@@ -39,4 +39,4 @@ chmod 775  /var/www/websig/lizmap/var -R
 cp -avr /var/www/websig/lizmap/var var/www/websig/lizmap/var_install
 #install qgis files for lizmap
 mkdir /geopoppy
-copy /home/files/qgis/* /geopoppy/
+cp /home/files/qgis/* /geopoppy/

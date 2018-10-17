@@ -37,3 +37,6 @@ chown :www-data /var/www/websig/lizmap/var -R
 chmod 775  /var/www/websig/lizmap/var -R
 /var/www/websig/lizmap/install/set_rights.sh www-data www-data
 cp -avr /var/www/websig/lizmap/var var/www/websig/lizmap/var_install
+#install qgis files for lizmap
+mkdir /geopoppy
+copy /home/files/qgis/* /geopoppy/

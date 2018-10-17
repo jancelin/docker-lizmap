@@ -4,7 +4,7 @@
 ;Services
 ;list the different map services (servers, generic parameters, etc.)
 [services]
-wmsServerURL="http://qgiserver/cgi-bin/qgis_mapserv.fcgi"
+wmsServerURL="http://map:8080/ows/"
 ;List of URL available for the web client
 onlyMaps=off
 cacheStorageType=redis

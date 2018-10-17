@@ -1,105 +1,107 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="3.0.3-Girona">
-  <title></title>
+<qgis projectname="HW3" version="3.0.3-Girona">
+  <title>HW3</title>
   <autotransaction active="0"/>
   <evaluateDefaultValues active="0"/>
   <trust active="0"/>
   <projectCrs>
     <spatialrefsys>
-      <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
-      <srsid>3857</srsid>
-      <srid>3857</srid>
-      <authid>EPSG:3857</authid>
-      <description>WGS 84 / Pseudo Mercator</description>
-      <projectionacronym>merc</projectionacronym>
-      <ellipsoidacronym>WGS84</ellipsoidacronym>
+      <proj4>+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+      <srsid>145</srsid>
+      <srid>2154</srid>
+      <authid>EPSG:2154</authid>
+      <description>RGF93 / Lambert-93</description>
+      <projectionacronym>lcc</projectionacronym>
+      <ellipsoidacronym>GRS80</ellipsoidacronym>
       <geographicflag>false</geographicflag>
     </spatialrefsys>
   </projectCrs>
   <layer-tree-group>
     <customproperties/>
-    <layer-tree-layer id="var1_67e086a6_d519_4632_836a_ea04f4401bd3" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' table=&quot;public&quot;.&quot;var1&quot; sql=" providerKey="postgres" name="var1" checked="Qt::Checked">
+    <layer-tree-layer id="brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc" name="brouillon_ligne" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' srid=2154 type=LineString table=&quot;public&quot;.&quot;brouillon_ligne&quot; (geom) sql=" providerKey="postgres" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer id="var2_45af1ca0_845a_43a1_a1d1_66ce88c68788" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' table=&quot;public&quot;.&quot;var2&quot; sql=" providerKey="postgres" name="var2" checked="Qt::Checked">
+    <layer-tree-layer id="brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234" name="brouillon_point" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' srid=2154 type=Point table=&quot;public&quot;.&quot;brouillon_point&quot; (geom) sql=" providerKey="postgres" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer id="brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' srid=2154 type=LineString table=&quot;public&quot;.&quot;brouillon_ligne&quot; (geom) sql=" providerKey="postgres" name="brouillon_ligne" checked="Qt::Checked">
+    <layer-tree-layer id="brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b" name="brouillon_poly" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' srid=2154 type=Polygon table=&quot;public&quot;.&quot;brouillon_poly&quot; (geom) sql=" providerKey="postgres" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer id="brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' srid=2154 type=Point table=&quot;public&quot;.&quot;brouillon_point&quot; (geom) sql=" providerKey="postgres" name="brouillon_point" checked="Qt::Checked">
+    <layer-tree-layer id="var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a" name="var1" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' table=&quot;public&quot;.&quot;var1&quot; sql=" providerKey="postgres" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
-    <layer-tree-layer id="brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' srid=2154 type=Polygon table=&quot;public&quot;.&quot;brouillon_poly&quot; (geom) sql=" providerKey="postgres" name="brouillon_poly" checked="Qt::Checked">
+    <layer-tree-layer id="var2_71c9b769_5c72_4beb_ab45_3b676c10f75e" name="var2" expanded="1" source="dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' sslmode=disable key='id' table=&quot;public&quot;.&quot;var2&quot; sql=" providerKey="postgres" checked="Qt::Checked">
       <customproperties/>
     </layer-tree-layer>
     <custom-order enabled="0">
-      <item>brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a</item>
-      <item>brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34</item>
-      <item>brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba</item>
+      <item>brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc</item>
+      <item>brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234</item>
+      <item>brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b</item>
+      <item>var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a</item>
+      <item>var2_71c9b769_5c72_4beb_ab45_3b676c10f75e</item>
     </custom-order>
   </layer-tree-group>
-  <snapping-settings mode="2" tolerance="0" enabled="0" intersection-snapping="0" type="1" unit="2">
+  <snapping-settings type="1" mode="2" intersection-snapping="0" tolerance="0" unit="2" enabled="0">
     <individual-layer-settings>
-      <layer-setting id="brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a" tolerance="0" enabled="0" type="1" units="2"/>
-      <layer-setting id="brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba" tolerance="0" enabled="0" type="1" units="2"/>
-      <layer-setting id="brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34" tolerance="0" enabled="0" type="1" units="2"/>
+      <layer-setting id="brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234" type="1" units="2" tolerance="0" enabled="0"/>
+      <layer-setting id="brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc" type="1" units="2" tolerance="0" enabled="0"/>
+      <layer-setting id="brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b" type="1" units="2" tolerance="0" enabled="0"/>
     </individual-layer-settings>
   </snapping-settings>
   <relations/>
-  <mapcanvas annotationsVisible="1" name="theMapCanvas">
+  <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>meters</units>
     <extent>
-      <xmin>-11407008.96168830990791321</xmin>
-      <ymin>-2035327.03702191822230816</ymin>
-      <xmax>1777361.78653106465935707</xmax>
-      <ymax>12343305.94432789273560047</ymax>
+      <xmin>-6940604.83823502436280251</xmin>
+      <ymin>2051542.0585420299321413</ymin>
+      <xmax>1788990.61396502144634724</xmax>
+      <ymax>10518875.43779450096189976</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
       <spatialrefsys>
-        <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs</proj4>
-        <srsid>3857</srsid>
-        <srid>3857</srid>
-        <authid>EPSG:3857</authid>
-        <description>WGS 84 / Pseudo Mercator</description>
-        <projectionacronym>merc</projectionacronym>
-        <ellipsoidacronym>WGS84</ellipsoidacronym>
+        <proj4>+proj=lcc +lat_1=49 +lat_2=44 +lat_0=46.5 +lon_0=3 +x_0=700000 +y_0=6600000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
+        <srsid>145</srsid>
+        <srid>2154</srid>
+        <authid>EPSG:2154</authid>
+        <description>RGF93 / Lambert-93</description>
+        <projectionacronym>lcc</projectionacronym>
+        <ellipsoidacronym>GRS80</ellipsoidacronym>
         <geographicflag>false</geographicflag>
       </spatialrefsys>
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
   </mapcanvas>
   <legend updateDrawingOrder="true">
-    <legendlayer drawingOrder="-1" open="true" name="var1" checked="Qt::Checked" showFeatureCount="0">
+    <legendlayer open="true" name="brouillon_ligne" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile visible="1" isInOverview="0" layerid="var1_67e086a6_d519_4632_836a_ea04f4401bd3"/>
+        <legendlayerfile layerid="brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc" visible="1" isInOverview="0"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" name="var2" checked="Qt::Checked" showFeatureCount="0">
+    <legendlayer open="true" name="brouillon_point" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile visible="1" isInOverview="0" layerid="var2_45af1ca0_845a_43a1_a1d1_66ce88c68788"/>
+        <legendlayerfile layerid="brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234" visible="1" isInOverview="0"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" name="brouillon_ligne" checked="Qt::Checked" showFeatureCount="0">
+    <legendlayer open="true" name="brouillon_poly" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile visible="1" isInOverview="0" layerid="brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a"/>
+        <legendlayerfile layerid="brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b" visible="1" isInOverview="0"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" name="brouillon_point" checked="Qt::Checked" showFeatureCount="0">
+    <legendlayer open="true" name="var1" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile visible="1" isInOverview="0" layerid="brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34"/>
+        <legendlayerfile layerid="var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a" visible="1" isInOverview="0"/>
       </filegroup>
     </legendlayer>
-    <legendlayer drawingOrder="-1" open="true" name="brouillon_poly" checked="Qt::Checked" showFeatureCount="0">
+    <legendlayer open="true" name="var2" drawingOrder="-1" checked="Qt::Checked" showFeatureCount="0">
       <filegroup open="true" hidden="false">
-        <legendlayerfile visible="1" isInOverview="0" layerid="brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba"/>
+        <legendlayerfile layerid="var2_71c9b769_5c72_4beb_ab45_3b676c10f75e" visible="1" isInOverview="0"/>
       </filegroup>
     </legendlayer>
   </legend>
   <mapViewDocks/>
   <mapViewDocks3D/>
-  <mapcanvas annotationsVisible="1" name="mAreaCanvas">
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
     <units>degrees</units>
     <extent>
       <xmin>0</xmin>
@@ -122,7 +124,7 @@
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
   </mapcanvas>
-  <mapcanvas annotationsVisible="1" name="mAreaCanvas">
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
     <units>degrees</units>
     <extent>
       <xmin>0</xmin>
@@ -145,7 +147,7 @@
     </destinationsrs>
     <rendermaptile>0</rendermaptile>
   </mapcanvas>
-  <mapcanvas annotationsVisible="1" name="mAreaCanvas">
+  <mapcanvas name="mAreaCanvas" annotationsVisible="1">
     <units>degrees</units>
     <extent>
       <xmin>0</xmin>
@@ -169,10 +171,15 @@
     <rendermaptile>0</rendermaptile>
   </mapcanvas>
   <projectlayers>
-    <maplayer refreshOnNotifyEnabled="0" readOnly="0" geometry="Line" simplifyDrawingHints="1" simplifyLocal="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" simplifyDrawingTol="1" autoRefreshTime="0" autoRefreshEnabled="0" simplifyAlgorithm="0" refreshOnNotifyMessage="" type="vector" maxScale="0" minScale="1e+8" labelsEnabled="0">
-      <id>brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a</id>
+    <maplayer type="vector" geometry="Line" minScale="1e+8" refreshOnNotifyEnabled="0" simplifyDrawingHints="1" autoRefreshEnabled="0" labelsEnabled="0" simplifyLocal="1" readOnly="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" refreshOnNotifyMessage="" maxScale="0" simplifyAlgorithm="0">
+      <extent>
+        <xmin>-5350649.31230102013796568</xmin>
+        <ymin>4423446.9638893399387598</ymin>
+        <xmax>268087.47783635300584137</xmax>
+        <ymax>8421503.21112455986440182</ymax>
+      </extent>
+      <id>brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc</id>
       <datasource>dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' password='docker' sslmode=disable key='id' srid=2154 type=LineString table="public"."brouillon_ligne" (geom) sql=</datasource>
-      <title>ligne</title>
       <keywordList>
         <value></value>
       </keywordList>
@@ -211,7 +218,7 @@
           </spatialrefsys>
         </crs>
         <extent>
-          <spatial minz="0" maxz="0" maxy="0" maxx="0" minx="0" dimensions="2" miny="0" crs=""/>
+          <spatial minz="0" maxx="0" maxy="0" minx="0" dimensions="2" miny="0" maxz="0" crs=""/>
           <temporal>
             <period>
               <start></start>
@@ -239,10 +246,10 @@
         <map-layer-style name="default"/>
       </map-layer-style-manager>
       <auxiliaryLayer/>
-      <renderer-v2 symbollevels="0" enableorderby="0" type="singleSymbol" forceraster="0">
+      <renderer-v2 type="singleSymbol" symbollevels="0" enableorderby="0" forceraster="0">
         <symbols>
-          <symbol alpha="1" name="0" clip_to_extent="1" type="line">
-            <layer locked="0" enabled="1" pass="0" class="SimpleLine">
+          <symbol type="line" name="0" alpha="1" clip_to_extent="1">
+            <layer pass="0" class="SimpleLine" locked="0" enabled="1">
               <prop k="capstyle" v="square"/>
               <prop k="customdash" v="5;2"/>
               <prop k="customdash_map_unit_scale" v="3x:0,0,0,0,0,0"/>
@@ -260,9 +267,9 @@
               <prop k="width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option name="name" type="QString" value=""/>
+                  <Option type="QString" name="name" value=""/>
                   <Option name="properties"/>
-                  <Option name="type" type="QString" value="collection"/>
+                  <Option type="QString" name="type" value="collection"/>
                 </Option>
               </data_defined_properties>
             </layer>
@@ -272,7 +279,6 @@
         <sizescale/>
       </renderer-v2>
       <customproperties>
-        <property key="dualview/previewExpressions" value="id"/>
         <property key="embeddedWidgets/count" value="0"/>
         <property key="variableNames"/>
         <property key="variableValues"/>
@@ -280,18 +286,18 @@
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
-        <DiagramCategory penAlpha="255" lineSizeScale="3x:0,0,0,0,0,0" labelPlacementMethod="XHeight" width="15" maxScaleDenominator="1e+8" sizeType="MM" backgroundAlpha="255" scaleBasedVisibility="0" barWidth="5" lineSizeType="MM" minimumSize="0" minScaleDenominator="0" height="15" sizeScale="3x:0,0,0,0,0,0" penWidth="0" enabled="0" rotationOffset="270" diagramOrientation="Up" penColor="#000000" backgroundColor="#ffffff" scaleDependency="Area" opacity="1">
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory lineSizeScale="3x:0,0,0,0,0,0" labelPlacementMethod="XHeight" barWidth="5" width="15" penAlpha="255" enabled="0" minScaleDenominator="0" opacity="1" penWidth="0" minimumSize="0" height="15" backgroundAlpha="255" sizeScale="3x:0,0,0,0,0,0" scaleBasedVisibility="0" lineSizeType="MM" backgroundColor="#ffffff" penColor="#000000" maxScaleDenominator="1e+8" sizeType="MM" rotationOffset="270" scaleDependency="Area" diagramOrientation="Up">
           <fontProperties style="" description="Sans Serif,9,-1,5,50,0,0,0,0,0"/>
           <attribute field="" label="" color="#000000"/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings obstacle="0" zIndex="0" showAll="1" placement="2" linePlacementFlags="18" priority="0" dist="0">
+      <DiagramLayerSettings placement="2" obstacle="0" showAll="1" priority="0" zIndex="0" dist="0" linePlacementFlags="18">
         <properties>
           <Option type="Map">
-            <Option name="name" type="QString" value=""/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" type="QString" value="collection"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </properties>
       </DiagramLayerSettings>
@@ -314,14 +320,14 @@
           <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option name="AllowMulti" type="bool" value="false"/>
-                <Option name="AllowNull" type="bool" value="true"/>
-                <Option name="FilterExpression" type="QString" value=""/>
-                <Option name="Key" type="QString" value="id"/>
-                <Option name="Layer" type="QString" value="var1_67e086a6_d519_4632_836a_ea04f4401bd3"/>
-                <Option name="OrderByValue" type="bool" value="true"/>
-                <Option name="UseCompleter" type="bool" value="false"/>
-                <Option name="Value" type="QString" value="nom"/>
+                <Option type="bool" name="AllowMulti" value="false"/>
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="QString" name="FilterExpression" value=""/>
+                <Option type="QString" name="Key" value="id"/>
+                <Option type="QString" name="Layer" value="var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a"/>
+                <Option type="bool" name="OrderByValue" value="true"/>
+                <Option type="bool" name="UseCompleter" value="false"/>
+                <Option type="QString" name="Value" value="nom"/>
               </Option>
             </config>
           </editWidget>
@@ -330,14 +336,14 @@
           <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option name="AllowMulti" type="bool" value="false"/>
-                <Option name="AllowNull" type="bool" value="true"/>
-                <Option name="FilterExpression" type="QString" value=""/>
-                <Option name="Key" type="QString" value="id"/>
-                <Option name="Layer" type="QString" value="var2_45af1ca0_845a_43a1_a1d1_66ce88c68788"/>
-                <Option name="OrderByValue" type="bool" value="true"/>
-                <Option name="UseCompleter" type="bool" value="false"/>
-                <Option name="Value" type="QString" value="nom"/>
+                <Option type="bool" name="AllowMulti" value="false"/>
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="QString" name="FilterExpression" value=""/>
+                <Option type="QString" name="Key" value="id"/>
+                <Option type="QString" name="Layer" value="var2_71c9b769_5c72_4beb_ab45_3b676c10f75e"/>
+                <Option type="bool" name="OrderByValue" value="true"/>
+                <Option type="bool" name="UseCompleter" value="false"/>
+                <Option type="QString" name="Value" value="nom"/>
               </Option>
             </config>
           </editWidget>
@@ -352,16 +358,16 @@
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default field="id" applyOnUpdate="0" expression=""/>
-        <default field="name" applyOnUpdate="0" expression=""/>
-        <default field="id_var1" applyOnUpdate="0" expression=""/>
-        <default field="id_var2" applyOnUpdate="0" expression=""/>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="name" expression="" applyOnUpdate="0"/>
+        <default field="id_var1" expression="" applyOnUpdate="0"/>
+        <default field="id_var2" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint notnull_strength="1" field="id" exp_strength="0" unique_strength="1" constraints="3"/>
-        <constraint notnull_strength="0" field="name" exp_strength="0" unique_strength="0" constraints="0"/>
-        <constraint notnull_strength="0" field="id_var1" exp_strength="0" unique_strength="0" constraints="0"/>
-        <constraint notnull_strength="0" field="id_var2" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint field="id" unique_strength="1" exp_strength="0" notnull_strength="1" constraints="3"/>
+        <constraint field="name" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="id_var1" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="id_var2" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="id" desc="" exp=""/>
@@ -372,13 +378,13 @@
       <attributeactions>
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
-          <column width="-1" name="id" hidden="0" type="field"/>
-          <column width="-1" name="name" hidden="0" type="field"/>
-          <column width="-1" name="id_var1" hidden="0" type="field"/>
-          <column width="-1" name="id_var2" hidden="0" type="field"/>
-          <column width="-1" hidden="1" type="actions"/>
+          <column type="field" width="-1" name="id" hidden="0"/>
+          <column type="field" width="-1" name="name" hidden="0"/>
+          <column type="field" width="-1" name="id_var1" hidden="0"/>
+          <column type="field" width="-1" name="id_var2" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
         </columns>
       </attributetableconfig>
       <editform>.</editform>
@@ -410,10 +416,10 @@ def my_form_open(dialog, layer, feature):
         <field name="name" editable="1"/>
       </editable>
       <labelOnTop>
-        <field name="id" labelOnTop="0"/>
-        <field name="id_var1" labelOnTop="0"/>
-        <field name="id_var2" labelOnTop="0"/>
-        <field name="name" labelOnTop="0"/>
+        <field labelOnTop="0" name="id"/>
+        <field labelOnTop="0" name="id_var1"/>
+        <field labelOnTop="0" name="id_var2"/>
+        <field labelOnTop="0" name="name"/>
       </labelOnTop>
       <widgets/>
       <conditionalstyles>
@@ -424,10 +430,15 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>id</previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" readOnly="0" geometry="Point" simplifyDrawingHints="0" simplifyLocal="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" simplifyDrawingTol="1" autoRefreshTime="0" autoRefreshEnabled="0" simplifyAlgorithm="0" refreshOnNotifyMessage="" type="vector" maxScale="0" minScale="1e+8" labelsEnabled="0">
-      <id>brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34</id>
+    <maplayer type="vector" geometry="Point" minScale="1e+8" refreshOnNotifyEnabled="0" simplifyDrawingHints="0" autoRefreshEnabled="0" labelsEnabled="0" simplifyLocal="1" readOnly="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" refreshOnNotifyMessage="" maxScale="0" simplifyAlgorithm="0">
+      <extent>
+        <xmin>-1265893.35133091011084616</xmin>
+        <ymin>5782031.13394360989332199</ymin>
+        <xmax>-1072688.56411868007853627</xmax>
+        <ymax>6920056.80166282039135695</ymax>
+      </extent>
+      <id>brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234</id>
       <datasource>dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' password='docker' sslmode=disable key='id' srid=2154 type=Point table="public"."brouillon_point" (geom) sql=</datasource>
-      <title>point</title>
       <keywordList>
         <value></value>
       </keywordList>
@@ -466,7 +477,7 @@ def my_form_open(dialog, layer, feature):
           </spatialrefsys>
         </crs>
         <extent>
-          <spatial minz="0" maxz="0" maxy="0" maxx="0" minx="0" dimensions="2" miny="0" crs=""/>
+          <spatial minz="0" maxx="0" maxy="0" minx="0" dimensions="2" miny="0" maxz="0" crs=""/>
           <temporal>
             <period>
               <start></start>
@@ -494,10 +505,10 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name="default"/>
       </map-layer-style-manager>
       <auxiliaryLayer/>
-      <renderer-v2 symbollevels="0" enableorderby="0" type="singleSymbol" forceraster="0">
+      <renderer-v2 type="singleSymbol" symbollevels="0" enableorderby="0" forceraster="0">
         <symbols>
-          <symbol alpha="1" name="0" clip_to_extent="1" type="marker">
-            <layer locked="0" enabled="1" pass="0" class="SimpleMarker">
+          <symbol type="marker" name="0" alpha="1" clip_to_extent="1">
+            <layer pass="0" class="SimpleMarker" locked="0" enabled="1">
               <prop k="angle" v="0"/>
               <prop k="color" v="219,30,42,255"/>
               <prop k="horizontal_anchor_point" v="1"/>
@@ -518,9 +529,9 @@ def my_form_open(dialog, layer, feature):
               <prop k="vertical_anchor_point" v="1"/>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option name="name" type="QString" value=""/>
+                  <Option type="QString" name="name" value=""/>
                   <Option name="properties"/>
-                  <Option name="type" type="QString" value="collection"/>
+                  <Option type="QString" name="type" value="collection"/>
                 </Option>
               </data_defined_properties>
             </layer>
@@ -530,11 +541,6 @@ def my_form_open(dialog, layer, feature):
         <sizescale/>
       </renderer-v2>
       <customproperties>
-        <property key="dualview/previewExpressions">
-          <value>id</value>
-          <value>"id"</value>
-          <value>id</value>
-        </property>
         <property key="embeddedWidgets/count" value="0"/>
         <property key="variableNames"/>
         <property key="variableValues"/>
@@ -542,18 +548,18 @@ def my_form_open(dialog, layer, feature):
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
-        <DiagramCategory penAlpha="255" lineSizeScale="3x:0,0,0,0,0,0" labelPlacementMethod="XHeight" width="15" maxScaleDenominator="1e+8" sizeType="MM" backgroundAlpha="255" scaleBasedVisibility="0" barWidth="5" lineSizeType="MM" minimumSize="0" minScaleDenominator="0" height="15" sizeScale="3x:0,0,0,0,0,0" penWidth="0" enabled="0" rotationOffset="270" diagramOrientation="Up" penColor="#000000" backgroundColor="#ffffff" scaleDependency="Area" opacity="1">
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory lineSizeScale="3x:0,0,0,0,0,0" labelPlacementMethod="XHeight" barWidth="5" width="15" penAlpha="255" enabled="0" minScaleDenominator="0" opacity="1" penWidth="0" minimumSize="0" height="15" backgroundAlpha="255" sizeScale="3x:0,0,0,0,0,0" scaleBasedVisibility="0" lineSizeType="MM" backgroundColor="#ffffff" penColor="#000000" maxScaleDenominator="1e+8" sizeType="MM" rotationOffset="270" scaleDependency="Area" diagramOrientation="Up">
           <fontProperties style="" description="Sans Serif,9,-1,5,50,0,0,0,0,0"/>
           <attribute field="" label="" color="#000000"/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings obstacle="0" zIndex="0" showAll="1" placement="0" linePlacementFlags="18" priority="0" dist="0">
+      <DiagramLayerSettings placement="0" obstacle="0" showAll="1" priority="0" zIndex="0" dist="0" linePlacementFlags="18">
         <properties>
           <Option type="Map">
-            <Option name="name" type="QString" value=""/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" type="QString" value="collection"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </properties>
       </DiagramLayerSettings>
@@ -569,8 +575,8 @@ def my_form_open(dialog, layer, feature):
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
-                <Option name="IsMultiline" type="bool" value="false"/>
-                <Option name="UseHtml" type="bool" value="false"/>
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
               </Option>
             </config>
           </editWidget>
@@ -579,14 +585,14 @@ def my_form_open(dialog, layer, feature):
           <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option name="AllowMulti" type="bool" value="false"/>
-                <Option name="AllowNull" type="bool" value="true"/>
-                <Option name="FilterExpression" type="QString" value=""/>
-                <Option name="Key" type="QString" value="id"/>
-                <Option name="Layer" type="QString" value="var1_67e086a6_d519_4632_836a_ea04f4401bd3"/>
-                <Option name="OrderByValue" type="bool" value="true"/>
-                <Option name="UseCompleter" type="bool" value="false"/>
-                <Option name="Value" type="QString" value="nom"/>
+                <Option type="bool" name="AllowMulti" value="false"/>
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="QString" name="FilterExpression" value=""/>
+                <Option type="QString" name="Key" value="id"/>
+                <Option type="QString" name="Layer" value="var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a"/>
+                <Option type="bool" name="OrderByValue" value="true"/>
+                <Option type="bool" name="UseCompleter" value="false"/>
+                <Option type="QString" name="Value" value="nom"/>
               </Option>
             </config>
           </editWidget>
@@ -595,14 +601,14 @@ def my_form_open(dialog, layer, feature):
           <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option name="AllowMulti" type="bool" value="false"/>
-                <Option name="AllowNull" type="bool" value="true"/>
-                <Option name="FilterExpression" type="QString" value=""/>
-                <Option name="Key" type="QString" value="id"/>
-                <Option name="Layer" type="QString" value="var2_45af1ca0_845a_43a1_a1d1_66ce88c68788"/>
-                <Option name="OrderByValue" type="bool" value="true"/>
-                <Option name="UseCompleter" type="bool" value="false"/>
-                <Option name="Value" type="QString" value="nom"/>
+                <Option type="bool" name="AllowMulti" value="false"/>
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="QString" name="FilterExpression" value=""/>
+                <Option type="QString" name="Key" value="id"/>
+                <Option type="QString" name="Layer" value="var2_71c9b769_5c72_4beb_ab45_3b676c10f75e"/>
+                <Option type="bool" name="OrderByValue" value="true"/>
+                <Option type="bool" name="UseCompleter" value="false"/>
+                <Option type="QString" name="Value" value="nom"/>
               </Option>
             </config>
           </editWidget>
@@ -617,16 +623,16 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default field="id" applyOnUpdate="0" expression=""/>
-        <default field="name" applyOnUpdate="0" expression=""/>
-        <default field="id_var1" applyOnUpdate="0" expression=""/>
-        <default field="id_var2" applyOnUpdate="0" expression=""/>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="name" expression="" applyOnUpdate="0"/>
+        <default field="id_var1" expression="" applyOnUpdate="0"/>
+        <default field="id_var2" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint notnull_strength="1" field="id" exp_strength="0" unique_strength="1" constraints="3"/>
-        <constraint notnull_strength="0" field="name" exp_strength="0" unique_strength="0" constraints="0"/>
-        <constraint notnull_strength="0" field="id_var1" exp_strength="0" unique_strength="0" constraints="0"/>
-        <constraint notnull_strength="0" field="id_var2" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint field="id" unique_strength="1" exp_strength="0" notnull_strength="1" constraints="3"/>
+        <constraint field="name" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="id_var1" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="id_var2" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="id" desc="" exp=""/>
@@ -637,13 +643,13 @@ def my_form_open(dialog, layer, feature):
       <attributeactions>
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
-          <column width="-1" name="id" hidden="0" type="field"/>
-          <column width="-1" name="name" hidden="0" type="field"/>
-          <column width="-1" name="id_var1" hidden="0" type="field"/>
-          <column width="-1" name="id_var2" hidden="0" type="field"/>
-          <column width="-1" hidden="1" type="actions"/>
+          <column type="field" width="-1" name="id" hidden="0"/>
+          <column type="field" width="-1" name="name" hidden="0"/>
+          <column type="field" width="-1" name="id_var1" hidden="0"/>
+          <column type="field" width="-1" name="id_var2" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
         </columns>
       </attributetableconfig>
       <editform>.</editform>
@@ -675,10 +681,10 @@ def my_form_open(dialog, layer, feature):
         <field name="name" editable="1"/>
       </editable>
       <labelOnTop>
-        <field name="id" labelOnTop="0"/>
-        <field name="id_var1" labelOnTop="0"/>
-        <field name="id_var2" labelOnTop="0"/>
-        <field name="name" labelOnTop="0"/>
+        <field labelOnTop="0" name="id"/>
+        <field labelOnTop="0" name="id_var1"/>
+        <field labelOnTop="0" name="id_var2"/>
+        <field labelOnTop="0" name="name"/>
       </labelOnTop>
       <widgets/>
       <conditionalstyles>
@@ -689,10 +695,15 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>id</previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" readOnly="0" geometry="Polygon" simplifyDrawingHints="1" simplifyLocal="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" simplifyDrawingTol="1" autoRefreshTime="0" autoRefreshEnabled="0" simplifyAlgorithm="0" refreshOnNotifyMessage="" type="vector" maxScale="0" minScale="1e+8" labelsEnabled="0">
-      <id>brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba</id>
+    <maplayer type="vector" geometry="Polygon" minScale="1e+8" refreshOnNotifyEnabled="0" simplifyDrawingHints="1" autoRefreshEnabled="0" labelsEnabled="0" simplifyLocal="1" readOnly="0" simplifyDrawingTol="1" simplifyMaxScale="1" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" refreshOnNotifyMessage="" maxScale="0" simplifyAlgorithm="0">
+      <extent>
+        <xmin>-4739299.07180528994649649</xmin>
+        <ymin>4980042.38101495988667011</ymin>
+        <xmax>-2422809.40960058011114597</xmax>
+        <ymax>6680119.67228464968502522</ymax>
+      </extent>
+      <id>brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b</id>
       <datasource>dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' password='docker' sslmode=disable key='id' srid=2154 type=Polygon table="public"."brouillon_poly" (geom) sql=</datasource>
-      <title>poly</title>
       <keywordList>
         <value></value>
       </keywordList>
@@ -731,7 +742,7 @@ def my_form_open(dialog, layer, feature):
           </spatialrefsys>
         </crs>
         <extent>
-          <spatial minz="0" maxz="0" maxy="0" maxx="0" minx="0" dimensions="2" miny="0" crs=""/>
+          <spatial minz="0" maxx="0" maxy="0" minx="0" dimensions="2" miny="0" maxz="0" crs=""/>
           <temporal>
             <period>
               <start></start>
@@ -759,10 +770,10 @@ def my_form_open(dialog, layer, feature):
         <map-layer-style name="default"/>
       </map-layer-style-manager>
       <auxiliaryLayer/>
-      <renderer-v2 symbollevels="0" enableorderby="0" type="singleSymbol" forceraster="0">
+      <renderer-v2 type="singleSymbol" symbollevels="0" enableorderby="0" forceraster="0">
         <symbols>
-          <symbol alpha="1" name="0" clip_to_extent="1" type="fill">
-            <layer locked="0" enabled="1" pass="0" class="SimpleFill">
+          <symbol type="fill" name="0" alpha="1" clip_to_extent="1">
+            <layer pass="0" class="SimpleFill" locked="0" enabled="1">
               <prop k="border_width_map_unit_scale" v="3x:0,0,0,0,0,0"/>
               <prop k="color" v="228,26,28,255"/>
               <prop k="joinstyle" v="bevel"/>
@@ -774,7 +785,7 @@ def my_form_open(dialog, layer, feature):
               <prop k="outline_width" v="0.96"/>
               <prop k="outline_width_unit" v="MM"/>
               <prop k="style" v="no"/>
-              <effect enabled="0" type="effectStack">
+              <effect type="effectStack" enabled="0">
                 <effect type="dropShadow">
                   <prop k="blend_mode" v="13"/>
                   <prop k="blur_level" v="10"/>
@@ -842,9 +853,9 @@ def my_form_open(dialog, layer, feature):
               </effect>
               <data_defined_properties>
                 <Option type="Map">
-                  <Option name="name" type="QString" value=""/>
+                  <Option type="QString" name="name" value=""/>
                   <Option name="properties"/>
-                  <Option name="type" type="QString" value="collection"/>
+                  <Option type="QString" name="type" value="collection"/>
                 </Option>
               </data_defined_properties>
             </layer>
@@ -854,7 +865,6 @@ def my_form_open(dialog, layer, feature):
         <sizescale/>
       </renderer-v2>
       <customproperties>
-        <property key="dualview/previewExpressions" value="id"/>
         <property key="embeddedWidgets/count" value="0"/>
         <property key="variableNames"/>
         <property key="variableValues"/>
@@ -862,18 +872,18 @@ def my_form_open(dialog, layer, feature):
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
-      <SingleCategoryDiagramRenderer diagramType="Histogram" attributeLegend="1">
-        <DiagramCategory penAlpha="255" lineSizeScale="3x:0,0,0,0,0,0" labelPlacementMethod="XHeight" width="15" maxScaleDenominator="1e+8" sizeType="MM" backgroundAlpha="255" scaleBasedVisibility="0" barWidth="5" lineSizeType="MM" minimumSize="0" minScaleDenominator="0" height="15" sizeScale="3x:0,0,0,0,0,0" penWidth="0" enabled="0" rotationOffset="270" diagramOrientation="Up" penColor="#000000" backgroundColor="#ffffff" scaleDependency="Area" opacity="1">
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory lineSizeScale="3x:0,0,0,0,0,0" labelPlacementMethod="XHeight" barWidth="5" width="15" penAlpha="255" enabled="0" minScaleDenominator="0" opacity="1" penWidth="0" minimumSize="0" height="15" backgroundAlpha="255" sizeScale="3x:0,0,0,0,0,0" scaleBasedVisibility="0" lineSizeType="MM" backgroundColor="#ffffff" penColor="#000000" maxScaleDenominator="1e+8" sizeType="MM" rotationOffset="270" scaleDependency="Area" diagramOrientation="Up">
           <fontProperties style="" description="Sans Serif,9,-1,5,50,0,0,0,0,0"/>
           <attribute field="" label="" color="#000000"/>
         </DiagramCategory>
       </SingleCategoryDiagramRenderer>
-      <DiagramLayerSettings obstacle="0" zIndex="0" showAll="1" placement="0" linePlacementFlags="18" priority="0" dist="0">
+      <DiagramLayerSettings placement="0" obstacle="0" showAll="1" priority="0" zIndex="0" dist="0" linePlacementFlags="18">
         <properties>
           <Option type="Map">
-            <Option name="name" type="QString" value=""/>
+            <Option type="QString" name="name" value=""/>
             <Option name="properties"/>
-            <Option name="type" type="QString" value="collection"/>
+            <Option type="QString" name="type" value="collection"/>
           </Option>
         </properties>
       </DiagramLayerSettings>
@@ -889,8 +899,8 @@ def my_form_open(dialog, layer, feature):
           <editWidget type="TextEdit">
             <config>
               <Option type="Map">
-                <Option name="IsMultiline" type="bool" value="false"/>
-                <Option name="UseHtml" type="bool" value="false"/>
+                <Option type="bool" name="IsMultiline" value="false"/>
+                <Option type="bool" name="UseHtml" value="false"/>
               </Option>
             </config>
           </editWidget>
@@ -899,14 +909,14 @@ def my_form_open(dialog, layer, feature):
           <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option name="AllowMulti" type="bool" value="false"/>
-                <Option name="AllowNull" type="bool" value="false"/>
-                <Option name="FilterExpression" type="QString" value=""/>
-                <Option name="Key" type="QString" value="id"/>
-                <Option name="Layer" type="QString" value="var1_67e086a6_d519_4632_836a_ea04f4401bd3"/>
-                <Option name="OrderByValue" type="bool" value="false"/>
-                <Option name="UseCompleter" type="bool" value="false"/>
-                <Option name="Value" type="QString" value="nom"/>
+                <Option type="bool" name="AllowMulti" value="false"/>
+                <Option type="bool" name="AllowNull" value="false"/>
+                <Option type="QString" name="FilterExpression" value=""/>
+                <Option type="QString" name="Key" value="id"/>
+                <Option type="QString" name="Layer" value="var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a"/>
+                <Option type="bool" name="OrderByValue" value="false"/>
+                <Option type="bool" name="UseCompleter" value="false"/>
+                <Option type="QString" name="Value" value="nom"/>
               </Option>
             </config>
           </editWidget>
@@ -915,14 +925,14 @@ def my_form_open(dialog, layer, feature):
           <editWidget type="ValueRelation">
             <config>
               <Option type="Map">
-                <Option name="AllowMulti" type="bool" value="false"/>
-                <Option name="AllowNull" type="bool" value="true"/>
-                <Option name="FilterExpression" type="QString" value=""/>
-                <Option name="Key" type="QString" value="id"/>
-                <Option name="Layer" type="QString" value="var2_45af1ca0_845a_43a1_a1d1_66ce88c68788"/>
-                <Option name="OrderByValue" type="bool" value="true"/>
-                <Option name="UseCompleter" type="bool" value="false"/>
-                <Option name="Value" type="QString" value="nom"/>
+                <Option type="bool" name="AllowMulti" value="false"/>
+                <Option type="bool" name="AllowNull" value="true"/>
+                <Option type="QString" name="FilterExpression" value=""/>
+                <Option type="QString" name="Key" value="id"/>
+                <Option type="QString" name="Layer" value="var2_71c9b769_5c72_4beb_ab45_3b676c10f75e"/>
+                <Option type="bool" name="OrderByValue" value="true"/>
+                <Option type="bool" name="UseCompleter" value="false"/>
+                <Option type="QString" name="Value" value="nom"/>
               </Option>
             </config>
           </editWidget>
@@ -937,16 +947,16 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default field="id" applyOnUpdate="0" expression=""/>
-        <default field="name" applyOnUpdate="0" expression=""/>
-        <default field="id_var1" applyOnUpdate="0" expression=""/>
-        <default field="id_var2" applyOnUpdate="0" expression=""/>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="name" expression="" applyOnUpdate="0"/>
+        <default field="id_var1" expression="" applyOnUpdate="0"/>
+        <default field="id_var2" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint notnull_strength="1" field="id" exp_strength="0" unique_strength="1" constraints="3"/>
-        <constraint notnull_strength="0" field="name" exp_strength="0" unique_strength="0" constraints="0"/>
-        <constraint notnull_strength="0" field="id_var1" exp_strength="0" unique_strength="0" constraints="0"/>
-        <constraint notnull_strength="0" field="id_var2" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint field="id" unique_strength="1" exp_strength="0" notnull_strength="1" constraints="3"/>
+        <constraint field="name" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="id_var1" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
+        <constraint field="id_var2" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="id" desc="" exp=""/>
@@ -957,13 +967,13 @@ def my_form_open(dialog, layer, feature):
       <attributeactions>
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
         <columns>
-          <column width="-1" name="id" hidden="0" type="field"/>
-          <column width="-1" name="name" hidden="0" type="field"/>
-          <column width="-1" name="id_var1" hidden="0" type="field"/>
-          <column width="-1" name="id_var2" hidden="0" type="field"/>
-          <column width="-1" hidden="1" type="actions"/>
+          <column type="field" width="-1" name="id" hidden="0"/>
+          <column type="field" width="-1" name="name" hidden="0"/>
+          <column type="field" width="-1" name="id_var1" hidden="0"/>
+          <column type="field" width="-1" name="id_var2" hidden="0"/>
+          <column type="actions" width="-1" hidden="1"/>
         </columns>
       </attributetableconfig>
       <editform>.</editform>
@@ -995,10 +1005,10 @@ def my_form_open(dialog, layer, feature):
         <field name="name" editable="1"/>
       </editable>
       <labelOnTop>
-        <field name="id" labelOnTop="0"/>
-        <field name="id_var1" labelOnTop="0"/>
-        <field name="id_var2" labelOnTop="0"/>
-        <field name="name" labelOnTop="0"/>
+        <field labelOnTop="0" name="id"/>
+        <field labelOnTop="0" name="id_var1"/>
+        <field labelOnTop="0" name="id_var2"/>
+        <field labelOnTop="0" name="name"/>
       </labelOnTop>
       <widgets/>
       <conditionalstyles>
@@ -1009,10 +1019,9 @@ def my_form_open(dialog, layer, feature):
       <previewExpression>id</previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" readOnly="0" geometry="No geometry" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" type="vector" maxScale="0" minScale="1e+8">
-      <id>var1_67e086a6_d519_4632_836a_ea04f4401bd3</id>
+    <maplayer type="vector" geometry="No geometry" minScale="1e+8" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" readOnly="0" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" refreshOnNotifyMessage="" maxScale="0">
+      <id>var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a</id>
       <datasource>dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' password='docker' sslmode=disable key='id' table="public"."var1" sql=</datasource>
-      <title>variable</title>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1050,55 +1059,31 @@ def my_form_open(dialog, layer, feature):
             <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent>
-          <spatial minz="0" maxz="0" maxy="0" maxx="0" minx="0" dimensions="2" miny="0" crs=""/>
-          <temporal>
-            <period>
-              <start></start>
-              <end></end>
-            </period>
-          </temporal>
-        </extent>
-        <contact>
-          <name></name>
-          <organization></organization>
-          <position></position>
-          <voice></voice>
-          <fax></fax>
-          <email></email>
-          <role></role>
-        </contact>
+        <extent/>
         <links/>
       </resourceMetadata>
-      <customproperties>
-        <property key="embeddedWidgets/count" value="0"/>
-        <property key="variableNames"/>
-        <property key="variableValues"/>
-      </customproperties>
+      <customproperties/>
       <provider encoding="UTF-8">postgres</provider>
       <vectorjoins/>
       <layerDependencies/>
       <dataDependencies/>
       <expressionfields/>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
+      <map-layer-style-manager current="défaut">
+        <map-layer-style name="défaut"/>
       </map-layer-style-manager>
       <auxiliaryLayer/>
       <fieldConfiguration>
         <field name="id">
-          <editWidget type="Hidden">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
         <field name="nom">
-          <editWidget type="TextEdit">
+          <editWidget type="">
             <config>
-              <Option type="Map">
-                <Option name="IsMultiline" type="bool" value="false"/>
-                <Option name="UseHtml" type="bool" value="false"/>
-              </Option>
+              <Option/>
             </config>
           </editWidget>
         </field>
@@ -1110,12 +1095,12 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default field="id" applyOnUpdate="0" expression=""/>
-        <default field="nom" applyOnUpdate="0" expression=""/>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="nom" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint notnull_strength="1" field="id" exp_strength="0" unique_strength="1" constraints="3"/>
-        <constraint notnull_strength="0" field="nom" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint field="id" unique_strength="1" exp_strength="0" notnull_strength="1" constraints="3"/>
+        <constraint field="nom" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="id" desc="" exp=""/>
@@ -1124,72 +1109,30 @@ def my_form_open(dialog, layer, feature):
       <attributeactions>
         <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
       </attributeactions>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
-        <columns>
-          <column width="-1" name="id" hidden="0" type="field"/>
-          <column width="-1" name="nom" hidden="0" type="field"/>
-          <column width="-1" hidden="1" type="actions"/>
-        </columns>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns/>
       </attributetableconfig>
-      <editform>.</editform>
+      <editform></editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
       <editforminitfilepath></editforminitfilepath>
-      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
-"""
-Les formulaires QGIS peuvent avoir une fonction Python qui sera appelée à l'ouverture du formulaire.
-
-Utilisez cette fonction pour ajouter plus de fonctionnalités à vos formulaires.
-
-Entrez le nom de la fonction dans le champ "Fonction d'initialisation Python".
-Voici un exemple à suivre:
-"""
-from qgis.PyQt.QtWidgets import QWidget
-
-def my_form_open(dialog, layer, feature):
-    geom = feature.geometry()
-    control = dialog.findChild(QWidget, "MyLineEdit")
-
-]]></editforminitcode>
+      <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
-      <editable>
-        <field name="id" editable="1"/>
-        <field name="nom" editable="1"/>
-      </editable>
-      <labelOnTop>
-        <field name="id" labelOnTop="0"/>
-        <field name="nom" labelOnTop="0"/>
-      </labelOnTop>
-      <widgets>
-        <widget name="brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a_id_var1_var1_67e086a6_d519_4632_836a_ea04f4401bd3_id">
-          <config type="Map">
-            <Option name="nm-rel" type="QString" value=""/>
-          </config>
-        </widget>
-        <widget name="brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34_id_var1_var1_67e086a6_d519_4632_836a_ea04f4401bd3_id">
-          <config type="Map">
-            <Option name="nm-rel" type="QString" value=""/>
-          </config>
-        </widget>
-        <widget name="brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba_id_var1_var1_67e086a6_d519_4632_836a_ea04f4401bd3_id">
-          <config type="Map">
-            <Option name="nm-rel" type="QString" value=""/>
-          </config>
-        </widget>
-      </widgets>
+      <editable/>
+      <labelOnTop/>
+      <widgets/>
       <conditionalstyles>
         <rowstyles/>
         <fieldstyles/>
       </conditionalstyles>
       <expressionfields/>
-      <previewExpression>id</previewExpression>
+      <previewExpression></previewExpression>
       <mapTip></mapTip>
     </maplayer>
-    <maplayer refreshOnNotifyEnabled="0" readOnly="0" geometry="No geometry" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" autoRefreshEnabled="0" refreshOnNotifyMessage="" type="vector" maxScale="0" minScale="1e+8">
-      <id>var2_45af1ca0_845a_43a1_a1d1_66ce88c68788</id>
+    <maplayer type="vector" geometry="No geometry" minScale="1e+8" refreshOnNotifyEnabled="0" autoRefreshEnabled="0" readOnly="0" hasScaleBasedVisibilityFlag="0" autoRefreshTime="0" refreshOnNotifyMessage="" maxScale="0">
+      <id>var2_71c9b769_5c72_4beb_ab45_3b676c10f75e</id>
       <datasource>dbname='geopoppy' host=172.24.1.1 port=5432 user='docker' password='docker' sslmode=disable key='id' table="public"."var2" sql=</datasource>
-      <title>variable</title>
       <keywordList>
         <value></value>
       </keywordList>
@@ -1227,50 +1170,29 @@ def my_form_open(dialog, layer, feature):
             <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent>
-          <spatial minz="0" maxz="0" maxy="0" maxx="0" minx="0" dimensions="2" miny="0" crs=""/>
-          <temporal>
-            <period>
-              <start></start>
-              <end></end>
-            </period>
-          </temporal>
-        </extent>
-        <contact>
-          <name></name>
-          <organization></organization>
-          <position></position>
-          <voice></voice>
-          <fax></fax>
-          <email></email>
-          <role></role>
-        </contact>
+        <extent/>
         <links/>
       </resourceMetadata>
-      <customproperties>
-        <property key="embeddedWidgets/count" value="0"/>
-        <property key="variableNames"/>
-        <property key="variableValues"/>
-      </customproperties>
+      <customproperties/>
       <provider encoding="UTF-8">postgres</provider>
       <vectorjoins/>
       <layerDependencies/>
       <dataDependencies/>
       <expressionfields/>
-      <map-layer-style-manager current="default">
-        <map-layer-style name="default"/>
+      <map-layer-style-manager current="défaut">
+        <map-layer-style name="défaut"/>
       </map-layer-style-manager>
       <auxiliaryLayer/>
       <fieldConfiguration>
         <field name="id">
-          <editWidget type="Hidden">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
           </editWidget>
         </field>
         <field name="nom">
-          <editWidget type="TextEdit">
+          <editWidget type="">
             <config>
               <Option/>
             </config>
@@ -1284,202 +1206,158 @@ def my_form_open(dialog, layer, feature):
       <excludeAttributesWMS/>
       <excludeAttributesWFS/>
       <defaults>
-        <default field="id" applyOnUpdate="0" expression=""/>
-        <default field="nom" applyOnUpdate="0" expression=""/>
+        <default field="id" expression="" applyOnUpdate="0"/>
+        <default field="nom" expression="" applyOnUpdate="0"/>
       </defaults>
       <constraints>
-        <constraint notnull_strength="1" field="id" exp_strength="0" unique_strength="1" constraints="3"/>
-        <constraint notnull_strength="0" field="nom" exp_strength="0" unique_strength="0" constraints="0"/>
+        <constraint field="id" unique_strength="1" exp_strength="0" notnull_strength="1" constraints="3"/>
+        <constraint field="nom" unique_strength="0" exp_strength="0" notnull_strength="0" constraints="0"/>
       </constraints>
       <constraintExpressions>
         <constraint field="id" desc="" exp=""/>
         <constraint field="nom" desc="" exp=""/>
       </constraintExpressions>
-      <attributeactions>
-        <defaultAction key="Canvas" value="{00000000-0000-0000-0000-000000000000}"/>
-      </attributeactions>
-      <attributetableconfig sortOrder="0" actionWidgetStyle="dropDown" sortExpression="">
-        <columns>
-          <column width="-1" name="id" hidden="0" type="field"/>
-          <column width="-1" name="nom" hidden="0" type="field"/>
-          <column width="-1" hidden="1" type="actions"/>
-        </columns>
+      <attributeactions/>
+      <attributetableconfig actionWidgetStyle="dropDown" sortExpression="" sortOrder="0">
+        <columns/>
       </attributetableconfig>
-      <editform>.</editform>
+      <editform></editform>
       <editforminit/>
       <editforminitcodesource>0</editforminitcodesource>
       <editforminitfilepath></editforminitfilepath>
-      <editforminitcode><![CDATA[# -*- coding: utf-8 -*-
-"""
-Les formulaires QGIS peuvent avoir une fonction Python qui sera appelée à l'ouverture du formulaire.
-
-Utilisez cette fonction pour ajouter plus de fonctionnalités à vos formulaires.
-
-Entrez le nom de la fonction dans le champ "Fonction d'initialisation Python".
-Voici un exemple à suivre:
-"""
-from qgis.PyQt.QtWidgets import QWidget
-
-def my_form_open(dialog, layer, feature):
-    geom = feature.geometry()
-    control = dialog.findChild(QWidget, "MyLineEdit")
-
-]]></editforminitcode>
+      <editforminitcode><![CDATA[]]></editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
-      <editable>
-        <field name="id" editable="1"/>
-        <field name="nom" editable="1"/>
-      </editable>
-      <labelOnTop>
-        <field name="id" labelOnTop="0"/>
-        <field name="nom" labelOnTop="0"/>
-      </labelOnTop>
-      <widgets>
-        <widget name="brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a_id_var2_var2_45af1ca0_845a_43a1_a1d1_66ce88c68788_id">
-          <config type="Map">
-            <Option name="nm-rel" type="QString" value=""/>
-          </config>
-        </widget>
-        <widget name="brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34_id_var2_var2_45af1ca0_845a_43a1_a1d1_66ce88c68788_id">
-          <config type="Map">
-            <Option name="nm-rel" type="QString" value=""/>
-          </config>
-        </widget>
-        <widget name="brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba_id_var2_var2_45af1ca0_845a_43a1_a1d1_66ce88c68788_id">
-          <config type="Map">
-            <Option name="nm-rel" type="QString" value=""/>
-          </config>
-        </widget>
-      </widgets>
+      <editable/>
+      <labelOnTop/>
+      <widgets/>
       <conditionalstyles>
         <rowstyles/>
         <fieldstyles/>
       </conditionalstyles>
       <expressionfields/>
-      <previewExpression>id</previewExpression>
+      <previewExpression></previewExpression>
       <mapTip></mapTip>
     </maplayer>
   </projectlayers>
   <layerorder>
-    <layer id="brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a"/>
-    <layer id="brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34"/>
-    <layer id="brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba"/>
+    <layer id="brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc"/>
+    <layer id="brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234"/>
+    <layer id="brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b"/>
+    <layer id="var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a"/>
+    <layer id="var2_71c9b769_5c72_4beb_ab45_3b676c10f75e"/>
   </layerorder>
   <properties>
-    <Gui>
-      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
-      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
-      <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
-      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
-      <CanvasColorBluePart type="int">255</CanvasColorBluePart>
-      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
-      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
-    </Gui>
-    <WMSPrecision type="QString">8</WMSPrecision>
-    <WMSContactPerson type="QString">Julien Ancelin</WMSContactPerson>
-    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
-    <Paths>
-      <Absolute type="bool">false</Absolute>
-    </Paths>
-    <Identify>
-      <disabledLayers type="QStringList"/>
-    </Identify>
-    <WMSContactPhone type="QString"></WMSContactPhone>
-    <WMSExtent type="QStringList">
-      <value>-14444806.81111436896026134</value>
-      <value>-4349837.25186032429337502</value>
-      <value>5475973.85768975131213665</value>
-      <value>10893342.38648409582674503</value>
-    </WMSExtent>
-    <WMSOnlineResource type="QString"></WMSOnlineResource>
-    <WFSTLayers>
-      <Insert type="QStringList"/>
-      <Delete type="QStringList"/>
-      <Update type="QStringList"/>
-    </WFSTLayers>
-    <WMSCrsList type="QStringList">
-      <value>EPSG:3857</value>
-      <value>EPSG:2154</value>
-      <value>EPSG:4326</value>
-    </WMSCrsList>
-    <PAL>
-      <DrawRectOnly type="bool">false</DrawRectOnly>
-      <SearchMethod type="int">0</SearchMethod>
-      <ShowingCandidates type="bool">false</ShowingCandidates>
-      <CandidatesPoint type="int">16</CandidatesPoint>
-      <DrawOutlineLabels type="bool">true</DrawOutlineLabels>
-      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
-      <CandidatesLine type="int">50</CandidatesLine>
-      <ShowingAllLabels type="bool">false</ShowingAllLabels>
-      <CandidatesPolygon type="int">30</CandidatesPolygon>
-    </PAL>
-    <WMSServiceTitle type="QString">Hello World</WMSServiceTitle>
-    <WMSUrl type="QString"></WMSUrl>
+    <WMSRootName type="QString">HW3</WMSRootName>
+    <WMSServiceTitle type="QString">HW3</WMSServiceTitle>
+    <WFSLayers type="QStringList">
+      <value>brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc</value>
+      <value>brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234</value>
+      <value>brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b</value>
+      <value>var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a</value>
+      <value>var2_71c9b769_5c72_4beb_ab45_3b676c10f75e</value>
+    </WFSLayers>
     <WCSUrl type="QString"></WCSUrl>
-    <WMSRootName type="QString">HW</WMSRootName>
-    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
-    <Legend>
-      <filterByMap type="bool">false</filterByMap>
-    </Legend>
-    <WCSLayers type="QStringList"/>
-    <WMSContactMail type="QString">julien.ancelin@inra.fr</WMSContactMail>
-    <WMSImageQuality type="int">90</WMSImageQuality>
-    <WMSFees type="QString">conditions unknown</WMSFees>
-    <Measurement>
-      <DistanceUnits type="QString">&lt;unknown></DistanceUnits>
-      <AreaUnits type="QString">&lt;unknown></AreaUnits>
-    </Measurement>
-    <WMSContactPosition type="QString"></WMSContactPosition>
-    <WMSRestrictedComposers type="QStringList"/>
-    <Macros>
-      <pythonCode type="QString"></pythonCode>
-    </Macros>
-    <PositionPrecision>
-      <DecimalPlaces type="int">2</DecimalPlaces>
-      <Automatic type="bool">true</Automatic>
-      <DegreeFormat type="QString">MU</DegreeFormat>
-    </PositionPrecision>
-    <WFSLayersPrecision>
-      <inventaire_gps_44308b4f_865e_45c2_9cb3_0cfe6d0b0cf8 type="int">8</inventaire_gps_44308b4f_865e_45c2_9cb3_0cfe6d0b0cf8>
-      <var1_67e086a6_d519_4632_836a_ea04f4401bd3 type="int">8</var1_67e086a6_d519_4632_836a_ea04f4401bd3>
-      <var2_45af1ca0_845a_43a1_a1d1_66ce88c68788 type="int">8</var2_45af1ca0_845a_43a1_a1d1_66ce88c68788>
-      <brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34 type="int">8</brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34>
-      <brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a type="int">8</brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a>
-      <brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba type="int">8</brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba>
-    </WFSLayersPrecision>
-    <WMSServiceCapabilities type="bool">true</WMSServiceCapabilities>
-    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
-    <Measure>
-      <Ellipsoid type="QString">WGS84</Ellipsoid>
-    </Measure>
-    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
-    <DefaultStyles>
-      <Marker type="QString"></Marker>
-      <Fill type="QString"></Fill>
-      <ColorRamp type="QString"></ColorRamp>
-      <RandomColors type="bool">true</RandomColors>
-      <Line type="QString"></Line>
-      <Opacity type="double">1</Opacity>
-    </DefaultStyles>
-    <WMSContactOrganization type="QString">INRA</WMSContactOrganization>
-    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
-    <WFSUrl type="QString"></WFSUrl>
     <SpatialRefSys>
       <ProjectionsEnabled type="int">1</ProjectionsEnabled>
     </SpatialRefSys>
+    <PAL>
+      <DrawOutlineLabels type="bool">true</DrawOutlineLabels>
+      <ShowingCandidates type="bool">false</ShowingCandidates>
+      <SearchMethod type="int">0</SearchMethod>
+      <ShowingAllLabels type="bool">false</ShowingAllLabels>
+      <CandidatesPolygon type="int">30</CandidatesPolygon>
+      <ShowingPartialsLabels type="bool">true</ShowingPartialsLabels>
+      <CandidatesLine type="int">50</CandidatesLine>
+      <DrawRectOnly type="bool">false</DrawRectOnly>
+      <CandidatesPoint type="int">16</CandidatesPoint>
+    </PAL>
+    <WMSUseLayerIDs type="bool">false</WMSUseLayerIDs>
+    <Measure>
+      <Ellipsoid type="QString">WGS84</Ellipsoid>
+    </Measure>
+    <WMSOnlineResource type="QString"></WMSOnlineResource>
+    <WMSAddWktGeometry type="bool">false</WMSAddWktGeometry>
+    <WFSTLayers>
+      <Insert type="QStringList"/>
+      <Update type="QStringList"/>
+      <Delete type="QStringList"/>
+    </WFSTLayers>
+    <Identify>
+      <disabledLayers type="QStringList"/>
+    </Identify>
+    <Macros>
+      <pythonCode type="QString"></pythonCode>
+    </Macros>
+    <WMSContactMail type="QString"></WMSContactMail>
+    <WMSServiceCapabilities type="bool">true</WMSServiceCapabilities>
+    <WMSFees type="QString">conditions unknown</WMSFees>
+    <PositionPrecision>
+      <DecimalPlaces type="int">2</DecimalPlaces>
+      <DegreeFormat type="QString">MU</DegreeFormat>
+      <Automatic type="bool">true</Automatic>
+    </PositionPrecision>
+    <WMSContactPosition type="QString"></WMSContactPosition>
+    <WMSImageQuality type="int">90</WMSImageQuality>
+    <WMSServiceAbstract type="QString"></WMSServiceAbstract>
+    <WMSRequestDefinedDataSources type="bool">false</WMSRequestDefinedDataSources>
+    <WMSPrecision type="QString">8</WMSPrecision>
+    <DefaultStyles>
+      <RandomColors type="bool">true</RandomColors>
+      <Fill type="QString"></Fill>
+      <Line type="QString"></Line>
+      <ColorRamp type="QString"></ColorRamp>
+      <Marker type="QString"></Marker>
+      <Opacity type="double">1</Opacity>
+    </DefaultStyles>
+    <WCSLayers type="QStringList"/>
+    <WMSContactPerson type="QString"></WMSContactPerson>
+    <WMSExtent type="QStringList">
+      <value>-8108638.68335870001465082</value>
+      <value>2051542.0585420299321413</value>
+      <value>2957024.45908869709819555</value>
+      <value>10518875.43779450096189976</value>
+    </WMSExtent>
+    <WMSContactOrganization type="QString"></WMSContactOrganization>
+    <WMSContactPhone type="QString"></WMSContactPhone>
+    <WFSLayersPrecision>
+      <var2_71c9b769_5c72_4beb_ab45_3b676c10f75e type="int">8</var2_71c9b769_5c72_4beb_ab45_3b676c10f75e>
+      <brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234 type="int">8</brouillon_point_f2a62c1e_fa6e_4b55_ad4e_75d819e49234>
+      <brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b type="int">8</brouillon_poly_e808b519_1543_48ce_b0dc_c1aa4175243b>
+      <var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a type="int">8</var1_7a1028e6_6cc3_458b_abac_f8e7bc644a6a>
+      <brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc type="int">8</brouillon_ligne_57e83413_75a7_4ea1_816e_3751fe0404fc>
+    </WFSLayersPrecision>
+    <WMSCrsList type="QStringList">
+      <value>EPSG:4326</value>
+      <value>EPSG:2154</value>
+      <value>EPSG:3857</value>
+    </WMSCrsList>
+    <Gui>
+      <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+      <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+      <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+      <SelectionColorRedPart type="int">255</SelectionColorRedPart>
+      <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+      <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
+      <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+    </Gui>
     <WMSKeywordList type="QStringList">
       <value></value>
     </WMSKeywordList>
-    <WMSRestrictedLayers type="QStringList"/>
-    <WFSLayers type="QStringList">
-      <value>brouillon_ligne_8920e177_4cdb_4f21_8177_27239487555a</value>
-      <value>brouillon_point_9c1747b4_5493_4c88_9d4e_4bcff9d5cd34</value>
-      <value>brouillon_poly_0608ce61_c2e1_4caa_8af9_5cf3398e9eba</value>
-      <value>var1_67e086a6_d519_4632_836a_ea04f4401bd3</value>
-      <value>var2_45af1ca0_845a_43a1_a1d1_66ce88c68788</value>
-    </WFSLayers>
-    <WMSAddWktGeometry type="bool">true</WMSAddWktGeometry>
+    <Measurement>
+      <AreaUnits type="QString">m2</AreaUnits>
+      <DistanceUnits type="QString">meters</DistanceUnits>
+    </Measurement>
+    <Paths>
+      <Absolute type="bool">false</Absolute>
+    </Paths>
+    <Legend>
+      <filterByMap type="bool">false</filterByMap>
+    </Legend>
+    <WMSAccessConstraints type="QString">None</WMSAccessConstraints>
+    <WFSUrl type="QString"></WFSUrl>
+    <WMSUrl type="QString"></WMSUrl>
+    <WMSSegmentizeFeatureInfoGeometry type="bool">false</WMSSegmentizeFeatureInfoGeometry>
   </properties>
   <visibility-presets/>
   <transformContext/>

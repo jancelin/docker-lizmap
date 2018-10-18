@@ -1,6 +1,6 @@
 
 #Before crossbuild : docker run --rm --privileged multiarch/qemu-user-static:register --reset
-# lancer le build: docker build  --network=host -t jancelin/geopoppy:lizmap_rpi3_latest ./
+# lancer le build: docker build  --network=host -t jancelin/geopoppy:lizmap_rpi3_3.2rc6 ./
 FROM resin/raspberrypi3-debian:jessie
 MAINTAINER Julien Ancelin / docker-lizmap 
 RUN [ "cross-build-start" ]
@@ -15,7 +15,7 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-ENV LIZMAPVERSION master
+ENV LIZMAPVERSION 3.2rc6
 
 COPY files/ /home/files/
 

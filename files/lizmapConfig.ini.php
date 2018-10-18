@@ -44,3 +44,9 @@ cacheRedisKeyPrefix=a
 label=Demo
 path="/geopoppy"
 allowUserDefinedThemes=1
+
+[repository:geopoppy]
+label=Projects
+path="/geopoppy/projects/"
+allowUserDefinedThemes=1
+

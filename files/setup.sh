@@ -38,5 +38,5 @@ chmod 775  /var/www/websig/lizmap/var -R
 /var/www/websig/lizmap/install/set_rights.sh www-data www-data
 cp -avr /var/www/websig/lizmap/var var/www/websig/lizmap/var_install
 #install qgis files for lizmap
-mkdir /geopoppy
+mkdir -pv /geopoppy /geoppopy/projects
 cp /home/files/qgis/* /geopoppy/

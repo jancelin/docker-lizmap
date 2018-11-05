@@ -9,7 +9,7 @@ if [ ! -d $VAR ]; then
   cp -avr /var/www/websig/lizmap/var_install/*  /var/www/websig/lizmap/var
 fi
 #replace postgresql variables in profiles.ini.php for log and auth databases
-sed -e 's/###DB_HOST###/${POSTGRES_HOST}/; s/###DB_AUTH_NAME###/${POSTGRES_DB_AUTH_NAME}/; s/###DB_LOGS_NAME###/${POSTGRES_DB_LOGS_NAME}/; s/###DB_USER###/${POSTGRES_USER}/; s/###DB_PASSWORD###/${POSTGRES_PASS}/' /var/www/websig/lizmap/var/config/profiles.ini.php
+sed -i 's/###DB_HOST###/${POSTGRES_HOST}/; s/###DB_AUTH_NAME###/${POSTGRES_DB_AUTH_NAME}/; s/###DB_LOGS_NAME###/${POSTGRES_DB_LOGS_NAME}/; s/###DB_USER###/${POSTGRES_USER}/; s/###DB_PASSWORD###/${POSTGRES_PASS}/' /var/www/websig/lizmap/var/config/profiles.ini.php
 #set-rights
   /var/www/websig/lizmap/install/set_rights.sh www-data www-data
 

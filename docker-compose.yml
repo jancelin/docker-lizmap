@@ -45,7 +45,7 @@ services:
 
     entrypoint: >
       bash -c "wget -N -P / https://github.com/2p2r/docker-lizmap/raw/master/docker-postgis/setup-database.sh &&
-               wget -N -O default-database.sql -P /home $${POSTGRES_DUMP} &&
+               wget -N -O /home/default-database.sql $${POSTGRES_DUMP} &&
                /docker-entrypoint.sh"
     env_file:
       - ./database.env

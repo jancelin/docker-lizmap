@@ -101,7 +101,24 @@ if [[ ! ${RESULT} == '1' ]]; then
 else
     echo "${POSTGRES_DBNAME} db already exists"
 fi
-
+if [[ ! -z "POSTGRES_DB_AUTH_NAME" ]]; then
+    RESULT=`su - postgres -c "psql -l | grep -w ${POSTGRES_DB_AUTH_NAME} | wc -l"`
+    if [[ ! ${RESULT} == '1' ]]; then
+        echo "Create default db ${POSTGRES_DB_AUTH_NAME}"
+        su - postgres -c " createdb -O ${POSTGRES_USER} ${POSTGRES_DB_AUTH_NAME} "
+    else
+        echo "${POSTGRES_DB_AUTH_NAME} db already exists"
+    fi
+fi
+if [[ ! -z "POSTGRES_DB_LOGS_NAME" ]]; then
+    RESULT=`su - postgres -c "psql -l | grep -w ${POSTGRES_DB_LOGS_NAME} | wc -l"`
+    if [[ ! ${RESULT} == '1' ]]; then
+        echo "Create default db ${POSTGRES_DB_LOGS_NAME}"
+        su - postgres -c " createdb -O ${POSTGRES_USER} ${POSTGRES_DB_LOGS_NAME} "
+    else
+        echo "${POSTGRES_DB_LOGS_NAME} db already exists"
+    fi
+fi
 # This should show up in docker logs afterwards
 su - postgres -c "psql -l"
 

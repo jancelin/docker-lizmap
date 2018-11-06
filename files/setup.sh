@@ -25,8 +25,8 @@ chmod +x /var/www/websig/lizmap/install/set_rights.sh
 /var/www/websig/lizmap/install/set_rights.sh www-data www-data
 cp /home/files/lizmapConfig.ini.php /var/www/websig/lizmap/var/config/lizmapConfig.ini.php
 cp /home/files/localconfig.ini.php /var/www/websig/lizmap/var/config/localconfig.ini.php
-#cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
-cp /home/files/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
+cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
+#cp /home/files/profiles.ini.php /var/www/websig/lizmap/var/config/profiles.ini.php
 #  Installer
 php /var/www/websig/lizmap/install/installer.php
 #change jauth.db

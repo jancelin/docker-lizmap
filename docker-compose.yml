@@ -1,11 +1,13 @@
 version: '3.2'
 services:
   lizmap:
-    image: jancelin/docker-lizmap:latest
+    image: gsalin/docker-lizmap-pg:3.1.12
     restart: on-failure
     ports:
      - 80:80
      - 443:443
+    env_file:
+      - ./database.env
     volumes:
      - project:/home
      - var:/var/www/websig/lizmap/var
@@ -16,6 +18,7 @@ services:
     links:
      - qgiserver:qgiserver
      - redis:redis
+     - postgis:postgis
      
   qgiserver:
     image: jancelin/qgis-server:2.18LTR
@@ -39,15 +42,16 @@ services:
       - 5432:5432
     expose:
       - 5432
+
     entrypoint: >
-      bash -c "wget -N -P / https://raw.githubusercontent.com/jancelin/docker-postgis/master/setup-database.sh &&
-               wget -N -P /home https://github.com/jancelin/docker-postgis/raw/master/geopoppy.sql &&
+      bash -c "wget -N -P / https://github.com/2p2r/docker-lizmap/raw/master/docker-postgis/setup-database.sh &&
+               wget -N -O default-database.sql -P /home $${POSTGRES_DUMP} &&
                /docker-entrypoint.sh"
+    env_file:
+      - ./database.env
     environment:
-      - ALLOW_IP_RANGE=0.0.0.0/0
-      - POSTGRES_USER=docker
-      - POSTGRES_DBNAME=geopoppy
-      - POSTGRES_DUMP=geopoppy.sql
+      - ALLOW_IP_RANGE=0.0.0.0/0    
+
     volumes:
       - postgres:/var/lib/postgresql
       
@@ -84,3 +88,4 @@ volumes:
    redis:
    var:
    project:
+

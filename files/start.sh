@@ -10,9 +10,9 @@ if [ ! -d $VAR ]; then
 fi
 if [ ! -z "$POSTGRES_HOST" ]; then
 #replace postgresql variables in profiles.ini.php for log and auth databases
-sed -i 's/###DB_HOST###/${POSTGRES_HOST}/; s/###DB_AUTH_NAME###/${POSTGRES_DB_AUTH_NAME}/; s/###DB_LOGS_NAME###/${POSTGRES_DB_LOGS_NAME}/; s/###DB_USER###/${POSTGRES_USER}/; s/###DB_PASSWORD###/${POSTGRES_PASS}/' /var/www/websig/lizmap/var/config/profiles.ini.php
+  sed -i "s/###DB_HOST###/${POSTGRES_HOST}/; s/###DB_AUTH_NAME###/${POSTGRES_DB_AUTH_NAME}/; s/###DB_LOGS_NAME###/${POSTGRES_DB_LOGS_NAME}/; s/###DB_USER###/${POSTGRES_USER}/; s/###DB_PASSWORD###/${POSTGRES_PASS}/" /var/www/websig/lizmap/var/config/profiles.ini.php
 else
-cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
+  cp /var/www/websig/lizmap/var/config/profiles.ini.php.dist /var/www/websig/lizmap/var/config/profiles.ini.php
 fi
 
 #set-rights

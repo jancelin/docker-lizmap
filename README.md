@@ -31,7 +31,7 @@ http://ip/websig/lizmap/www/admin.php/config
 ```
 * change URL WMS: 
 
->> http://qgiserver/cgi-bin/qgis_mapserv.fcgi
+>> http://qgisserver/cgi-bin/qgis_mapserv.fcgi
 
 * Add **/home/** for looking your geo projects
 

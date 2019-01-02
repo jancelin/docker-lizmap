@@ -11,13 +11,13 @@ services:
      - var:/var/www/websig/lizmap/var
     depends_on:
       - postgis
-      - qgiserver
+      - qgisserver
       - redis
     links:
-     - qgiserver:qgiserver
+     - qgisserver:qgisserver
      - redis:redis
      
-  qgiserver:
+  qgisserver:
     image: jancelin/qgis-server:2.18LTR
     restart: on-failure
     volumes:

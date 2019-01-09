@@ -12,7 +12,10 @@ RUN apt-get -y update \
 RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
     a2enmod deflate; a2enmod php5
 
-ENV LIZMAPVERSION master
+-# this can be overriden at build time with --build-arg lizmap_version=release_3.2
+ARG lizmap_version=master
+ENV LIZMAPVERSION=$lizmap_version
+
 COPY files/ /home/files/
 
 ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/

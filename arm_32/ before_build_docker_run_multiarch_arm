@@ -1,0 +1,12 @@
+docker run --rm --privileged multiarch/qemu-user-static:register --reset
+
+
+#add at Dockerfile start and end
+
+FROM resin/raspberrypi3-debian:jessie
+RUN [ "cross-build-start" ]
+
+
+
+
+RUN [ "cross-build-end" ]

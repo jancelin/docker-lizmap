@@ -42,5 +42,5 @@ cacheRedisKeyPrefix=a
 
 [repository:demo]
 label=Demo
-path="/home/files/qgis"
+path="/home/geopoppy_pc"
 allowUserDefinedThemes=1

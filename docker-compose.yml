@@ -14,7 +14,7 @@ services:
       - qgiserver
       - redisD
     links:
-     - qgiserver:qgiserver
+
 
     entrypoint: >
       bash -c "wget https://cartman.sig.inra.fr/geopoppy/data/geopoppy_pc.zip &&

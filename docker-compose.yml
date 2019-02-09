@@ -13,7 +13,7 @@ services:
       - postgis
       - qgiserver
       - redisD
-    links:
+
 
 
     entrypoint: >

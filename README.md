@@ -14,30 +14,17 @@ ____________________________________________________________________
 
 With Docker-compose:
 
-* Create a docker-compose.yml and changing the directory path if necessary (home/lizmap/lizmap_project):
+* download docker-compose.yml:
 
-https://github.com/jancelin/docker-lizmap/blob/master/docker-compose.yml
+https://github.com/jancelin/docker-lizmap/blob/3.2.2/docker-compose.yml
 
 * UP
 
 ```
-docker-compose up -d
+docker-compose up
 ```
 
-* Now config lizmap on web :
-
-```
-http://ip/websig/lizmap/www/admin.php/config
-```
-* change URL WMS: 
-
->> http://qgiserver/cgi-bin/qgis_mapserv.fcgi
-
-* Add **/home/** for looking your geo projects
-
-![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
-
-* http://docs.3liz.com/fr/ 
+* ENJOY
 
 -------------------------------
 

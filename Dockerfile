@@ -15,7 +15,7 @@ RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite
 ENV LIZMAPVERSION master
 COPY files/ /home/files/
 
-ADD https://github.com/3liz/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
+ADD https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
 RUN /home/files/setup.sh
     
 VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 

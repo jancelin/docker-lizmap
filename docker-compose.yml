@@ -8,7 +8,7 @@ services:
      - 443:443
     volumes:
      - project:/home
-     - var:/var/www/websig/lizmap/var
+     - var:/var/www/lizmap/var
     depends_on:
       - postgis
       - qgiserver

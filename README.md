@@ -27,7 +27,7 @@ docker-compose up -d
 * Now config lizmap on web :
 
 ```
-http://ip/websig/lizmap/www/admin.php/config
+http://ip/lizmap/www/admin.php/config
 ```
 * change URL WMS: 
 

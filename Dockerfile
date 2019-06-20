@@ -1,26 +1,45 @@
+FROM ubuntu:bionic
+MAINTAINER Marco Bernasocchi / docker-lizmap
 
-FROM debian:jessie
-MAINTAINER Julien Ancelin / docker-lizmap 
+ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update \
-    && apt-get -t jessie install -y  python-simplejson python-software-properties xauth htop vim curl ntp ntpdate ssl-cert\ 
-    apache2 apache2-mpm-worker apache2-mpm-prefork apache2-bin apache2-data libapache2-mod-fcgid libapache2-mod-php5 \
-    php5 php5-common php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql unzip sqlite3 postgresql-client nano\
+    && apt-get install -y --fix-missing python-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
+    apache2 libapache2-mod-fcgid \
+    php7.2-fpm php7.2 \
+    php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml\
+    sqlite3 postgresql-client \
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
-    
-RUN a2dismod php5; a2enmod actions; a2enmod fcgid ; a2enmod ssl; a2enmod rewrite; a2enmod headers; \
-    a2enmod deflate; a2enmod php5
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
 ARG lizmap_version=master
 ENV LIZMAPVERSION=$lizmap_version
 
-COPY files/ /home/files/
+COPY files/qgis/ /io/qgis/
 
-ADD https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.zip /var/www/
-RUN /home/files/setup.sh
+COPY files/apache2.conf /etc/apache2/
+COPY files/php.conf /etc/apache2/conf-available/
+COPY files/mod_deflate.conf /etc/apache2/conf-available/
+#COPY files/fcgid.conf /etc/apache2/mods-enabled/
+COPY files/default-ssl.conf /etc/apache2/sites-available/
+COPY files/000-default.conf /etc/apache2/sites-available/
+COPY files/index.html /var/www/
+COPY files/lizmapConfig.ini.php /var/www/lizmap/var/config/
+COPY files/localconfig.ini.php /var/www/lizmap/var/config/
+COPY files/start.sh /io/
+COPY files/setup.sh /io/
+
+ADD https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz /var/www/
+
+RUN a2dismod mpm_prefork mpm_event; \
+    a2enmod actions alias ssl rewrite headers deflate mpm_worker; \
+    a2enmod fcgid proxy_fcgi;
+    #a2enmod fcgid; \
+    #a2enconf php
+
+RUN /io/setup.sh
     
-VOLUME  ["/var/www/websig/lizmap/var" , "/home"] 
+VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
-CMD /start.sh
+CMD /io/start.sh

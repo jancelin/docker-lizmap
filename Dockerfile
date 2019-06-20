@@ -5,7 +5,7 @@ MAINTAINER Julien Ancelin / docker-lizmap
 RUN apt-get -y update \
     && apt-get -t jessie install -y  python-simplejson python-software-properties xauth htop vim curl ntp ntpdate ssl-cert\ 
     apache2 apache2-mpm-worker apache2-mpm-prefork apache2-bin apache2-data libapache2-mod-fcgid libapache2-mod-php5 \
-    php5 php5-common php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql unzip sqlite3\
+    php5 php5-common php5-cgi php5-curl php5-cli php5-sqlite php5-gd php5-pgsql unzip sqlite3 postgresql-client nano\
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
     

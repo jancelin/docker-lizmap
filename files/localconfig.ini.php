@@ -14,7 +14,7 @@ basePath="/"
 [modules]
 ;; uncomment it if you want to use ldap for authentication
 ;; see documentation to complete the ldap configuration
-;ldapdao.access=1
+;ldapdao.access=2
 
 
 [coordplugin_auth]

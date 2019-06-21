@@ -1,13 +1,13 @@
 version: '3.2'
 services:
   lizmap:
-    image: jancelin/docker-lizmap:3.2rc6
+    image: opengisch/docker-lizmap:3.3rc2
     restart: on-failure
     ports:
      - 80:80
      - 443:443
     volumes:
-     - project:/home
+     - project:/io/qgis_projects
      - var:/var/www/lizmap/var
     depends_on:
       - postgis
@@ -18,10 +18,16 @@ services:
      - redis:redis
      
   qgiserver:
-    image: jancelin/qgis-server:2.18LTR
+    image: "openquake/qgis-server:3.6.3-ubuntu"
+      environment:
+        QGIS_SERVER_PARALLEL_RENDERING: "true"
+        QGIS_SERVER_MAX_THREADS: 4
+        QGIS_SERVER_LOG_LEVEL: 0
+        # needs to be defined as fcgi_param in nginx.conf
+        # PGSERVICEFILE: /io/.pg_service.conf
     restart: on-failure
     volumes:
-      - project:/home
+      - project:/io/qgis_projects
     expose:
       - 80
       
@@ -34,7 +40,7 @@ services:
       - 6379
 
   postgis:
-    image: kartoza/postgis:10.0-2.4
+    image: kartoza/postgis:11.0-2.5
     ports:
       - 5432:5432
     expose:

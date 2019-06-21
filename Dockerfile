@@ -16,27 +16,28 @@ RUN apt-get -y update \
 ARG lizmap_version=master
 ENV LIZMAPVERSION=$lizmap_version
 
-COPY files/qgis/ /io/qgis/
+# setup apache modules
+RUN a2dismod mpm_prefork mpm_event; \
+    a2enmod actions alias ssl rewrite headers deflate mpm_worker; \
+    a2enmod fcgid proxy_fcgi;
 
+# copy config
 COPY files/apache2.conf /etc/apache2/
-COPY files/php.conf /etc/apache2/conf-available/
 COPY files/mod_deflate.conf /etc/apache2/conf-available/
-#COPY files/fcgid.conf /etc/apache2/mods-enabled/
+COPY files/fcgid.conf /etc/apache2/mods-enabled/
 COPY files/default-ssl.conf /etc/apache2/sites-available/
 COPY files/000-default.conf /etc/apache2/sites-available/
 COPY files/lizmapConfig.ini.php /var/www/lizmap/var/config/
 COPY files/localconfig.ini.php /var/www/lizmap/var/config/
+
+# copy own scripts
 COPY files/start.sh /io/
 COPY files/setup.sh /io/
 
 ADD https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz /var/www/
 
-RUN a2dismod mpm_prefork mpm_event; \
-    a2enmod actions alias ssl rewrite headers deflate mpm_worker; \
-    a2enmod fcgid proxy_fcgi;
-
 RUN /io/setup.sh
     
 VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
-CMD /io/start.sh
+ENTRYPOINT /io/start.sh

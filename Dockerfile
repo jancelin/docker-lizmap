@@ -56,6 +56,6 @@ RUN mkdir -p /io/qgis_projects/
 VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
 
-COPY files/docker-entrypoint.sh /
-
-ENTRYPOINT ["/docker-entrypoint.sh"]
+COPY files/docker-entrypoint.sh /usr/local/bin/
+#RUN chmod u+x /bin/docker-entrypoint.sh
+CMD ["docker-entrypoint.sh"]

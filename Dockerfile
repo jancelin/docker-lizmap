@@ -24,7 +24,6 @@ COPY files/mod_deflate.conf /etc/apache2/conf-available/
 #COPY files/fcgid.conf /etc/apache2/mods-enabled/
 COPY files/default-ssl.conf /etc/apache2/sites-available/
 COPY files/000-default.conf /etc/apache2/sites-available/
-COPY files/index.html /var/www/
 COPY files/lizmapConfig.ini.php /var/www/lizmap/var/config/
 COPY files/localconfig.ini.php /var/www/lizmap/var/config/
 COPY files/start.sh /io/
@@ -35,8 +34,6 @@ ADD https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz
 RUN a2dismod mpm_prefork mpm_event; \
     a2enmod actions alias ssl rewrite headers deflate mpm_worker; \
     a2enmod fcgid proxy_fcgi;
-    #a2enmod fcgid; \
-    #a2enconf php
 
 RUN /io/setup.sh
     

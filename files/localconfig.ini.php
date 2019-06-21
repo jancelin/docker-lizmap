@@ -2,7 +2,8 @@
 ;for security reasons , don't remove or modify the first line
 
 ; put here configuration variables that are specific to this installation
-
+[urlengine]
+basePath="/"
 
 ; chmod for files created by Lizmap and Jelix
 ;chmodFile=0664

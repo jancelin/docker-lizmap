@@ -46,7 +46,7 @@ projectSwitcher=on
 requestProxyEnabled=0
 requestProxyType=http
 requestProxyNotForDomain="localhost,127.0.0.1"
-adminContactEmail="marco@opengis.ch"
+adminContactEmail="postmaster@localhost"
 ; googleAnalyticsID=UA-1234-1
 
 [repository:demo]

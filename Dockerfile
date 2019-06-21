@@ -30,14 +30,32 @@ COPY files/000-default.conf /etc/apache2/sites-available/
 COPY files/lizmapConfig.ini.php /var/www/lizmap/var/config/
 COPY files/localconfig.ini.php /var/www/lizmap/var/config/
 
-# copy own scripts
-COPY files/start.sh /io/
-COPY files/setup.sh /io/
+# enable self signed SSL
+RUN mkdir /etc/apache2/ssl
+RUN make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem
+RUN a2ensite default-ssl
 
-ADD https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz /var/www/
+# install lizmap
+RUN mkdir -p /var/www/ \
+    && curl -SL https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz \
+    | tar --strip-components=1 -xzC /var/www
+# Set rights & active config
+RUN chmod +x /var/www/lizmap/install/set_rights.sh && /var/www/lizmap/install/set_rights.sh www-data www-data
+# use default profiles.ini
+RUN cp /var/www/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap/var/config/profiles.ini.php
+#  Install
+RUN php /var/www/lizmap/install/installer.php
+# backup default var folder
+RUN cp -ar /var/www/lizmap/var var/www/lizmap/var_install
 
-RUN /io/setup.sh
-    
+# change jauth.db
+#COPY files/jauth.db /var/www/lizmap/var/db/jauth.db
+
+RUN mkdir -p /io/qgis_projects/
+
 VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
-ENTRYPOINT /io/start.sh
+
+COPY files/docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]

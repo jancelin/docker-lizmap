@@ -1,33 +1,39 @@
-version: '3.2'
+version: '3.7'
 services:
   lizmap:
-    image: opengisch/docker-lizmap:3.3rc2
+    build:
+      context: .
+      args:
+        lizmap_version: 3.3rc2
+    #image: "opengisch/docker-lizmap:3.3rc2"
     restart: on-failure
     ports:
      - 80:80
      - 443:443
     volumes:
-     - project:/io/qgis_projects
+     - ./projects:/io/data:ro
      - var:/var/www/lizmap/var
     depends_on:
       - postgis
-      - qgiserver
+      - qgisserver
       - redis
-    links:
-     - qgiserver:qgiserver
-     - redis:redis
-     
-  qgiserver:
-    image: "openquake/qgis-server:3.6.3-ubuntu"
-      environment:
-        QGIS_SERVER_PARALLEL_RENDERING: "true"
-        QGIS_SERVER_MAX_THREADS: 4
-        QGIS_SERVER_LOG_LEVEL: 0
+
+  qgisserver:
+    image: "openquake/qgis-server:3.6.3"
+
+    environment:
+      # Improve rendering performance
+      QGIS_SERVER_PARALLEL_RENDERING: "true"
+      QGIS_SERVER_MAX_THREADS: 4
+      # Limit the maximum size returned by a GetMap
+      QGIS_SERVER_WMS_MAX_HEIGHT: 5000
+      QGIS_SERVER_WMS_MAX_WIDTH: 5000
         # needs to be defined as fcgi_param in nginx.conf
         # PGSERVICEFILE: /io/.pg_service.conf
     restart: on-failure
     volumes:
-      - project:/io/qgis_projects
+      - ./projects:/io/data:ro
+      - ./conf/qgis_nginx.conf:/etc/nginx/nginx.conf
     expose:
       - 80
       
@@ -45,15 +51,10 @@ services:
       - 5432:5432
     expose:
       - 5432
-    entrypoint: >
-      bash -c "wget -N -P / https://raw.githubusercontent.com/jancelin/docker-postgis/master/setup-database.sh &&
-               wget -N -P /home https://github.com/jancelin/docker-postgis/raw/master/geopoppy.sql &&
-               /docker-entrypoint.sh"
     environment:
       - ALLOW_IP_RANGE=0.0.0.0/0
       - POSTGRES_USER=docker
-      - POSTGRES_DBNAME=geopoppy
-      - POSTGRES_DUMP=geopoppy.sql
+      - POSTGRES_DBNAME=gis
     volumes:
       - postgres:/var/lib/postgresql
       
@@ -74,21 +75,9 @@ services:
      - /var/run/docker.sock:/var/run/docker.sock
      - portainer:/data
      
-  cloud:
-    image: coderaiser/cloudcmd:latest-alpine
-    restart: always
-    ports:
-      - 8000:8000
-    volumes:
-#      - ~:/root
-      - project:/mnt/fs
-     
 volumes:
    portainer:
    pgadmin4:
    postgres:
    redis:
    var:
-   project:
-   
-

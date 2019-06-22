@@ -4,7 +4,7 @@
 ;Services
 ;list the different map services (servers, generic parameters, etc.)
 [services]
-wmsServerURL="http://qgiserver/cgi-bin/qgis_mapserv.fcgi"
+wmsServerURL="http://qgisserver/ows/"
 ;List of URL available for the web client
 
 ; cache
@@ -51,5 +51,5 @@ adminContactEmail="postmaster@localhost"
 
 [repository:demo]
 label=Main
-path="/io/qgis_projects/"
+path="/io/data/"
 allowUserDefinedThemes=1

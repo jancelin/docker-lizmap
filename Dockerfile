@@ -22,13 +22,13 @@ RUN a2dismod mpm_prefork mpm_event; \
     a2enmod fcgid proxy_fcgi;
 
 # copy config
-COPY files/apache2.conf /etc/apache2/
-COPY files/mod_deflate.conf /etc/apache2/conf-available/
-COPY files/fcgid.conf /etc/apache2/mods-enabled/
-COPY files/default-ssl.conf /etc/apache2/sites-available/
-COPY files/000-default.conf /etc/apache2/sites-available/
-COPY files/lizmapConfig.ini.php /var/www/lizmap/var/config/
-COPY files/localconfig.ini.php /var/www/lizmap/var/config/
+COPY conf/apache2.conf /etc/apache2/
+COPY conf/mod_deflate.conf /etc/apache2/conf-available/
+COPY conf/fcgid.conf /etc/apache2/mods-enabled/
+COPY conf/default-ssl.conf /etc/apache2/sites-available/
+COPY conf/000-default.conf /etc/apache2/sites-available/
+COPY conf/lizmapConfig.ini.php /var/www/lizmap/var/config/
+COPY conf/localconfig.ini.php /var/www/lizmap/var/config/
 
 # enable self signed SSL
 RUN mkdir /etc/apache2/ssl
@@ -49,13 +49,13 @@ RUN php /var/www/lizmap/install/installer.php
 RUN cp -ar /var/www/lizmap/var var/www/lizmap/var_install
 
 # change jauth.db
-#COPY files/jauth.db /var/www/lizmap/var/db/jauth.db
+#COPY conf/jauth.db /var/www/lizmap/var/db/jauth.db
 
-RUN mkdir -p /io/qgis_projects/
+RUN mkdir -p /io/data/
 
 VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
 
-COPY files/docker-entrypoint.sh /usr/local/bin/
+COPY conf/docker-entrypoint.sh /usr/local/bin/
 #RUN chmod u+x /bin/docker-entrypoint.sh
 CMD ["docker-entrypoint.sh"]

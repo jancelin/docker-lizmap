@@ -1,80 +1,62 @@
-version: '3.2'
-services:
+  nginx:
+    image: nginx:1
+    volumes:
+      - ./lizmap/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./lizmap/lizmap_var/srv_lizmap:/srv/lizmap
   lizmap:
-    image: jancelin/docker-lizmap:3.2.2
-    restart: always
-    ports:
-     - 80:80
-     - 443:443
+    image: 3liz/lizmap-web-client:3.2.3
+    command: 
+      - php-fpm
+    environment:
+      LIZMAP_WPS_URL: http://wps:8080/
+      LIZMAP_CACHESTORAGETYPE: sqlite   
+      LIZMAP_CACHEREDISDB: '1'
+      LIZMAP_USER: '1010'
+      LIZMAP_WMSSERVERURL: http://qgiserver:8080/ows/
+      LIZMAP_CACHEREDISHOST: redis
+      LIZMAP_HOME: /srv/lizmap
+      PHP_INI: \r post_max_size = 50M \n
+               upload_max_filesize = 10M
+#    entrypoint: >
+#      sh -c " chown -R 1010:1010 /tmp && /bin/lizmap-entrypoint.sh"
+    expose:
+      - 9000
     volumes:
-     - qgis:/home
-     - var:/var/www/websig/lizmap/var
-    depends_on:
-      - postgis
-      - qgiserver
-      - redisD
-    entrypoint: >
-      bash -c "wget https://cartman.sig.inra.fr/geopoppy/data/geopoppy_pc.zip &&
-               unzip geopoppy_pc.zip -d /home &&
-               /start.sh"
+      - ./lizmap/projects:/srv/projects
+      - ./lizmap/var/lizmap-theme-config:/www/lizmap/var/lizmap-theme-config
+      - ./lizmap/var/lizmap-config:/www/lizmap/var/config
+      - ./lizmap/var/lizmap-db:/www/lizmap/var/db
+      - ./lizmap/www:/www/lizmap/www
+      - ./lizmap/var/log/lizmap:/www/lizmap/var/log
+      - ./lizmap/qgiscache:/tmp
+    restart: unless-stopped    
   qgiserver:
-    image: jancelin/qgis-server:2.18LTR
-    restart: always
-    volumes:
-      - qgis:/home  
-  redisD:
-    image: redis:alpine
-    restart: always
-    volumes:
-      - redis:/data
-  postgis:
-    image: kartoza/postgis:10.0-2.4
-    ports:
-      - 5432:5432
-    entrypoint: >
-      bash -c "wget -N -P / https://raw.githubusercontent.com/jancelin/docker-postgis/master/setup-database.sh &&
-               wget -N -P /home https://github.com/jancelin/docker-postgis/raw/master/geopoppy.tar &&
-               /docker-entrypoint.sh"
+    image: 3liz/qgis-map-server:3.8
     environment:
-      - ALLOW_IP_RANGE=0.0.0.0/0
-      - POSTGRES_USER=docker
-      - POSTGRES_DBNAME=geopoppy
-      - POSTGRES_DUMP=geopoppy.tar
+      PGSERVICEFILE: /srv/etc/pg_service.conf
+      QGSRV_CACHE_ROOTDIR: /srv/projects
+      QGSRV_SERVER_WORKERS: 4
+      QGSRV_CACHE_SIZE: '20'
+      QGSRV_LOGGING_LEVEL: DEBUG
+      QGSRV_USER: 1000:1000
+      ROUTER_HOST: map
+      QGSRV_ZMQ_IDENTITY: OWS-SERVER
+      QGSRV_ZMQ_INADDR: tcp://*:18080
+      QGSRV_ZMQ_MAXQUEUE: 1000
+      QGSRV_ZMQ_TIMEOUT: 15000
+      LIBGL_DEBUG: verbose glxinfo
     volumes:
-      - postgres:/var/lib/postgresql
+      - ./lizmap/projects:/srv/projects
+      - ./lizmap/etc:/srv/etc:ro
+      - ./lizmap/processing/__workdir__:/srv/data
+    restart: unless-stopped
+    expose:
+      - 8080
+      - 18080
+  redis:
+    image: redis:4
     restart: always
-  pgadmin4:
-    image: dpage/pgadmin4
-    restart: always
-    ports:
-      - 5050:80
     volumes:
-      - pgadmin4:/var/lib/pgadmin
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=geopoppy@inra.fr
-      - PGADMIN_DEFAULT_PASSWORD=geopoppy 
-  portainer:
-    image: portainer/portainer
-    restart: always
-    ports:
-     - 9000:9000
-    volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-     - portainer:/data  
-  cloud:
-    image: coderaiser/cloudcmd:latest-alpine
-    restart: always
-    ports:
-      - 8000:8000
-    volumes:
-      - qgis:/mnt/fs   
-volumes:
-   portainer:
-   redis:
-   qgis:
-   var:
-   postgres:
-   pgadmin4:
-
-   
-
+      - ./lizmap/redis4:/data
+    expose:
+      - 6379

@@ -14,6 +14,8 @@ ____________________________________________________________________
 
 With Docker-compose:
 
+* Copy [nginx.conf](https://raw.githubusercontent.com/jancelin/docker-lizmap/3.2.3/nginx.conf) to ./lizmap/nginx/nginx.conf
+
 * download docker-compose.yml:
 
 https://github.com/jancelin/docker-lizmap/blob/3.2.3/docker-compose.yml

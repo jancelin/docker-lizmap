@@ -16,7 +16,7 @@ With Docker-compose:
 
 * download docker-compose.yml:
 
-https://github.com/jancelin/docker-lizmap/blob/3.2.3/docker-compose.yml
+https://github.com/jancelin/docker-lizmap/blob/3.3.0/docker-compose.yml
 
 * UP
 

@@ -4,8 +4,8 @@ services:
     build:
       context: .
       args:
-        lizmap_version: 3.3rc2-ubuntu
-    #image: "opengisch/docker-lizmap:3.3rc2"
+        lizmap_version: 3.3
+    #image: "opengisch/docker-lizmap:3.3"
     restart: on-failure
     ports:
      - 80:80
@@ -19,7 +19,7 @@ services:
       - redis
 
   qgisserver:
-    image: "openquake/qgis-server:3.8.0"
+    image: "openquake/qgis-server:3.8.3"
 
     environment:
       # Improve rendering performance

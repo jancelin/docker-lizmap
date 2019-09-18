@@ -4,7 +4,7 @@ services:
     build:
       context: .
       args:
-        lizmap_version: 3.3
+        lizmap_version: 3.3.0
     #image: "opengisch/docker-lizmap:3.3"
     restart: on-failure
     ports:

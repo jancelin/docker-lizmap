@@ -8,15 +8,17 @@ services:
     #image: "opengisch/docker-lizmap:3.3"
     restart: on-failure
     ports:
-     - 80:80
-     - 443:443
+      - 80:80
+      - 443:443
     volumes:
-     - ./projects:/io/data:ro
-     - var:/var/www/lizmap/var
+      - ./projects:/io/data:ro
+      - var:/var/www/lizmap/var
     depends_on:
       - postgis
       - qgisserver
       - redis
+    networks:
+      - net
 
   qgisserver:
     image: "openquake/qgis-server:3.8.3"
@@ -28,15 +30,17 @@ services:
       # Limit the maximum size returned by a GetMap
       QGIS_SERVER_WMS_MAX_HEIGHT: 5000
       QGIS_SERVER_WMS_MAX_WIDTH: 5000
-        # needs to be defined as fcgi_param in nginx.conf
-        # PGSERVICEFILE: /io/.pg_service.conf
+      # needs to be defined as fcgi_param in nginx.conf
+      # PGSERVICEFILE: /io/.pg_service.conf
     restart: on-failure
     volumes:
       - ./projects:/io/data:ro
-     # - ./conf/qgis_nginx.conf:/etc/nginx/nginx.conf
+      # - ./conf/qgis_nginx.conf:/etc/nginx/nginx.conf
     expose:
       - 80
-      
+    networks:
+      - net
+
   redis:
     image: redis:alpine
     restart: on-failure
@@ -44,6 +48,8 @@ services:
       - redis:/data
     expose:
       - 6379
+    networks:
+      - net
 
   postgis:
     image: kartoza/postgis:11.0-2.5
@@ -57,7 +63,9 @@ services:
       - POSTGRES_DBNAME=gis
     volumes:
       - postgres:/var/lib/postgresql
-      
+    networks:
+      - net
+
   pgadmin4:
     image: chorss/docker-pgadmin4
     restart: on-failure
@@ -65,19 +73,26 @@ services:
       - 5050:5050
     volumes:
       - pgadmin4:/data
-      
+    networks:
+      - net
+
   portainer:
     image: portainer/portainer
     restart: always
     ports:
-     - 9000:9000
+      - 9000:9000
     volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-     - portainer:/data
-     
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer:/data
+    networks:
+      - net
+
+networks:
+  net:
+
 volumes:
-   portainer:
-   pgadmin4:
-   postgres:
-   redis:
-   var:
+  portainer:
+  pgadmin4:
+  postgres:
+  redis:
+  var:

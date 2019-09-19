@@ -15,8 +15,12 @@ fi
 rm -f /run/apache2/apache2.pid
 
 service php7.2-fpm start
-# /usr/sbin/apachectl start
-# certbot --non-interactive --apache --redirect --agree-tos --domains $LE_domain --email $LE_email
-# /usr/sbin/apachectl stop
-# sleep 5
+
+LE_CONF=/etc/apache2/sites-enabled/000-default-le-ssl.conf
+if [ ! -f "$LE_CONF" ]; then
+    /usr/sbin/apachectl start
+    certbot --non-interactive --apache --redirect --agree-tos --domains $LE_domain --email $LE_email
+    /usr/sbin/apachectl stop
+    sleep 5
+fi
 exec /usr/sbin/apachectl -DFOREGROUND

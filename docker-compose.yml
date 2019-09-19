@@ -55,7 +55,7 @@ services:
       - net
 
   postgis:
-    image: kartoza/postgis:11.0-2.5
+    image: marioba/postgis:latest
     ports:
       - 5432:5432
     expose:

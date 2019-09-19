@@ -15,7 +15,7 @@ RUN apt-get -y update \
     && add-apt-repository -y universe \
     && add-apt-repository -y ppa:certbot/certbot \
     && apt-get update \
-    && apt-get install -y certbot python-certbot-apache\
+    && apt-get install -y certbot python-certbot-apache cron\
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
 
@@ -69,6 +69,16 @@ RUN mkdir -p /io/data/
 
 VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
+
+# Add crontab file in the cron directory
+ADD conf/crontab /etc/cron.d/cache-cron
+# Give execution rights on the cron job
+RUN chmod 0644 /etc/cron.d/cache-cron
+# Apply cron job
+RUN crontab /etc/cron.d/cache-cron
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+
 
 COPY conf/docker-entrypoint.sh /usr/local/bin/
 #RUN chmod u+x /bin/docker-entrypoint.sh

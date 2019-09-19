@@ -16,10 +16,13 @@ rm -f /run/apache2/apache2.pid
 
 service php7.2-fpm start
 
+if [ $LE_staging == 'true' ]; then
+    STAGING='--test-cert'
+fi
 LE_CONF=/etc/apache2/sites-enabled/000-default-le-ssl.conf
 if [ ! -f "$LE_CONF" ]; then
     /usr/sbin/apachectl start
-    certbot --non-interactive --apache --redirect --agree-tos --domains $LE_domain --email $LE_email
+    certbot --non-interactive --apache --redirect --agree-tos --domains $LE_domain --email $LE_email $STAGING
     /usr/sbin/apachectl stop
     sleep 5
 fi

@@ -28,6 +28,7 @@
       - ./lizmap/var/lizmap-db:/www/lizmap/var/db
       - ./lizmap/www:/www/lizmap/www
       - ./lizmap/var/log/lizmap:/www/lizmap/var/log
+      #sudo chown -R 1010:1010 ./lizmap/qgiscache
       - ./lizmap/qgiscache:/tmp
     restart: unless-stopped    
   qgiserver:

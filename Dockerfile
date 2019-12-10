@@ -22,9 +22,11 @@ RUN apt-get -y update \
 ARG LE_domain="example.com"
 ARG LE_email="info@example.com"
 ARG LE_staging='true'
+ARG LE_on='false'
 ENV LE_domain=$LE_domain
 ENV LE_email=$LE_email
 ENV LE_staging=$LE_staging
+ENV LE_on=$LE_on
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
 ARG lizmap_version=master

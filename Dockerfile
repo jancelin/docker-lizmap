@@ -8,9 +8,25 @@ RUN apt-get -y update \
     apache2 libapache2-mod-fcgid \
     php7.2-fpm php7.2 \
     php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml\
-    sqlite3 postgresql-client \
+    sqlite3 postgresql-client
+
+RUN apt-get -y update \
+    && apt-get install -y software-properties-common \
+    && add-apt-repository -y universe \
+    && add-apt-repository -y ppa:certbot/certbot \
+    && apt-get update \
+    && apt-get install -y certbot python-certbot-apache cron\
     && apt-get clean \
     && rm -r /var/lib/apt/lists/*
+
+ARG LE_domain="example.com"
+ARG LE_email="info@example.com"
+ARG LE_staging='true'
+ARG LE_on='false'
+ENV LE_domain=$LE_domain
+ENV LE_email=$LE_email
+ENV LE_staging=$LE_staging
+ENV LE_on=$LE_on
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
 ARG lizmap_version=master
@@ -56,6 +72,16 @@ RUN mkdir -p /io/data/
 
 VOLUME  ["/var/www/lizmap/var" , "/io"]
 EXPOSE 80 443
+
+# Add crontab file in the cron directory
+ADD conf/crontab /etc/cron.d/cache-cron
+# Give execution rights on the cron job
+RUN chmod 0644 /etc/cron.d/cache-cron
+# Apply cron job
+RUN crontab /etc/cron.d/cache-cron
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+
 
 COPY conf/docker-entrypoint.sh /usr/local/bin/
 #RUN chmod u+x /bin/docker-entrypoint.sh

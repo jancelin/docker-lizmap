@@ -4,19 +4,19 @@ MAINTAINER Marco Bernasocchi / docker-lizmap
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update \
+    && apt-get install -y software-properties-common \
+    && add-apt-repository -y universe \
+    && add-apt-repository -y ppa:certbot/certbot
+
+RUN apt-get -y update \
     && apt-get install -y --fix-missing python-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
     apache2 libapache2-mod-fcgid \
     php7.2-fpm php7.2 \
     php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml\
-    sqlite3 postgresql-client
+    sqlite3 postgresql-client \
+    cron certbot python-certbot-apache
 
-RUN apt-get -y update \
-    && apt-get install -y software-properties-common \
-    && add-apt-repository -y universe \
-    && add-apt-repository -y ppa:certbot/certbot \
-    && apt-get update \
-    && apt-get install -y certbot python-certbot-apache cron\
-    && apt-get clean \
+RUN apt-get clean \
     && rm -r /var/lib/apt/lists/*
 
 ARG LE_domain="example.com"

@@ -56,7 +56,8 @@ RUN mkdir -p /var/www/ \
     && curl -SL https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz \
     | tar --strip-components=1 -xzC /var/www
 # Set rights & active config
-RUN chmod +x /var/www/lizmap/install/set_rights.sh && /var/www/lizmap/install/set_rights.sh www-data www-data
+RUN chmod +x /var/www/lizmap/install/set_rights.sh
+RUN /var/www/lizmap/install/set_rights.sh www-data www-data
 # use default profiles.ini
 RUN cp /var/www/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap/var/config/profiles.ini.php
 #  Install

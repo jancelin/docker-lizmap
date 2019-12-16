@@ -6,7 +6,7 @@ services:
       - ./lizmap/nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./lizmap/lizmap_var/srv_lizmap:/srv/lizmap
   lizmap:
-    image: 3liz/lizmap-web-client:nightly
+    image: 3liz/lizmap-web-client:3.3.3
     command: 
       - php-fpm
     environment:

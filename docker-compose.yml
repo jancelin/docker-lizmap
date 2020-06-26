@@ -25,7 +25,7 @@ services:
       - net
 
   qgisserver:
-    image: "openquake/qgis-server:3.10.6"
+    image: "openquake/qgis-server:3.10.1"
 
     environment:
       # Improve rendering performance

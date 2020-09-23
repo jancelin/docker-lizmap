@@ -39,4 +39,5 @@ if [[ $LE_on == 'true' ]]; then
 		sleep 5
 	fi
 fi
+cron
 exec /usr/sbin/apachectl -DFOREGROUND

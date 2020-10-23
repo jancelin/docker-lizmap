@@ -12,7 +12,7 @@ RUN apt-get -y update \
     && apt-get install -y --fix-missing python-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
     apache2 libapache2-mod-fcgid \
     php7.2-fpm php7.2 \
-    php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml\
+    php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml php-ldap\
     sqlite3 postgresql-client \
     cron certbot python-certbot-apache
 
@@ -52,6 +52,7 @@ RUN make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem
 RUN a2ensite default-ssl
 
 # install lizmap
+RUN echo "Downloading https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz"
 RUN mkdir -p /var/www/ \
     && curl -SL https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz \
     | tar --strip-components=1 -xzC /var/www

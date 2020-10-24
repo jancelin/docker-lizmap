@@ -62,6 +62,7 @@ RUN /var/www/lizmap/install/set_rights.sh www-data www-data
 # use default profiles.ini
 RUN cp /var/www/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap/var/config/profiles.ini.php
 #  Install
+RUN rm -rf /var/www/temp/lizmap/*
 RUN php /var/www/lizmap/install/installer.php
 # backup default var folder
 RUN cp -ar /var/www/lizmap/var var/www/lizmap/var_install

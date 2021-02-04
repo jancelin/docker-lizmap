@@ -4,8 +4,14 @@ docker-lizmap
 =============
 
 LizMap is a complete Internet QGIS map publishing.
+___________________________________________________________________________
 
-____________________________________________________________________
+Building image:
+---------------
+docker build --build-arg lizmap_version=3.3.13 -t=opengisch/lizmap:3.3.13 .
+
+Using image:
+---------------
 
 With Docker-compose:
 

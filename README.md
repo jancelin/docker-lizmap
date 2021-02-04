@@ -8,7 +8,7 @@ ___________________________________________________________________________
 
 Building image:
 ---------------
-docker build --build-arg lizmap_version=3.3.13 -t=opengisch/lizmap:3.3.13 .
+docker build --build-arg lizmap_version=3.3.13 --build-arg WITH_LDAP=true -t=opengisch/lizmap:3.3.13 .
 
 Using image:
 ---------------

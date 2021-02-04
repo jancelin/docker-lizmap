@@ -22,11 +22,13 @@ RUN apt-get clean \
 ARG LE_domain="example.com"
 ARG LE_email="info@example.com"
 ARG LE_staging='true'
+ARG LE_on='false'
 ARG WITH_LDAP='false'
 
 ENV LE_domain=$LE_domain
 ENV LE_email=$LE_email
 ENV LE_staging=$LE_staging
+ENV LE_on=$LE_on
 ENV WITH_LDAP=$WITH_LDAP
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2

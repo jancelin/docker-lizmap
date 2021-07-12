@@ -3,20 +3,21 @@
 docker-lizmap 
 =============
 
-![docker_lizmap](https://cloud.githubusercontent.com/assets/6421175/25778701/68e9a536-3306-11e7-9196-84247b04eb92.png)
-__________________________________________________________________
-
-LizMap est une solution complète de publication de cartes QGIS sur Internet.
-
 LizMap is a complete Internet QGIS map publishing.
+___________________________________________________________________________
 
-____________________________________________________________________
+Building image:
+---------------
+docker build --build-arg lizmap_version=3.3.13 --build-arg WITH_LDAP=true -t=opengisch/lizmap:3.3.13 .
+
+Using image:
+---------------
 
 With Docker-compose:
 
 * Create a docker-compose.yml and changing the directory path if necessary (home/lizmap/lizmap_project):
 
-https://github.com/jancelin/docker-lizmap/blob/master/docker-compose.yml
+https://github.com/opengisch/docker-lizmap/blob/master/docker-compose.yml
 
 * UP
 
@@ -27,13 +28,13 @@ docker-compose up -d
 * Now config lizmap on web :
 
 ```
-http://ip/websig/lizmap/www/admin.php/config
+http://ip/lizmap/www/admin.php/config
 ```
 * change URL WMS: 
 
 >> http://qgiserver/cgi-bin/qgis_mapserv.fcgi
 
-* Add **/home/** for looking your geo projects
+* Add **/io/qgis/** for looking your geo projects
 
 ![config](https://cloud.githubusercontent.com/assets/6421175/11306233/e945f342-8fb0-11e5-9906-4010b9398ef1.png)
 

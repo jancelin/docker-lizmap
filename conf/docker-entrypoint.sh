@@ -41,7 +41,7 @@ if [[ $LE_on == 'true' ]]; then
 fi
 if [[ $WITH_LDAP == 'true' ]]; then
   rm -rf /var/www/temp/lizmap/*
-  php ./var/www/lizmap/install/installer.php
+  php /var/www/lizmap/install/installer.php
 fi
 cron
 exec /usr/sbin/apachectl -DFOREGROUND

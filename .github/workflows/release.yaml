@@ -2,7 +2,7 @@ name: 🧪 Release
 
 on:
   release:
-    types: ['published', 'released']
+    types: ['published']
 
 
 jobs:

@@ -1,5 +1,5 @@
 FROM ubuntu:bionic
-MAINTAINER Marco Bernasocchi / docker-lizmap
+LABEL opengisch.image.authors=="Clemens Rudert"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -14,7 +14,9 @@ RUN apt-get -y update \
     php7.2-fpm php7.2 \
     php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml php-ldap\
     sqlite3 postgresql-client \
-    cron certbot python-certbot-apache
+    cron certbot python-certbot-apache \
+    unzip \
+    rsync
 
 RUN apt-get clean \
     && rm -r /var/lib/apt/lists/*
@@ -32,7 +34,7 @@ ENV LE_on=$LE_on
 ENV WITH_LDAP=$WITH_LDAP
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
-ARG lizmap_version=3.3.11
+ARG lizmap_version=3.5.1
 ENV LIZMAPVERSION=$lizmap_version
 
 # setup apache modules
@@ -55,10 +57,13 @@ RUN make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/apache2/ssl/apache.pem
 RUN a2ensite default-ssl
 
 # install lizmap
-RUN echo "Downloading https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz"
+RUN echo "Downloading https://github.com/3liz/lizmap-web-client/releases/download/$LIZMAPVERSION/lizmap-web-client-$LIZMAPVERSION.zip"
 RUN mkdir -p /var/www/ \
-    && curl -SL https://github.com/opengisch/lizmap-web-client/archive/$LIZMAPVERSION.tar.gz \
-    | tar --strip-components=1 -xzC /var/www
+    && curl -SL https://github.com/3liz/lizmap-web-client/releases/download/$LIZMAPVERSION/lizmap-web-client-$LIZMAPVERSION.zip > lizmap-web-client-$LIZMAPVERSION.zip && \
+    unzip -q lizmap-web-client-$LIZMAPVERSION.zip && \
+    rsync -a lizmap-web-client-$LIZMAPVERSION/* /var/www && \
+    rm -rf lizmap-web-client-$LIZMAPVERSION && \
+    rm -rf lizmap-web-client-$LIZMAPVERSION.zip
 # Set rights & active config
 RUN chmod +x /var/www/lizmap/install/set_rights.sh
 RUN /var/www/lizmap/install/set_rights.sh www-data www-data

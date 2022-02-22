@@ -4,12 +4,11 @@ services:
     build:
       context: .
       args:
-        lizmap_version: 3.3.13
+        lizmap_version: 3.5.1
         LE_on: 'false'
         LE_domain: 'example.com'
         LE_email: 'info@example.com'
         LE_staging: 'true' # change to 'false' when ready for productionb
-    #image: "opengisch/docker-lizmap:3.3"
     restart: on-failure
     ports:
       - 80:80
@@ -25,7 +24,7 @@ services:
       - net
 
   qgisserver:
-    image: "openquake/qgis-server:3.16"
+    image: "opengisch/qgis-server:3.22"
 
     environment:
       # Improve rendering performance

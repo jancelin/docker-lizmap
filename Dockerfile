@@ -34,7 +34,7 @@ ENV LE_on=$LE_on
 ENV WITH_LDAP=$WITH_LDAP
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
-ARG lizmap_version=3.4.9
+ARG lizmap_version=3.5.3
 ENV LIZMAPVERSION=$lizmap_version
 
 # setup apache modules

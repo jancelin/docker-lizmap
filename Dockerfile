@@ -12,7 +12,7 @@ RUN apt-get -y update \
     && apt-get install -y --fix-missing python3-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
     apache2 libapache2-mod-fcgid \
     php7.4-fpm php7.4 \
-    php7.4-curl php7.4-cli php7.4-sqlite php7.4-gd php7.4-pgsql php7.4-xmlrpc php7.4-xml php-ldap\
+    php7.4-curl php7.4-cli php7.4-sqlite php7.4-gd php7.4-pgsql php7.4-xmlrpc php7.4-xml php7.4-ldap\
     sqlite3 postgresql-client \
     cron certbot python3-certbot-apache \
     unzip \

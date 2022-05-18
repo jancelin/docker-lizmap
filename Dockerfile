@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:22.04
 LABEL opengisch.image.authors=="Clemens Rudert"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -6,15 +6,15 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get -y update \
     && apt-get install -y software-properties-common \
     && add-apt-repository -y universe \
-    && add-apt-repository -y ppa:certbot/certbot
+    && add-apt-repository ppa:ondrej/php 
 
 RUN apt-get -y update \
-    && apt-get install -y --fix-missing python-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
+    && apt-get install -y --fix-missing python3-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
     apache2 libapache2-mod-fcgid \
-    php7.2-fpm php7.2 \
-    php7.2-curl php7.2-cli php7.2-sqlite php7.2-gd php7.2-pgsql php7.2-xmlrpc php7.2-xml php-ldap\
+    php7.4-fpm php7.4 \
+    php7.4-curl php7.4-cli php7.4-sqlite php7.4-gd php7.4-pgsql php7.4-xmlrpc php7.4-xml php-ldap\
     sqlite3 postgresql-client \
-    cron certbot python-certbot-apache \
+    cron certbot python3-certbot-apache \
     unzip \
     rsync
 

@@ -103,6 +103,8 @@ RUN cp /var/www/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap/var/conf
 # use default composer.json
 RUN cp /var/www/lizmap/my-packages/composer.json.dist /var/www/lizmap/my-packages/composer.json
 
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer require --working-dir=/var/www/lizmap/my-packages "jelix/saml-module"
 
 #  Install

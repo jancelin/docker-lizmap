@@ -5,21 +5,51 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update \
     && apt-get install -y software-properties-common \
-    && add-apt-repository -y universe \
-    && add-apt-repository ppa:ondrej/php 
+    && add-apt-repository -y universe
+    # && add-apt-repository ppa:ondrej/php
 
 RUN apt-get -y update \
-    && apt-get install -y --fix-missing python3-simplejson xauth htop nano curl ntp ntpdate ssl-cert software-properties-common \
+    && apt-get install -y --fix-missing \
+    python3-simplejson \
+    xauth \
+    htop \
+    nano \
+    curl \
+    ntp \
+    ntpdate \
+    ssl-cert \
+    openssl \
+    software-properties-common \
     apache2 libapache2-mod-fcgid \
-    php7.4-fpm php7.4 \
-    php7.4-curl php7.4-cli php7.4-sqlite php7.4-gd php7.4-pgsql php7.4-xmlrpc php7.4-xml php7.4-ldap\
-    sqlite3 postgresql-client \
+    php-fpm \
+    php \
+    php-curl \
+    php-cli \
+    php-pdo \
+    php-pgsql \
+    php-sqlite3 \
+    php-gd \
+    php-xmlrpc \
+    php-xml \
+    php-ldap\
+    php-date \
+    # php-zlib \
+    sqlite3 \
+    postgresql-client \
     cron certbot python3-certbot-apache \
     unzip \
-    rsync
+    rsync \
+    zlib1g
 
 RUN apt-get clean \
     && rm -r /var/lib/apt/lists/*
+
+# Get php composer
+RUN curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php && \
+    HASH=`curl -sS https://composer.github.io/installer.sig` && \
+    echo $HASH && \
+    php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+    php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 ARG LE_domain="example.com"
 ARG LE_email="info@example.com"
@@ -34,7 +64,7 @@ ENV LE_on=$LE_on
 ENV WITH_LDAP=$WITH_LDAP
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
-ARG lizmap_version=3.5.3
+ARG lizmap_version=3.6.5
 ENV LIZMAPVERSION=$lizmap_version
 
 # setup apache modules
@@ -69,9 +99,21 @@ RUN chmod +x /var/www/lizmap/install/set_rights.sh
 RUN /var/www/lizmap/install/set_rights.sh www-data www-data
 # use default profiles.ini
 RUN cp /var/www/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap/var/config/profiles.ini.php
+
+# use default composer.json
+RUN cp /var/www/lizmap/my-packages/composer.json.dist /var/www/lizmap/my-packages/composer.json
+
+RUN composer require --working-dir=/var/www/lizmap/my-packages "jelix/saml-module"
+
 #  Install
-RUN rm -rf /var/www/temp/lizmap/*
+# RUN rm -rf /var/www/temp/lizmap/*
+RUN php /var/www/lizmap/install/configurator.php saml
+RUN php /var/www/lizmap/install/configurator.php samladmin
 RUN php /var/www/lizmap/install/installer.php
+# Clean up
+RUN /var/www/lizmap/install/clean_vartmp.sh
+RUN /var/www/lizmap/install/set_rights.sh
+
 # backup default var folder
 RUN cp -ar /var/www/lizmap/var var/www/lizmap/var_install
 

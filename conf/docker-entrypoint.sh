@@ -20,7 +20,7 @@ fi
 # Apache gets grumpy about PID files pre-existing
 rm -f /run/apache2/apache2.pid
 
-service php7.4-fpm start
+service php8.1-fpm start
 
 if [[ $LE_on == 'true' ]]; then
 

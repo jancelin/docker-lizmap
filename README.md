@@ -8,7 +8,7 @@ ___________________________________________________________________________
 
 Building image:
 ---------------
-docker build --build-arg lizmap_version=3.3.13 --build-arg WITH_LDAP=true -t=opengisch/lizmap:3.3.13 .
+docker build --build-arg lizmap_version=3.6.7 -t=opengisch/lizmap:3.6.7 .
 
 Using image:
 ---------------
@@ -28,7 +28,7 @@ docker-compose up -d
 * Now config lizmap on web :
 
 ```
-http://ip/lizmap/www/admin.php/config
+http://localhost/admin.php/config
 ```
 * change URL WMS: 
 

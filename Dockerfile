@@ -55,16 +55,14 @@ ARG LE_domain="example.com"
 ARG LE_email="info@example.com"
 ARG LE_staging='true'
 ARG LE_on='false'
-ARG WITH_LDAP='false'
 
 ENV LE_domain=$LE_domain
 ENV LE_email=$LE_email
 ENV LE_staging=$LE_staging
 ENV LE_on=$LE_on
-ENV WITH_LDAP=$WITH_LDAP
 
 # this can be overriden at build time with --build-arg lizmap_version=release_3_2
-ARG lizmap_version=3.6.5
+ARG lizmap_version=3.6.7
 ENV LIZMAPVERSION=$lizmap_version
 
 # setup apache modules
@@ -78,8 +76,6 @@ COPY conf/mod_deflate.conf /etc/apache2/conf-available/
 COPY conf/fcgid.conf /etc/apache2/mods-enabled/
 COPY conf/default-ssl.conf /etc/apache2/sites-available/
 COPY conf/000-default.conf /etc/apache2/sites-available/
-COPY conf/lizmapConfig.ini.php /var/www/lizmap/var/config/
-COPY conf/localconfig.ini.php /var/www/lizmap/var/config/
 
 # enable self signed SSL
 RUN mkdir /etc/apache2/ssl
@@ -94,33 +90,19 @@ RUN mkdir -p /var/www/ \
     rsync -a lizmap-web-client-$LIZMAPVERSION/* /var/www && \
     rm -rf lizmap-web-client-$LIZMAPVERSION && \
     rm -rf lizmap-web-client-$LIZMAPVERSION.zip
-# Set rights & active config
-RUN chmod +x /var/www/lizmap/install/set_rights.sh
-RUN /var/www/lizmap/install/set_rights.sh www-data www-data
-# use default profiles.ini
+# set default configuration
 RUN cp /var/www/lizmap/var/config/profiles.ini.php.dist /var/www/lizmap/var/config/profiles.ini.php
+COPY conf/lizmapConfig.ini.php /var/www/lizmap/var/config/
+COPY conf/localconfig.ini.php /var/www/lizmap/var/config/
 
-# use default composer.json
+# backup default var folder, it will be copied by docker-entrypoints.sh into /var/www/lizmap/var at first start,
+# if the directory is empty
+RUN mv /var/www/lizmap/var var/www/lizmap/var_install
+
+# use default composer.json and install the extra modules
 RUN cp /var/www/lizmap/my-packages/composer.json.dist /var/www/lizmap/my-packages/composer.json
-
-
 ENV COMPOSER_ALLOW_SUPERUSER=1
 RUN composer require --working-dir=/var/www/lizmap/my-packages "jelix/saml-module"
-
-#  Install
-# RUN rm -rf /var/www/temp/lizmap/*
-RUN php /var/www/lizmap/install/configurator.php saml
-RUN php /var/www/lizmap/install/configurator.php samladmin
-RUN php /var/www/lizmap/install/installer.php
-# Clean up
-RUN /var/www/lizmap/install/clean_vartmp.sh
-RUN /var/www/lizmap/install/set_rights.sh
-
-# backup default var folder
-RUN cp -ar /var/www/lizmap/var var/www/lizmap/var_install
-
-# change jauth.db
-#COPY conf/jauth.db /var/www/lizmap/var/db/jauth.db
 
 RUN mkdir -p /io/data/
 

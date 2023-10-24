@@ -4,11 +4,11 @@ services:
     build:
       context: .
       args:
-        lizmap_version: 3.5.3
+        lizmap_version: 3.6.7
         LE_on: 'false'
         LE_domain: 'example.com'
         LE_email: 'info@example.com'
-        LE_staging: 'true' # change to 'false' when ready for productionb
+        LE_staging: 'true' # change to 'false' when ready for production
     restart: on-failure
     ports:
       - 80:80
@@ -16,6 +16,7 @@ services:
     volumes:
       - ./projects:/io/data:ro
       - var:/var/www/lizmap/var
+      #- ./lizmap-previous-config/:/var/www/lizmap/previous-config
     depends_on:
       - postgis
       - qgisserver

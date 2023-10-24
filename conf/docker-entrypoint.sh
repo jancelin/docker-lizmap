@@ -61,15 +61,20 @@ if [[ $LE_on == 'true' ]]; then
 	fi
 fi
 
+# launch the configurator. In case this is an upgrade of Lizmap, it will
+# launch the migration of configuration file if needed
+php /var/www/lizmap/install/configurator.php
+
 # activate extra modules
 php /var/www/lizmap/install/configurator.php saml
 php /var/www/lizmap/install/configurator.php samladmin
 
-# launch the installer, it will launch modules/lizmap installers if lizmap/var was empty or it will launch module updaters
-# if needed..
+# launch the installer, it will launch modules/lizmap installers if
+# lizmap/var was empty or it will launch module updaters if needed..
 php /var/www/lizmap/install/installer.php
 
-# remove cache and temporary files, to be sure that they will be regenerated with the updated configuration and source files
+# remove cache and temporary files, to be sure that they will be regenerated
+# with the updated configuration and source files
 /var/www/lizmap/install/clean_vartmp.sh
 #set-rights
 /var/www/lizmap/install/set_rights.sh www-data www-data

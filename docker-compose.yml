@@ -1,30 +1,50 @@
-version: '3.2'
+version: '3.7'
 services:
   lizmap:
-    image: jancelin/docker-lizmap:3.2rc6
+    build:
+      context: .
+      args:
+        lizmap_version: 3.6.7
+        LE_on: 'false'
+        LE_domain: 'example.com'
+        LE_email: 'info@example.com'
+        LE_staging: 'true' # change to 'false' when ready for production
     restart: on-failure
     ports:
-     - 80:80
-     - 443:443
+      - 80:80
+      - 443:443
     volumes:
-     - project:/home
-     - var:/var/www/websig/lizmap/var
+      - ./projects:/io/data:ro
+      - var:/var/www/lizmap/var
+      #- ./lizmap-previous-config/:/var/www/lizmap/previous-config
     depends_on:
       - postgis
-      - qgiserver
+      - qgisserver
       - redis
-    links:
-     - qgiserver:qgiserver
-     - redis:redis
-     
-  qgiserver:
-    image: jancelin/qgis-server:2.18LTR
+    networks:
+      - net
+
+  qgisserver:
+    image: "opengisch/qgis-server:3.22"
+
+    environment:
+      # Improve rendering performance
+      QGIS_SERVER_PARALLEL_RENDERING: "true"
+      QGIS_SERVER_MAX_THREADS: 4
+      # Limit the maximum size returned by a GetMap
+      QGIS_SERVER_WMS_MAX_HEIGHT: 5000
+      QGIS_SERVER_WMS_MAX_WIDTH: 5000
+      # needs to be defined as fcgi_param in nginx.conf
+      # PGSERVICEFILE: /io/.pg_service.conf
     restart: on-failure
     volumes:
-      - project:/home
+      - ./projects:/io/data:ro
+      # - ./conf/qgis_nginx.conf:/etc/nginx/nginx.conf
     expose:
       - 80
-      
+    networks:
+      - net
+
   redis:
     image: redis:alpine
     restart: on-failure
@@ -32,25 +52,24 @@ services:
       - redis:/data
     expose:
       - 6379
+    networks:
+      - net
 
   postgis:
-    image: kartoza/postgis:10.0-2.4
+    image: kartoza/postgis:11.0-2.5
     ports:
       - 5432:5432
     expose:
       - 5432
-    entrypoint: >
-      bash -c "wget -N -P / https://raw.githubusercontent.com/jancelin/docker-postgis/master/setup-database.sh &&
-               wget -N -P /home https://github.com/jancelin/docker-postgis/raw/master/geopoppy.sql &&
-               /docker-entrypoint.sh"
     environment:
       - ALLOW_IP_RANGE=0.0.0.0/0
       - POSTGRES_USER=docker
-      - POSTGRES_DBNAME=geopoppy
-      - POSTGRES_DUMP=geopoppy.sql
+      - POSTGRES_DBNAME=gis
     volumes:
       - postgres:/var/lib/postgresql
-      
+    networks:
+      - net
+
   pgadmin4:
     image: chorss/docker-pgadmin4
     restart: on-failure
@@ -58,31 +77,26 @@ services:
       - 5050:5050
     volumes:
       - pgadmin4:/data
-      
+    networks:
+      - net
+
   portainer:
     image: portainer/portainer
     restart: always
     ports:
-     - 9000:9000
+      - 9000:9000
     volumes:
-     - /var/run/docker.sock:/var/run/docker.sock
-     - portainer:/data
-     
-  cloud:
-    image: coderaiser/cloudcmd:latest-alpine
-    restart: always
-    ports:
-      - 8000:8000
-    volumes:
-#      - ~:/root
-      - project:/mnt/fs
-     
-volumes:
-   portainer:
-   pgadmin4:
-   postgres:
-   redis:
-   var:
-   project:
-   
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer:/data
+    networks:
+      - net
 
+networks:
+  net:
+
+volumes:
+  portainer:
+  pgadmin4:
+  postgres:
+  redis:
+  var:
